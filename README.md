@@ -47,4 +47,3 @@ MIT License - See [LICENSE](LICENSE) for details.
 ---
 
 **Note**: This README will be updated with complete documentation once development is complete.
-## Testing
