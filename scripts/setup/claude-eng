@@ -1,0 +1,45 @@
+#!/bin/bash
+# Claude CLI wrapper with engineering best practices system prompt
+# Enables YOLO mode for fully autonomous operation
+#
+# This script:
+# 1. Bypasses all permissions for unattended operation
+# 2. Injects custom system prompts with engineering best practices
+# 3. Enables all tools for maximum capability
+# 4. Provides consistent command across different machines
+
+set -e
+
+# Find the system prompt file
+# SCRIPT_DIR can be overridden for testing
+if [ -z "$SCRIPT_DIR" ]; then
+  SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+fi
+
+SYSTEM_PROMPT_FILE="${SCRIPT_DIR}/.claude-system-prompt.md"
+
+if [ ! -f "$SYSTEM_PROMPT_FILE" ]; then
+    echo "Error: System prompt file not found at $SYSTEM_PROMPT_FILE" >&2
+    exit 1
+fi
+
+# Find claude executable
+# Allow PATH override for testing
+CLAUDE_EXEC="${CLAUDE_EXEC:-}"
+if [ -z "$CLAUDE_EXEC" ]; then
+  if [ -x "$HOME/.claude/local/claude" ]; then
+    CLAUDE_EXEC="$HOME/.claude/local/claude"
+  elif command -v claude &> /dev/null; then
+    CLAUDE_EXEC="claude"
+  else
+    echo "Error: Claude CLI not found. Install from https://docs.claude.com" >&2
+    exit 1
+  fi
+fi
+
+# Execute claude with the system prompt and required permissions
+exec "$CLAUDE_EXEC" --append-system-prompt "$(cat "$SYSTEM_PROMPT_FILE")" \
+    --allowedTools "*" \
+    --dangerously-skip-permissions \
+    --permission-mode "bypassPermissions" \
+    "$@"

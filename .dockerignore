@@ -1,0 +1,54 @@
+# Docker ignore file for strategic research automation
+
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Node modules
+node_modules
+npm-debug.log
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*.swn
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Reports (generated at runtime)
+reports/*.pdf
+reports/*.docx
+reports/*.html
+
+# Secrets
+.env
+.env.local
+*.key
+*.pem
+
+# Test files
+test/
+*.bats
+
+# Documentation builds
+docs/_build/

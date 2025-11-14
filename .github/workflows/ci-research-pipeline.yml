@@ -1,0 +1,96 @@
+name: Strategic Research Pipeline
+
+on:
+  push:
+    paths:
+      - 'config/sprint-config.yml'
+      - 'context/**'
+  workflow_dispatch:
+    inputs:
+      sprint_numbers:
+        description: 'Sprint numbers to execute (comma-separated, or "all")'
+        required: false
+        default: 'all'
+      export_format:
+        description: 'Export format (pdf, docx, html, all)'
+        required: false
+        default: 'pdf'
+
+jobs:
+  execute-research:
+    name: Execute Strategic Research
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # 6 hours max
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Claude Code CLI
+        run: |
+          # Install Claude Code CLI
+          curl -fsSL https://install.claude.ai/cli | sh
+          echo "$HOME/.claude/local" >> $GITHUB_PATH
+
+      - name: Configure Claude API Key
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+        run: |
+          mkdir -p ~/.claude
+          echo "{\"apiKey\": \"$CLAUDE_API_KEY\"}" > ~/.claude/config.json
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq pandoc texlive-xetex
+
+      - name: Execute research pipeline
+        env:
+          CLAUDE_CMD: "claude --dangerously-skip-permissions --allowedTools '*'"
+        run: |
+          if [ "${{ github.event.inputs.sprint_numbers }}" = "all" ] || [ -z "${{ github.event.inputs.sprint_numbers }}" ]; then
+            # Execute all sprints
+            ./scripts/run-complete-analysis.sh
+          else
+            # Execute specific sprints
+            IFS=',' read -ra SPRINTS <<< "${{ github.event.inputs.sprint_numbers }}"
+            for sprint in "${SPRINTS[@]}"; do
+              ./scripts/run-sprint.sh "$sprint"
+            done
+          fi
+
+      - name: Validate quality
+        run: |
+          ./scripts/validate-all.sh || true
+
+      - name: Export reports
+        env:
+          CLAUDE_CMD: "claude --dangerously-skip-permissions --allowedTools '*'"
+        run: |
+          FORMAT="${{ github.event.inputs.export_format }}"
+          if [ -z "$FORMAT" ]; then
+            FORMAT="pdf"
+          fi
+          ./scripts/export-reports.sh "$FORMAT"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-reports
+          path: |
+            reports/
+            temp/
+          retention-days: 30
+
+      - name: Create release (if main branch)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="v$(date +%Y%m%d-%H%M%S)"
+          gh release create "$VERSION" \
+            --title "Strategic Research: $VERSION" \
+            --notes "Automated research execution via GitHub Actions" \
+            reports/*.pdf || true
