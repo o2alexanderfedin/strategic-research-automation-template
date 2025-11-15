@@ -18,6 +18,68 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.2.0] - 2025-11-15
+
+### Added
+
+- **Fully Automated One-Command Research Script** (`scripts/run-full-automation.sh`)
+  - **Zero interruptions** - ask all questions upfront, then run completely hands-free
+  - **Rookie-friendly** - simple question/answer format like setup-template.sh
+  - **Complete automation** - discovery → execution → export, all in one command
+  - **Configurable scope** - choose 1-10 opportunities, with time/cost estimates
+  - **Progress logging** - complete execution log for troubleshooting
+  - **Multi-format export** - automatically exports to markdown/pdf/docx/all
+
+### Features
+
+**Usage**:
+```bash
+./scripts/run-full-automation.sh
+```
+
+**What it does**:
+1. Asks questions upfront (company info, client info, research focus, # opportunities)
+2. Creates context files automatically from your answers
+3. Discovers strategic opportunities (no user interaction needed)
+4. Executes ALL research sprints autonomously
+5. Generates final reports and exports
+6. Logs everything for review
+
+**Time estimates**:
+- 1-3 opportunities: 1-2 hours, $30-$60
+- 4-6 opportunities: 3-4 hours, $100-$150
+- 7-10 opportunities: 5-6 hours, $200+
+
+**Perfect for**:
+- Non-technical users who want simple automation
+- Consultants who need quick turnaround
+- Anyone who wants to "set it and forget it"
+
+### Benefits
+
+- ✓ **No Claude Code expertise needed** - just answer questions
+- ✓ **No interruptions** - runs completely hands-free until done
+- ✓ **No manual file editing** - context files created automatically
+- ✓ **Predictable execution** - clear time and cost estimates
+- ✓ **Complete logging** - everything tracked in timestamped log file
+- ✓ **Production-ready output** - exports in professional formats
+
+### Technical Details
+
+**File**: `scripts/run-full-automation.sh` (335 lines, executable)
+
+**Workflow**:
+1. Information gathering via interactive prompts
+2. Automatic context file creation (company-profile.md, client-info.md, industry-background.md)
+3. Autonomous opportunity discovery
+4. Sequential sprint execution (all sprints, no user input)
+5. Automatic export in chosen format(s)
+6. Summary report with duration, costs, output locations
+
+**Logging**: Creates timestamped log file (automation-YYYYMMDD-HHMMSS.log)
+
+---
+
 ## [3.1.0] - 2025-11-15
 
 ### Security
