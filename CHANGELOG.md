@@ -18,6 +18,67 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.3.0] - 2025-11-15
+
+### Added - Comprehensive Verbosity and Progress Feedback for Rookie Users
+
+#### Problem Solved
+Rookie users were confused during long 2-6 hour autonomous research runs, thinking the system was frozen with no feedback or progress indicators.
+
+#### Solution
+Enhanced all automation tools with comprehensive, real-time progress feedback:
+
+**1. Enhanced `run-full-automation.sh`**
+- **Discovery Phase**: Clear startup messages and real-time sprint creation tracking
+- **Execution Phase**:
+  - Heartbeat updates every 10 seconds showing elapsed time
+  - Real-time file creation counts
+  - Visual progress bars with sprint headers
+  - Detailed completion summaries per sprint
+  - Overall progress percentages (e.g., "1/3 sprints, 33% complete")
+- **Export Phase**: Per-sprint export progress with success/failure indicators
+
+**2. Improved `claude-eng` wrapper**
+- Added `--verbose` flag support for detailed startup information
+- Shows YOLO mode configuration (system prompt, CLI location, permissions)
+- Clear "Starting autonomous research execution..." confirmation
+
+**3. Enhanced Slash Commands**
+
+`/execute-sprint`:
+- Startup banner with full configuration details
+- Phase-based execution visibility (Research → Synthesis)
+- Real-time agent status updates with emojis (🔬📈🏗️✅🗺️)
+- Individual agent completion notifications with metrics
+- Comprehensive completion summary with statistics
+
+`/execute-all`:
+- Multi-sprint execution overview with parallelization details
+- Progress updates every 30 seconds
+- Active sprint status tracking across all parallel executions
+- Recent activity log with timestamps
+- Estimated time remaining calculations
+
+**4. New Documentation**
+- Created `docs/VERBOSITY-GUIDE.md` with:
+  - Complete explanation of all progress indicators
+  - Symbol legend (✓ ⏳ → 📊 🎯 etc.)
+  - Monitoring techniques for long-running operations
+  - Troubleshooting guide for frozen execution scenarios
+  - Tips for rookie vs. experienced users
+
+#### Impact
+- ✅ **Real-time visibility**: Progress updates every 10-30 seconds
+- ✅ **Tangible progress**: File creation counts updating in real-time
+- ✅ **Time awareness**: Elapsed time and completion estimates
+- ✅ **Status tracking**: Individual agent and sprint progress
+- ✅ **User confidence**: Clear confirmation the system is actively working
+
+**Before**: Users thought system was frozen during silent 2-6 hour runs
+**After**: Continuous, detailed feedback provides complete visibility and confidence
+
+---
+
 ## [3.2.1] - 2025-11-15
 
 ### Changed
