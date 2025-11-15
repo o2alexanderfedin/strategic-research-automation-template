@@ -89,6 +89,29 @@ Fully autonomous mode: from context files to complete portfolio in one command.
   "Sprint1|Description" "Sprint2|Description"
 ```
 
+#### YOLO Mode (Advanced)
+
+For fully autonomous operation without permission prompts, use the `claude-eng` wrapper:
+
+```bash
+# Interactive YOLO mode
+./scripts/setup/claude-eng
+
+# Non-interactive with prompt
+./scripts/setup/claude-eng -p "/execute-sprint 01"
+
+# Complete automation with YOLO mode
+./scripts/setup/claude-eng -p "/execute-all"
+```
+
+**What YOLO mode does**:
+- Bypasses all permission prompts for maximum autonomy
+- Enables all tools for unrestricted operation
+- Injects project-specific system prompts from `.claude-system-prompt.md`
+- Best for: Overnight batch processing, CI/CD integration, large-scale research
+
+**Security considerations**: YOLO mode has unrestricted access to your system. Only use in trusted environments with vetted prompts.
+
 **What you get**:
 - 25-38 granular research files per sprint
 - 10-page strategic reports (5,000-7,500 words)

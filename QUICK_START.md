@@ -290,6 +290,40 @@ claude -p "/execute-sprint 01"
 /compare-sprints      # Generates prioritization matrix
 ```
 
+### YOLO Mode for Maximum Automation (Advanced)
+
+For fully autonomous execution without any permission prompts:
+
+```bash
+# YOLO mode: Interactive
+./scripts/setup/claude-eng
+# Then use commands normally - no permission prompts
+
+# YOLO mode: Execute sprint directly
+./scripts/setup/claude-eng -p "/execute-sprint 01"
+
+# YOLO mode: Complete automation
+./scripts/setup/claude-eng -p "/execute-all"
+
+# YOLO mode: Overnight batch processing
+nohup ./scripts/setup/claude-eng -p "/execute-all" > research.log 2>&1 &
+# Check progress: tail -f research.log
+```
+
+**When to use YOLO mode:**
+- ✅ Overnight batch processing of multiple sprints
+- ✅ CI/CD integration for automated research pipelines
+- ✅ Large-scale opportunity screening (10+ opportunities)
+- ✅ Time-sensitive research with tight deadlines
+
+**When NOT to use YOLO mode:**
+- ❌ First time using the framework (use interactive mode to learn)
+- ❌ Exploratory research with unclear requirements
+- ❌ Client data that requires human review checkpoints
+- ❌ Untrusted or public environments
+
+**Security note**: YOLO mode bypasses all permission checks. Only use in controlled environments with reviewed prompts.
+
 ### Delivering to Stakeholders
 
 ```bash

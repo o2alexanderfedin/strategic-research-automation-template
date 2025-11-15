@@ -407,6 +407,35 @@ grep "parallel_execution" config/project-config.yml
 
 ---
 
+### Issue: Permission Prompts Slowing Down Automation
+
+**Symptoms**:
+```
+Waiting for permission to execute task...
+Do you want to allow this operation? [y/N]
+```
+
+**Cause**: Interactive mode requires human approval for each operation
+
+**Solution**: Use YOLO mode for fully autonomous execution
+
+```bash
+# YOLO mode: No permission prompts
+./scripts/setup/claude-eng -p "/execute-sprint 01"
+
+# Or for complete automation
+./scripts/setup/claude-eng -p "/execute-all"
+
+# For overnight batch processing
+nohup ./scripts/setup/claude-eng -p "/execute-all" > research.log 2>&1 &
+```
+
+**Security note**: YOLO mode bypasses all permission checks. Only use in trusted environments.
+
+**Prevention**: Use YOLO mode for batch processing, interactive mode for exploratory research
+
+---
+
 ### Issue: Network Timeout During Research
 
 **Symptoms**:
