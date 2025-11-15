@@ -70,16 +70,63 @@ Continue until all complete
 
 ### Step 5: Monitor Overall Progress
 
-Track completion across all sprints
-Update progress tracking as tasks and sprints complete
-Display periodic progress updates (every 30 seconds)
+Track completion across all sprints with VERY DETAILED real-time updates.
 
-Example progress output:
+Display startup message:
 ```
-[12:05:30] Overall Progress: 28% (17/60 tasks complete)
-           Sprint 01: 71% complete
-           Sprint 02: 57% complete
-           Sprint 03: 14% complete
+🚀 MULTI-SPRINT EXECUTION STARTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Total Sprints: [N]
+Total Tasks: [N × 6]
+Parallel Execution: Up to [max_parallel_tasks] sprints simultaneously
+Expected Duration: 2-4 hours
+
+This will run completely autonomous - you can safely:
+  • Close this window (progress logged to file)
+  • Check back periodically for updates
+  • Monitor log file: tail -f [logfile]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+Update progress tracking as tasks and sprints complete.
+
+Display detailed progress updates every 30 seconds:
+```
+⏱️ PROGRESS UPDATE [HH:MM:SS elapsed]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Overall: 28% complete (17/60 tasks)
+Sprints: 1 complete, 3 in progress, 6 pending
+
+Active Sprints:
+  Sprint 01 [Research Complete]:
+    ✓ Tasks 1-5 complete, synthesizing final report...
+  Sprint 02 [In Progress]:
+    ✓ Technical (8 files) ✓ Market (6 files) ⏳ Architecture...
+  Sprint 03 [Starting]:
+    ⏳ Launching research agents...
+
+Recent Activity:
+  [12:05:28] Sprint 01 → Task 05 complete (roadmap)
+  [12:05:15] Sprint 02 → Task 02 complete (market analysis)
+  [12:04:52] Sprint 03 → Started execution
+
+Files Created: 127 research files so far
+Estimated Time Remaining: 2h 15m
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏳ Execution continuing... (next update in 30 seconds)
+```
+
+When each sprint completes, output:
+```
+✅ SPRINT [XX] COMPLETE
+   → Duration: [MM:SS]
+   → Files: [count]
+   → Score: [score]/100
+   → Recommendation: [GO/NO-GO]
 ```
 
 ### Step 6: Cross-Sprint Comparative Analysis

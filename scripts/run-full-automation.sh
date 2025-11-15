@@ -241,13 +241,27 @@ Work autonomously. Do all the research needed. Use web search extensively.
 Respond with 'DISCOVERY COMPLETE - [number] opportunities identified' when done."
 
 # Run discovery
+echo -e "${CYAN}→ Starting AI research agent...${NC}" | tee -a "$LOG_FILE"
+echo -e "${YELLOW}  [Agent is researching companies and identifying opportunities]${NC}" | tee -a "$LOG_FILE"
+echo -e "${YELLOW}  This may take 5-15 minutes... Progress updates will appear below.${NC}" | tee -a "$LOG_FILE"
+echo "" | tee -a "$LOG_FILE"
+
 ./scripts/setup/claude-eng -p "$DISCOVERY_PROMPT" 2>&1 | tee -a "$LOG_FILE"
 
-# Wait for sprints to be created
+# Wait for sprints to be created with progress feedback
+echo "" | tee -a "$LOG_FILE"
+echo -e "${CYAN}→ Verifying sprint creation...${NC}" | tee -a "$LOG_FILE"
 RETRY_COUNT=0
-MAX_RETRIES=10
+MAX_RETRIES=30
+LAST_COUNT=0
 while [ $(ls -1 sprints/*.md 2>/dev/null | wc -l) -lt $NUM_OPPORTUNITIES ] && [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-    echo "Waiting for sprint files to be created... ($RETRY_COUNT/$MAX_RETRIES)" | tee -a "$LOG_FILE"
+    CURRENT_COUNT=$(ls -1 sprints/*.md 2>/dev/null | wc -l)
+    if [ $CURRENT_COUNT -ne $LAST_COUNT ]; then
+        echo -e "${GREEN}  ✓ Created sprint $CURRENT_COUNT of $NUM_OPPORTUNITIES${NC}" | tee -a "$LOG_FILE"
+        LAST_COUNT=$CURRENT_COUNT
+    else
+        echo -e "${YELLOW}  ⏳ Waiting for sprint files... ($CURRENT_COUNT/$NUM_OPPORTUNITIES created, attempt $RETRY_COUNT/$MAX_RETRIES)${NC}" | tee -a "$LOG_FILE"
+    fi
     sleep 5
     RETRY_COUNT=$((RETRY_COUNT + 1))
 done
@@ -262,18 +276,80 @@ echo -e "${CYAN}Phase 2: Sprint Execution${NC}" | tee -a "$LOG_FILE"
 echo "Executing all $SPRINT_COUNT research sprints..." | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 
-# Execute each sprint
+# Execute each sprint with detailed progress tracking
+SPRINT_NUM_TOTAL=$(ls -1 sprints/*.md 2>/dev/null | wc -l)
+SPRINT_NUM_CURRENT=0
+
 for sprint_file in sprints/*.md; do
     if [ -f "$sprint_file" ]; then
         SPRINT_NUM=$(basename "$sprint_file" | grep -oE '^[0-9]+')
         SPRINT_NAME=$(basename "$sprint_file" .md)
+        SPRINT_NUM_CURRENT=$((SPRINT_NUM_CURRENT + 1))
 
-        echo -e "${YELLOW}→ Executing Sprint $SPRINT_NUM: $SPRINT_NAME${NC}" | tee -a "$LOG_FILE"
+        echo "" | tee -a "$LOG_FILE"
+        echo -e "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" | tee -a "$LOG_FILE"
+        echo -e "${BOLD}${BLUE}  SPRINT $SPRINT_NUM of $SPRINT_NUM_TOTAL: $SPRINT_NAME${NC}" | tee -a "$LOG_FILE"
+        echo -e "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" | tee -a "$LOG_FILE"
+        echo "" | tee -a "$LOG_FILE"
 
-        # Run sprint
-        ./scripts/setup/claude-eng -p "/execute-sprint $SPRINT_NUM" 2>&1 | tee -a "$LOG_FILE"
+        SPRINT_START_TIME=$(date +%s)
 
-        echo -e "${GREEN}✓ Sprint $SPRINT_NUM complete${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}→ Starting sprint execution with 6 parallel research tasks...${NC}" | tee -a "$LOG_FILE"
+        echo -e "${YELLOW}  Expected duration: 30-60 minutes${NC}" | tee -a "$LOG_FILE"
+        echo -e "${YELLOW}  AI agents will research: Technical, Market, Architecture, Compliance, Roadmap, and Synthesis${NC}" | tee -a "$LOG_FILE"
+        echo "" | tee -a "$LOG_FILE"
+
+        # Run sprint with progress monitoring in background
+        ./scripts/setup/claude-eng -p "/execute-sprint $SPRINT_NUM" 2>&1 | tee -a "$LOG_FILE" &
+        SPRINT_PID=$!
+
+        # Monitor progress while sprint runs
+        DOTS=0
+        while kill -0 $SPRINT_PID 2>/dev/null; do
+            DOTS=$((DOTS + 1))
+            ELAPSED=$(($(date +%s) - SPRINT_START_TIME))
+            MINS=$((ELAPSED / 60))
+            SECS=$((ELAPSED % 60))
+
+            # Count research files created so far
+            FILE_COUNT=$(find temp/${SPRINT_NUM}-* -type f 2>/dev/null | wc -l | tr -d ' ')
+
+            # Show heartbeat every 10 seconds
+            if [ $((DOTS % 2)) -eq 0 ]; then
+                echo -e "${CYAN}  ⏱  Sprint $SPRINT_NUM running... ${MINS}m ${SECS}s elapsed, $FILE_COUNT research files created so far${NC}" | tee -a "$LOG_FILE"
+            fi
+
+            sleep 10
+        done
+
+        # Wait for sprint to complete
+        wait $SPRINT_PID
+        SPRINT_EXIT_CODE=$?
+
+        SPRINT_END_TIME=$(date +%s)
+        SPRINT_DURATION=$((SPRINT_END_TIME - SPRINT_START_TIME))
+        SPRINT_MINS=$((SPRINT_DURATION / 60))
+        SPRINT_SECS=$((SPRINT_DURATION % 60))
+
+        if [ $SPRINT_EXIT_CODE -eq 0 ]; then
+            # Count final files
+            FINAL_FILE_COUNT=$(find temp/${SPRINT_NUM}-* -type f 2>/dev/null | wc -l | tr -d ' ')
+            REPORT_EXISTS=$(ls -1 reports/${SPRINT_NUM}-*.md 2>/dev/null | wc -l | tr -d ' ')
+
+            echo "" | tee -a "$LOG_FILE"
+            echo -e "${GREEN}✓ Sprint $SPRINT_NUM complete in ${SPRINT_MINS}m ${SPRINT_SECS}s${NC}" | tee -a "$LOG_FILE"
+            echo -e "${GREEN}  → Research files created: $FINAL_FILE_COUNT${NC}" | tee -a "$LOG_FILE"
+            echo -e "${GREEN}  → Reports generated: $REPORT_EXISTS${NC}" | tee -a "$LOG_FILE"
+
+            # Show overall progress
+            OVERALL_PCT=$((SPRINT_NUM_CURRENT * 100 / SPRINT_NUM_TOTAL))
+            echo -e "${CYAN}  📊 Overall progress: $SPRINT_NUM_CURRENT/$SPRINT_NUM_TOTAL sprints ($OVERALL_PCT%) complete${NC}" | tee -a "$LOG_FILE"
+        else
+            echo "" | tee -a "$LOG_FILE"
+            echo -e "${RED}✗ Sprint $SPRINT_NUM failed with exit code $SPRINT_EXIT_CODE${NC}" | tee -a "$LOG_FILE"
+            echo -e "${YELLOW}  Check log file for details: $LOG_FILE${NC}" | tee -a "$LOG_FILE"
+        fi
+
         echo "" | tee -a "$LOG_FILE"
     fi
 done
@@ -283,16 +359,26 @@ echo -e "${CYAN}Phase 3: Export & Finalization${NC}" | tee -a "$LOG_FILE"
 echo "Exporting reports in $EXPORT_FORMAT format..." | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 
-# Export each sprint
+# Export each sprint with progress feedback
+EXPORT_NUM_CURRENT=0
+EXPORT_NUM_TOTAL=$(ls -1 sprints/*.md 2>/dev/null | wc -l)
+
 for sprint_file in sprints/*.md; do
     if [ -f "$sprint_file" ]; then
         SPRINT_NUM=$(basename "$sprint_file" | grep -oE '^[0-9]+')
+        EXPORT_NUM_CURRENT=$((EXPORT_NUM_CURRENT + 1))
 
-        echo -e "${YELLOW}→ Exporting Sprint $SPRINT_NUM to $EXPORT_FORMAT${NC}" | tee -a "$LOG_FILE"
+        echo "" | tee -a "$LOG_FILE"
+        echo -e "${YELLOW}→ Exporting Sprint $SPRINT_NUM ($EXPORT_NUM_CURRENT/$EXPORT_NUM_TOTAL) to $EXPORT_FORMAT format...${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}  [Converting report to professional format]${NC}" | tee -a "$LOG_FILE"
 
         ./scripts/setup/claude-eng -p "/export-findings $SPRINT_NUM --format $EXPORT_FORMAT" 2>&1 | tee -a "$LOG_FILE"
 
-        echo -e "${GREEN}✓ Sprint $SPRINT_NUM exported${NC}" | tee -a "$LOG_FILE"
+        if [ -f "reports/${SPRINT_NUM}-*.$EXPORT_FORMAT" ] 2>/dev/null; then
+            echo -e "${GREEN}✓ Sprint $SPRINT_NUM exported successfully${NC}" | tee -a "$LOG_FILE"
+        else
+            echo -e "${YELLOW}⚠ Export may have encountered issues - check log${NC}" | tee -a "$LOG_FILE"
+        fi
     fi
 done
 

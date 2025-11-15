@@ -10,6 +10,14 @@
 
 set -e
 
+# Enable verbose mode with --verbose flag
+VERBOSE=false
+if [[ "$*" == *"--verbose"* ]]; then
+    VERBOSE=true
+    # Remove --verbose from args to pass to claude
+    set -- "${@/--verbose/}"
+fi
+
 # Find the system prompt file
 # SCRIPT_DIR can be overridden for testing
 if [ -z "$SCRIPT_DIR" ]; then
@@ -21,6 +29,12 @@ SYSTEM_PROMPT_FILE="${SCRIPT_DIR}/.claude-system-prompt.md"
 if [ ! -f "$SYSTEM_PROMPT_FILE" ]; then
     echo "Error: System prompt file not found at $SYSTEM_PROMPT_FILE" >&2
     exit 1
+fi
+
+if [ "$VERBOSE" = true ]; then
+    echo "🔧 Claude Engineering Mode - YOLO Configuration"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "✓ System prompt loaded: $SYSTEM_PROMPT_FILE"
 fi
 
 # Find claude executable
@@ -35,6 +49,15 @@ if [ -z "$CLAUDE_EXEC" ]; then
     echo "Error: Claude CLI not found. Install from https://docs.claude.com" >&2
     exit 1
   fi
+fi
+
+if [ "$VERBOSE" = true ]; then
+    echo "✓ Claude CLI found: $CLAUDE_EXEC"
+    echo "✓ YOLO mode enabled: All permissions bypassed"
+    echo "✓ Tools enabled: All (*)"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "🚀 Starting autonomous research execution..."
+    echo ""
 fi
 
 # Execute claude with the system prompt and required permissions
