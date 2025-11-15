@@ -18,6 +18,93 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.1.0] - 2025-11-15
+
+### Security
+
+- **CRITICAL FIX**: Sed delimiter issues with URLs and paths containing forward slashes
+  - Changed all sed delimiters from `/` to `|` in setup scripts
+  - Fixes error: "bad flag in substitute command: '/'"
+  - Affects: `scripts/setup-template.sh`, `scripts/setup-existing.sh`
+
+- **HIGH FIX**: Special character escaping in sed replacements
+  - Added `escape_for_sed()` helper function to both setup scripts
+  - Escapes special characters: `&` (matched text), `/` (delimiter), `\` (escape)
+  - Prevents sed replacement bugs with ampersands in user input (e.g., "Company & Co.")
+
+### Added
+
+- **Comprehensive test coverage** (42 tests total)
+  - 25 unit tests in `test/setup-scripts.bats`
+    - Sed delimiter handling with URLs
+    - Special character escaping (&, /, \, $, `, quotes)
+    - Variable quoting and glob expansion
+    - Security verification (no eval, proper quoting)
+  - 17 integration tests in `test/setup-integration.bats`
+    - Real-world setup scenarios with edge cases
+    - Directory structure and file customization
+  - Test runner: `test/run-setup-tests.sh`
+
+- **Security audit documentation**
+  - Complete analysis in `docs/SECURITY_AUDIT.md`
+  - 23 scripts analyzed, 2 modified, 21 verified secure
+  - Security rating: EXCELLENT ⭐⭐⭐⭐⭐
+  - Edge cases tested: URLs, ampersands, quotes, UTF-8, mixed special chars
+
+- **GitHub template repository setup**
+  - Documentation: `GITHUB_TEMPLATE_SETUP.md`
+  - CLI command to enable template: `gh api -X PATCH /repos/...`
+  - Web UI instructions included
+
+### Changed
+
+- **Authentication documentation clarified**
+  - API key now clearly marked as **optional** if using Claude Code CLI auth
+  - `.env.example`: Two authentication options documented
+    - Option 1 (Recommended): Claude Code CLI auth (`claude auth`) - FREE
+    - Option 2: Anthropic API key - pay-per-use
+  - Setup script: Changed alarming "IMPORTANT: add API key" to informational message
+  - README: Added clear "Authentication" section with recommendations
+
+- **Setup script improvements**
+  - Better user messaging about authentication options
+  - Next steps prioritize verifying existing auth over requiring API key
+  - Less intimidating for new users
+
+### Fixed
+
+- Sed failures when user input contains URLs (e.g., `https://example.com/path`)
+- Sed failures when user input contains ampersands (e.g., `Company & Co.`)
+- Sed failures when user input contains backslashes or other special characters
+- Confusing/misleading API key requirement messaging
+
+### Technical Details
+
+**Files Modified**:
+- `scripts/setup-template.sh`: Lines 62, 270-276, 282-288, 303-304, 350-351, 389, 427-429, 446, 530-532
+- `scripts/setup-existing.sh`: Lines 18, 239-243, 248-253, 402-404, 414-416
+- `.env.example`: Lines 5-29 (authentication section rewritten)
+- `README.md`: Lines 392-396 (authentication note clarified)
+
+**Edge Cases Now Handled**:
+- ✓ URLs with forward slashes: `https://www.linkedin.com/company/name/`
+- ✓ Multiple URLs in single field
+- ✓ Ampersands in company names: `Company & Co.`
+- ✓ Quotes: `Project "Alpha" Phase I`
+- ✓ Parentheses: `Company (Consulting)`
+- ✓ Dollar signs: `$100.00`
+- ✓ Backticks: `` `command` ``
+- ✓ UTF-8 characters: `Société Française™`
+- ✓ Mixed special characters
+
+**Real-World Example Fixed**:
+```bash
+Industry: research-it-by-yourself.-here-are-some-sources:-https://www.linkedin.com/company/innova-technology-inc/-https://innova-technology.com/-https://clutch.co/profile/innova-1
+```
+This exact input now works correctly without errors.
+
+---
+
 ## [3.0.0] - 2025-11-14
 
 ### BREAKING CHANGES
