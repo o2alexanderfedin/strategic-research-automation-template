@@ -193,7 +193,7 @@ Analyzes company capabilities and client needs to autonomously identify high-fit
 ```bash
 /discover-opportunities
 # Analyzes context files
-# Identifies 8 opportunities for MOSAIC eVTOL market
+# Identifies 8 opportunities for Industry Regulation XYZ eVTOL market
 # Generates sprint configs and task files automatically
 ```
 
@@ -386,10 +386,10 @@ Conducts market sizing (TAM/SAM/SOM), customer needs analysis, competitive lands
 - Flight control systems: 12-15% of aircraft cost [2]
 - **TAM for eVTOL flight controls: $1.8-2.3B by 2030**
 
-### MOSAIC LSA Market
-- Estimated 5,000-8,000 MOSAIC aircraft deliveries 2025-2030 [3]
+### new aircraft category Market
+- Estimated 5,000-8,000 Industry Regulation XYZ aircraft deliveries 2025-2030 [3]
 - Flight control avionics: $50K-80K per aircraft [4]
-- **TAM for MOSAIC flight controls: $250-640M by 2030**
+- **TAM for Industry Regulation XYZ flight controls: $250-640M by 2030**
 
 ### Combined TAM: $2.05-2.94B by 2030
 
@@ -409,7 +409,7 @@ Conducts market sizing (TAM/SAM/SOM), customer needs analysis, competitive lands
 
 [1] Morgan Stanley Research, "eVTOL Market Forecast", 2024
 [2] Aviation Week, "eVTOL Development Cost Breakdown", 2023
-[3] GAMA, "MOSAIC Rulemaking Impact Analysis", 2024
+[3] GAMA, "Industry Regulation XYZ Rulemaking Impact Analysis", 2024
 [... additional citations ...]
 ```
 
@@ -787,7 +787,7 @@ Aggregates all research findings, applies scoring rubric, and generates comprehe
 - **Usage**: See [Usage Guide](./USAGE.md) for workflow examples
 - **Commands**: Consult [Commands Reference](./COMMANDS-REFERENCE.md) for slash commands
 - **Customization**: Read [Customization Guide](./CUSTOMIZATION.md) for skill adaptation
-- **Examples**: Review [Aviation Example](./EXAMPLE-AVIATION-MOSAIC.md)
+- **Examples**: Review [Aviation Example](./EXAMPLE-AVIATION-Industry Regulation XYZ.md)
 
 ---
 

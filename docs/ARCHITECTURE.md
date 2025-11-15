@@ -363,7 +363,7 @@ strategic-research-framework/
 │   ├── CONFIGURATION-REFERENCE.md
 │   ├── TROUBLESHOOTING.md
 │   ├── CONTRIBUTING.md
-│   ├── EXAMPLE-AVIATION-MOSAIC.md
+│   ├── EXAMPLE-AVIATION-Industry Regulation XYZ.md
 │   └── EXAMPLE-HEALTHCARE-CONVERSION.md
 │
 ├── .gitignore                        # Git ignore (temp/ excluded)
@@ -707,7 +707,7 @@ vim templates/report-template.md
 - **Usage**: Read [Usage Guide](./USAGE.md) for workflows
 - **Customization**: Consult [Customization Guide](./CUSTOMIZATION.md) for adaptation
 - **Reference**: Review [Skills Reference](./SKILLS-REFERENCE.md) and [Commands Reference](./COMMANDS-REFERENCE.md)
-- **Examples**: Explore [Aviation Example](./EXAMPLE-AVIATION-MOSAIC.md)
+- **Examples**: Explore [Aviation Example](./EXAMPLE-AVIATION-Industry Regulation XYZ.md)
 
 ---
 

@@ -72,7 +72,7 @@ The command generates:
 
 ```bash
 # Aviation industry example
-/init-project "MOSAIC eVTOL Analysis" "Aviation" "Hupyy"
+/init-project "Industry Regulation XYZ eVTOL Analysis" "Aviation" "TechCo"
 
 # Healthcare industry example
 /init-project "EHR Integration Study" "Healthcare" "HealthTech Consulting"
@@ -116,7 +116,7 @@ Sprints are complete research cycles covering one specific opportunity. Each spr
 
 ```bash
 # Create sprint for eVTOL flight control opportunity
-/create-sprint 01 "Flight Control Verification" "SMT-based verification for eVTOL flight control systems under MOSAIC regulations"
+/create-sprint 01 "Flight Control Verification" "SMT-based verification for eVTOL flight control systems under Industry Regulation XYZ regulations"
 
 # Create sprint for EHR interoperability
 /create-sprint 02 "EHR Interoperability" "HL7 FHIR-based integration platform for hospital EHR systems"
@@ -139,12 +139,12 @@ After creation, customize task files to include industry-specific research quest
 ## Research Questions
 
 ### Technical Requirements Analysis
-1. What are the specific technical requirements for eVTOL flight control systems under MOSAIC regulations?
+1. What are the specific technical requirements for eVTOL flight control systems under Industry Regulation XYZ regulations?
 2. Which Design Assurance Level (DAL) applies to these systems under DO-178C?
 3. What are the performance, safety, and reliability requirements?
 
 ### Regulatory Standards
-1. Which ASTM standards govern MOSAIC aircraft avionics systems?
+1. Which ASTM standards govern Industry Regulation XYZ aircraft avionics systems?
 2. How does DO-333 formal methods guidance apply to SMT verification?
 3. What are the TSO (Technical Standard Order) requirements?
 
@@ -203,7 +203,7 @@ Update context files when:
 
 **`context/company-profile.md`** - Your capabilities:
 ```markdown
-# Company Profile: Hupyy
+# Company Profile: TechCo
 
 ## Core Capabilities
 
@@ -221,10 +221,10 @@ Update context files when:
 # Client Information: Ben Errez
 
 ## Background
-Entrepreneur exploring MOSAIC LSA and eVTOL opportunities. Focus on identifying high-value entry points for SMT-verified avionics systems.
+Entrepreneur exploring new aircraft category and eVTOL opportunities. Focus on identifying high-value entry points for SMT-verified avionics systems.
 
 ## Objectives
-1. Identify top 3-5 opportunities for SMT verification in MOSAIC context
+1. Identify top 3-5 opportunities for SMT verification in Industry Regulation XYZ context
 2. Prioritize by market size, regulatory clarity, and competitive position
 3. Develop go/no-go recommendations with execution roadmaps
 
@@ -368,7 +368,7 @@ Fully autonomous mode: analyze context, discover opportunities, generate sprints
 ```markdown
 # Opportunity Discovery Report
 
-Based on analysis of Hupyy's SMT verification expertise and MOSAIC aviation context:
+Based on analysis of TechCo's SMT verification expertise and Industry Regulation XYZ aviation context:
 
 ## Top 10 Opportunities Identified
 
@@ -489,7 +489,7 @@ Quality Validation Report: Sprint 01
 ✅ File Count: 32 files (requirement: 25+)
 ✅ Citation Ratio: 87% (requirement: 80%+)
 ✅ Report Length: 6,450 words (requirement: 5,000-7,500)
-✅ Terminology: Consistent usage of MOSAIC, DO-178C, DAL, eVTOL
+✅ Terminology: Consistent usage of Industry Regulation XYZ, DO-178C, DAL, eVTOL
 ⚠️  Cross-References: 3 broken links found
 ✅ Evidence: All claims supported
 

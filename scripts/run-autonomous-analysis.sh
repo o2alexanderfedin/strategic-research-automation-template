@@ -15,7 +15,7 @@ if [ -z "$PROJECT_NAME" ] || [ -z "$COMPANY_NAME" ]; then
   echo "Usage: $0 \"Project Name\" \"Company Name\" [client-info-file-or-url]"
   echo ""
   echo "Examples:"
-  echo "  $0 \"MOSAIC Analysis\" \"Hupyy\" \"MOSAIC_Final_Rule.pdf\""
+  echo "  $0 \"Industry Regulation XYZ Analysis\" \"TechCo\" \"Industry Regulation XYZ_Final_Rule.pdf\""
   echo "  $0 \"Digital Health\" \"HealthTech\" \"https://example.com/client-brief.pdf\""
   echo "  $0 \"RegTech Opportunities\" \"FinServe\" \"context/finra-requirements.md\""
   exit 1

@@ -61,7 +61,7 @@ Adapt the six standard tasks to your industry by modifying research questions:
 - FinTech: "Which SOC 2 Type criteria apply?"
 
 **Task 02: Market Analysis**
-- Aviation: "What is TAM for Part 23/MOSAIC aircraft segment?"
+- Aviation: "What is TAM for Part 23/Industry Regulation XYZ aircraft segment?"
 - Healthcare: "What is TAM for EHR integration in hospitals?"
 - FinTech: "What is TAM for AML compliance software?"
 
@@ -74,14 +74,14 @@ Adapt the six standard tasks to your industry by modifying research questions:
 
 ## Aviation Industry Customization
 
-Complete example: Adapting the framework for aviation opportunities under MOSAIC (Modernization of Special Airworthiness Certification) regulations.
+Complete example: Adapting the framework for aviation opportunities under Industry Regulation XYZ (Modernization of Special Airworthiness Certification) regulations.
 
 ### Context Configuration
 
 **File**: `context/company-profile.md`
 
 ```markdown
-# Company Profile: Hupyy
+# Company Profile: TechCo
 
 ## Core Capabilities
 
@@ -92,7 +92,7 @@ Complete example: Adapting the framework for aviation opportunities under MOSAIC
 - TSO (Technical Standard Order) certification support
 
 ### Regulatory Expertise
-- FAA Part 23 and MOSAIC regulations
+- FAA Part 23 and Industry Regulation XYZ regulations
 - EASA CS-23 certification processes
 - ASTM F3408 (general aviation avionics) standards
 - Transport Canada TP 15003 equivalent pathways
@@ -110,10 +110,10 @@ Complete example: Adapting the framework for aviation opportunities under MOSAIC
 # Client Information: Ben Errez
 
 ## Background
-Entrepreneur with Part 121 airline and GA background exploring MOSAIC LSA and eVTOL certification opportunities. Interested in identifying high-value market entry points for SMT-verified avionics systems.
+Entrepreneur with Part 121 airline and GA background exploring new aircraft category and eVTOL certification opportunities. Interested in identifying high-value market entry points for SMT-verified avionics systems.
 
 ## Specific Interests
-- MOSAIC regulatory framework opportunities
+- Industry Regulation XYZ regulatory framework opportunities
 - eVTOL flight control systems (Fly-by-Wire)
 - Electric propulsion monitoring and control
 - Autonomous flight systems for UAM (Urban Air Mobility)
@@ -187,23 +187,23 @@ scoring:
 # Task 01: Technical Requirements Research
 ## Sprint 01: eVTOL Flight Control Verification
 
-**Objective**: Analyze technical requirements, regulations, competitive technologies, and feasibility for SMT-verified eVTOL flight control systems under MOSAIC.
+**Objective**: Analyze technical requirements, regulations, competitive technologies, and feasibility for SMT-verified eVTOL flight control systems under Industry Regulation XYZ.
 
 ---
 
 ## Research Questions
 
 ### Technical Requirements Analysis
-1. What are the specific technical requirements for eVTOL flight control systems under MOSAIC regulations?
+1. What are the specific technical requirements for eVTOL flight control systems under Industry Regulation XYZ regulations?
 2. Which DO-178C Design Assurance Level (DAL) applies to primary flight controls? DAL A, B, or C?
 3. What are the performance requirements for control surface actuation (latency, precision, reliability)?
 4. What redundancy architectures are required (dual, triple, quadruple)?
 
 ### Regulatory Standards
-1. Which ASTM standards govern MOSAIC aircraft avionics? (Focus on ASTM F3408)
+1. Which ASTM standards govern Industry Regulation XYZ aircraft avionics? (Focus on ASTM F3408)
 2. How does DO-333 "Formal Methods Supplement to DO-178C" apply to SMT verification?
 3. What are TSO (Technical Standard Order) requirements for flight control computers?
-4. How do MOSAIC regulations differ from traditional Part 23 for flight controls?
+4. How do Industry Regulation XYZ regulations differ from traditional Part 23 for flight controls?
 
 ### Competitive Technology Landscape
 1. Which companies currently provide flight control systems for eVTOL aircraft?
@@ -224,7 +224,7 @@ scoring:
 # Task 04: Certification and Compliance Strategy
 ## Sprint 01: eVTOL Flight Control Verification
 
-**Objective**: Define FAA/EASA certification pathway, compliance requirements, testing strategy, and timeline/cost for MOSAIC eVTOL flight control certification.
+**Objective**: Define FAA/EASA certification pathway, compliance requirements, testing strategy, and timeline/cost for Industry Regulation XYZ eVTOL flight control certification.
 
 ---
 
@@ -232,7 +232,7 @@ scoring:
 
 ### Regulatory Framework
 1. What is the FAA certification pathway for eVTOL flight control systems? (STC, TSO, or Type Certificate amendment?)
-2. How does MOSAIC streamline certification compared to Part 23?
+2. How does Industry Regulation XYZ streamline certification compared to Part 23?
 3. What are EASA CS-23 equivalent requirements (for international sales)?
 4. What role does the FAA's Special Conditions process play for novel eVTOL designs?
 
@@ -269,7 +269,7 @@ scoring:
 
 ### Results from Aviation Customization
 
-Using this configuration for the MOSAIC eVTOL project:
+Using this configuration for the Industry Regulation XYZ eVTOL project:
 - **10 sprints** identified via `/discover-opportunities`
 - **350+ research files** generated
 - **10 strategic reports** (5,000-7,500 words each)
@@ -933,7 +933,7 @@ Before starting research with customized configuration:
 
 ## Next Steps
 
-- **Examples**: See [Aviation Example](./EXAMPLE-AVIATION-MOSAIC.md) and [Healthcare Example](./EXAMPLE-HEALTHCARE-CONVERSION.md)
+- **Examples**: See [Aviation Example](./EXAMPLE-AVIATION-Industry Regulation XYZ.md) and [Healthcare Example](./EXAMPLE-HEALTHCARE-CONVERSION.md)
 - **Configuration Reference**: Consult [Configuration Reference](./CONFIGURATION-REFERENCE.md) for schema details
 - **Skills**: Read [Skills Reference](./SKILLS-REFERENCE.md) for customization options
 - **Troubleshooting**: Review [Troubleshooting Guide](./TROUBLESHOOTING.md) for common issues

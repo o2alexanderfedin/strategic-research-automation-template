@@ -28,7 +28,7 @@ Create a comprehensive sprint definition by copying templates, customizing task 
 **Check $3 (description)**:
 - Must be non-empty quoted string
 - Brief description of opportunity area
-- Example: "Automated flight control verification for MOSAIC eVTOL"
+- Example: "Automated flight control verification for new aviation standards"
 
 **Verify prerequisites**:
 - config/sprint-config.yml exists
@@ -431,7 +431,7 @@ If $3 is empty:
 Usage: /create-sprint [sprint-number] "[name]" "[description]"
 
 Description should briefly explain the opportunity.
-Example: /create-sprint 01 "Sprint Name" "Automated flight control verification for MOSAIC eVTOL"
+Example: /create-sprint 01 "Sprint Name" "Automated flight control verification for new aviation standards"
 
 Use quotes for multi-word descriptions.
 ```

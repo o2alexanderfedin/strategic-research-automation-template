@@ -312,7 +312,7 @@ claude -p "/execute-sprint 01"
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `/init-project` | Initialize new research project | `/init-project "MOSAIC Analysis" "Aviation" "Hupyy"` |
+| `/init-project` | Initialize new research project | `/init-project "Industry Regulation XYZ Analysis" "Aviation" "TechCo"` |
 | `/discover-opportunities` | Auto-discover strategic fit areas | `/discover-opportunities` |
 | `/create-sprint` | Manually define opportunity sprint | `/create-sprint "eVTOL Verification" "Flight control certification"` |
 | `/execute-sprint` | Run complete sprint (6 tasks) | `/execute-sprint 01` |
@@ -345,7 +345,7 @@ Skills auto-activate based on context in `.claude/skills/`:
 
 ## 🎨 Industry-Specific Quick Starts
 
-### Aviation (MOSAIC/eVTOL)
+### Aviation (Industry Regulation XYZ/eVTOL)
 
 ```bash
 # Create project
@@ -356,16 +356,16 @@ cd mosaic-analysis
 
 # Add industry context
 cat > context/industry-background.md << 'EOF'
-# MOSAIC Regulation Background
+# Industry Regulation XYZ Regulation Background
 
 ## Overview
-Modernization of Special Airworthiness Certification (MOSAIC) is an FAA initiative
+Modernization of Special Airworthiness Certification (Industry Regulation XYZ) is an FAA initiative
 to update certification standards for light sport aircraft, potentially including eVTOL.
 
 ## Key Regulations
 - Part 23 (Normal Category Aircraft)
 - Part 27 (Normal Category Rotorcraft)
-- MOSAIC NPRM (Notice of Proposed Rulemaking)
+- Industry Regulation XYZ NPRM (Notice of Proposed Rulemaking)
 - DO-178C (Software Certification)
 
 ## Market Context

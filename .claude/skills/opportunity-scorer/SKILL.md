@@ -171,7 +171,7 @@ Final Score: 21.25 + 20.50 + 17.60 + 11.25 + 12.00 = 82.6/100
 
 **Evidence:**
 - TAM: $2.8B (FAA market report, 2024)
-- SAM: $850M (MOSAIC-eligible aircraft segment)
+- SAM: $850M (new standards-eligible aircraft segment)
 - SOM: $85M over 5 years (2% market share)
 - Growth: 15% CAGR (eVTOL market projections)
 - Pain: VFR-into-IMC accidents (85% fatality), high certification costs ($2M+)
@@ -183,7 +183,7 @@ Final Score: 21.25 + 20.50 + 17.60 + 11.25 + 12.00 = 82.6/100
 
 **Weaknesses:**
 - SOM assumes 2% market share (conservative but unproven)
-- Market growth tied to MOSAIC adoption timeline
+- Market growth tied to Industry Regulation XYZ adoption timeline
 
 **Justification:**
 Score of 85 reflects strong market opportunity with clear sizing methodology,

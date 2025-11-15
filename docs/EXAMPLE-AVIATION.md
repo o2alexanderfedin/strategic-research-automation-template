@@ -1,13 +1,13 @@
-# Example: Aviation MOSAIC eVTOL Analysis
+# Example: Aviation Industry Regulation XYZ eVTOL Analysis
 
 **Framework**: Strategic Research Automation
 **Industry**: Aviation
-**Project**: MOSAIC LSA/eVTOL Opportunity Analysis
+**Project**: new aircraft category/eVTOL Opportunity Analysis
 **Last Updated**: 2025-11-14
 
 ---
 
-This document provides a complete walkthrough of using the Strategic Research Automation Framework for aviation industry opportunity analysis, specifically focusing on the MOSAIC (Modernization of Special Airworthiness Certification) regulatory framework and eVTOL (Electric Vertical Takeoff and Landing) market.
+This document provides a complete walkthrough of using the Strategic Research Automation Framework for aviation industry opportunity analysis, specifically focusing on the Industry Regulation XYZ (Modernization of Special Airworthiness Certification) regulatory framework and eVTOL (Electric Vertical Takeoff and Landing) market.
 
 ## Table of Contents
 
@@ -23,19 +23,19 @@ This document provides a complete walkthrough of using the Strategic Research Au
 
 ### Background
 
-**Company**: Hupyy
+**Company**: TechCo
 - **Core Expertise**: SMT (Satisfiability Modulo Theories) verification for safety-critical systems
 - **Regulatory Experience**: DO-178C, DO-333 formal methods, FAA certification
 - **Target Market**: Aviation avionics, particularly flight-critical systems
 
 **Client**: Ben Errez
 - **Background**: Part 121 airline and general aviation experience
-- **Objective**: Identify top opportunities in MOSAIC LSA and eVTOL markets
+- **Objective**: Identify top opportunities in new aircraft category and eVTOL markets
 - **Focus**: SMT-verified avionics systems with clear regulatory pathways
 
 ### Research Objectives
 
-1. Identify 5-10 high-value opportunities in MOSAIC/eVTOL space
+1. Identify 5-10 high-value opportunities in Industry Regulation XYZ/eVTOL space
 2. Prioritize opportunities by market potential, regulatory clarity, and technical fit
 3. Generate detailed strategic assessments for top opportunities
 4. Provide go/no-go recommendations with execution roadmaps
@@ -55,7 +55,7 @@ This document provides a complete walkthrough of using the Strategic Research Au
 **File**: `context/company-profile.md`
 
 ```markdown
-# Company Profile: Hupyy
+# Company Profile: TechCo
 
 ## Core Capabilities
 
@@ -67,7 +67,7 @@ This document provides a complete walkthrough of using the Strategic Research Au
 - 15+ years combined team experience
 
 ### Regulatory Compliance
-- FAA Part 23 and MOSAIC regulations
+- FAA Part 23 and Industry Regulation XYZ regulations
 - EASA CS-23 certification
 - ASTM F3408 standards (general aviation avionics)
 - TSO (Technical Standard Order) application experience
@@ -91,7 +91,7 @@ This document provides a complete walkthrough of using the Strategic Research Au
 # Client Information: Ben Errez
 
 ## Background
-Entrepreneur with 20+ years aviation experience (Part 121 airlines, GA operations). Exploring MOSAIC and eVTOL certification opportunities with focus on SMT-verified avionics as competitive differentiator.
+Entrepreneur with 20+ years aviation experience (Part 121 airlines, GA operations). Exploring Industry Regulation XYZ and eVTOL certification opportunities with focus on SMT-verified avionics as competitive differentiator.
 
 ## Strategic Objectives
 1. Identify top 3-5 market entry opportunities
@@ -319,7 +319,7 @@ Using `/discover-opportunities`, the framework identified **10 opportunities**:
 
 2. **eVTOL Market Data**: TAM estimates vary widely across sources (Morgan Stanley, Roland Berger, Aviation Week). Used conservative estimates and cited multiple sources.
 
-3. **Regulatory Uncertainty**: MOSAIC final rule not yet published (expected Q1 2025). Used NPRM and FAA guidance, but flagged risk of changes.
+3. **Regulatory Uncertainty**: Industry Regulation XYZ final rule not yet published (expected Q1 2025). Used NPRM and FAA guidance, but flagged risk of changes.
 
 4. **Competitive Intelligence**: Limited public information on eVTOL competitors' verification approaches. Relied on patent analysis and conference papers.
 
@@ -347,9 +347,9 @@ Using `/discover-opportunities`, the framework identified **10 opportunities**:
 
 4. **Network with OEMs**: Identify 3-5 target eVTOL manufacturers and conduct outreach during research phase for validation.
 
-### For Future MOSAIC Projects
+### For Future Industry Regulation XYZ Projects
 
-1. **Monitor MOSAIC Final Rule**: Final rule publication (expected Q1 2025) may change regulatory landscape. Re-run analysis post-publication.
+1. **Monitor Industry Regulation XYZ Final Rule**: Final rule publication (expected Q1 2025) may change regulatory landscape. Re-run analysis post-publication.
 
 2. **Track ASTM Standards Development**: ASTM F44 committee is active. Monitor new standards (WK63418, WK70081) for emerging opportunities.
 
@@ -377,7 +377,7 @@ After this analysis, recommended actions for client:
 2. **Short-term (Month 1-3)**:
    - Develop detailed POC proposal for Sprint 01
    - Pursue partnerships with flight control suppliers (Honeywell, Collins Aerospace)
-   - Monitor MOSAIC final rule publication
+   - Monitor Industry Regulation XYZ final rule publication
 
 3. **Medium-term (Month 4-12)**:
    - Execute Sprint 01 POC

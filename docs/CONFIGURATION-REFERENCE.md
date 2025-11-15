@@ -103,7 +103,7 @@ git:
 - Type: String
 - Required: Yes
 - Description: Descriptive project name (displayed in reports)
-- Example: `"MOSAIC eVTOL Analysis"`
+- Example: `"Industry Regulation XYZ eVTOL Analysis"`
 
 **research.parallel_execution**:
 - Type: Boolean
@@ -244,12 +244,12 @@ sprints:
 
 ### Example Configurations
 
-**Aviation MOSAIC Portfolio**:
+**Aviation Industry Regulation XYZ Portfolio**:
 ```yaml
 sprints:
   - id: "01"
     name: "Flight Control Verification"
-    description: "SMT-based verification for eVTOL flight control systems under MOSAIC"
+    description: "SMT-based verification for eVTOL flight control systems under Industry Regulation XYZ"
     priority: "high"
     estimated_duration: "2-3 hours"
     tasks:
@@ -496,7 +496,7 @@ terms:
       - "electric VTOL"
       - "electric vertical takeoff"
 
-  - term: "MOSAIC"
+  - term: "Industry Regulation XYZ"
     definition: "Modernization of Special Airworthiness Certification"
     category: "regulation"
     preferred: true
@@ -508,7 +508,7 @@ terms:
 
 - **Usage**: See [Usage Guide](./USAGE.md) for applying configurations
 - **Customization**: Read [Customization Guide](./CUSTOMIZATION.md) for industry adaptation
-- **Examples**: Review [Aviation Example](./EXAMPLE-AVIATION-MOSAIC.md) for complete configurations
+- **Examples**: Review [Aviation Example](./EXAMPLE-AVIATION-Industry Regulation XYZ.md) for complete configurations
 - **Troubleshooting**: Check [Troubleshooting Guide](./TROUBLESHOOTING.md) for configuration issues
 
 ---

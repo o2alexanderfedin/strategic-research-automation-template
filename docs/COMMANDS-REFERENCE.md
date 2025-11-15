@@ -63,7 +63,7 @@ All commands reside in `.claude/commands/` as markdown files.
 
 **Examples**:
 ```bash
-/init-project "MOSAIC eVTOL Analysis" "Aviation" "Hupyy"
+/init-project "Industry Regulation XYZ eVTOL Analysis" "Aviation" "TechCo"
 /init-project "EHR Integration Study" "Healthcare" "HealthTech Consulting"
 /init-project "RegTech Compliance" "FinTech" "Compliance Advisors"
 ```
@@ -272,7 +272,7 @@ research:
 **Examples**:
 ```bash
 /discover-opportunities
-# Discovers 8 opportunities for MOSAIC eVTOL market
+# Discovers 8 opportunities for Industry Regulation XYZ eVTOL market
 # Creates Sprint 01-08 configurations automatically
 ```
 

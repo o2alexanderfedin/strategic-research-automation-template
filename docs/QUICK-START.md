@@ -46,7 +46,7 @@ echo $ANTHROPIC_API_KEY | head -c 20
 
 ```bash
 # Initialize with your project details
-claude -p "/init-project 'MOSAIC eVTOL Analysis' 'Aviation' 'Hupyy Consulting'"
+claude -p "/init-project 'Industry Regulation XYZ eVTOL Analysis' 'Aviation' 'TechCo Consulting'"
 ```
 
 **What this does**:
@@ -57,9 +57,9 @@ claude -p "/init-project 'MOSAIC eVTOL Analysis' 'Aviation' 'Hupyy Consulting'"
 
 **Expected output**:
 ```
-✓ Project initialized: MOSAIC eVTOL Analysis
+✓ Project initialized: Industry Regulation XYZ eVTOL Analysis
 ✓ Industry: Aviation
-✓ Company: Hupyy Consulting
+✓ Company: TechCo Consulting
 ✓ Configuration files created in config/
 ✓ Context templates created in context/
 ✓ Git repository initialized
@@ -84,7 +84,7 @@ vim context/company-profile.md
 **Minimal example** (copy/paste this):
 
 ```markdown
-# Hupyy Company Profile
+# TechCo Company Profile
 
 ## Core Capabilities
 
@@ -109,7 +109,7 @@ vim context/company-profile.md
 ## Strategic Goals
 
 - Expand into eVTOL and urban air mobility market
-- Leverage MOSAIC regulation for new market opportunities
+- Leverage Industry Regulation XYZ regulation for new market opportunities
 - Build partnerships with aircraft manufacturers
 ```
 
@@ -122,15 +122,15 @@ vim context/client-info.md
 **Minimal example**:
 
 ```markdown
-# MOSAIC Opportunity Analysis
+# Industry Regulation XYZ Opportunity Analysis
 
 ## Context
 
-The FAA's MOSAIC (Modernization of Special Airworthiness Certification) final rule, effective July 2026, expands the Light Sport Aircraft (LSA) category to include aircraft up to 3,000 lbs and 250 knots. This creates new certification pathways and market opportunities.
+The FAA's Industry Regulation XYZ (Modernization of Special Airworthiness Certification) final rule, effective July 2026, expands the Light Sport Aircraft (LSA) category to include aircraft up to 3,000 lbs and 250 knots. This creates new certification pathways and market opportunities.
 
 ## Objective
 
-Identify strategic opportunities where Hupyy's formal verification and certification expertise provides competitive advantage in the expanding MOSAIC/eVTOL market.
+Identify strategic opportunities where TechCo's formal verification and certification expertise provides competitive advantage in the expanding Industry Regulation XYZ/eVTOL market.
 
 ## Success Criteria
 
@@ -160,7 +160,7 @@ claude -p "/discover-opportunities"
 ```
 Analyzing context...
 ✓ Company capabilities parsed: 4 core competencies, 8 technical skills
-✓ Client domain analyzed: MOSAIC regulation, eVTOL market trends
+✓ Client domain analyzed: Industry Regulation XYZ regulation, eVTOL market trends
 ✓ Discovering strategic fit opportunities...
 
 Top 10 Opportunities Discovered:
@@ -168,7 +168,7 @@ Top 10 Opportunities Discovered:
 1. Flight Control System Verification (Score: 95/100)
    - Technical fit: 98% (DO-178C + SMT expertise)
    - Market potential: $12B TAM, $450M SAM
-   - Regulatory clarity: High (MOSAIC defines pathway)
+   - Regulatory clarity: High (Industry Regulation XYZ defines pathway)
 
 2. Collision Avoidance Verification (Score: 92/100)
    - Technical fit: 95% (formal methods + autonomy)
@@ -227,7 +227,7 @@ Task 05 (Roadmap Planner) - In progress...
 
 Task 01 completed: 32 files
   - DO-178C requirements analysis
-  - FAA MOSAIC regulatory framework
+  - FAA Industry Regulation XYZ regulatory framework
   - SMT verification feasibility
   - Related standards (DO-333, ARP4754A)
 
@@ -244,7 +244,7 @@ Task 03 completed: 29 files
   - Proof-of-concept specification
 
 Task 04 completed: 25 files
-  - Certification pathways under MOSAIC
+  - Certification pathways under Industry Regulation XYZ
   - Testing strategy and acceptance criteria
   - Timeline estimates: POC 6mo, product 18mo, certification 12mo
 

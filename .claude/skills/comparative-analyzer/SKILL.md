@@ -118,7 +118,7 @@ What technical approaches are recurring?
 **A. Market Themes**
 - Target customer segments (eVTOL OEMs, LSA manufacturers, pilots)
 - Pain point categories (safety, cost, certification, efficiency)
-- Market timing (MOSAIC 2026 creates urgency)
+- Market timing (Industry Regulation XYZ 2026 creates urgency)
 
 **B. Technical Themes**
 - Core technologies (SMT verification, AI/ML, sensor fusion)
@@ -145,7 +145,7 @@ What technical approaches are recurring?
 1. **Score**: Higher scores → earlier execution
 2. **Dependencies**: Opportunities that enable others → earlier
 3. **Resource Constraints**: Stagger high-investment opportunities
-4. **Market Timing**: Regulatory deadlines (e.g., MOSAIC 2026) → urgency
+4. **Market Timing**: Regulatory deadlines (e.g., Industry Regulation XYZ 2026) → urgency
 5. **Portfolio Balance**: Mix high-risk/high-reward with safer bets
 
 **Prioritization Process:**

@@ -20,14 +20,14 @@ Initialize a new strategic research project with parameterized configuration, es
 
 - **$1 (project-name)**: Must be provided, alphanumeric with hyphens, 3-50 characters
   - If empty or invalid: ERROR "Project name is required. Format: lowercase-with-hyphens"
-  - Example: "mosaic-vtol-analysis", "ai-manufacturing-study"
+  - Example: "aviation-opportunity-analysis", "ai-manufacturing-study"
 
 - **$2 (industry)**: Must be provided, describe target industry
   - If empty: ERROR "Industry is required. Examples: aviation, healthcare, fintech, manufacturing"
   - Length: 3-30 characters
 
 - **$3 (company-name)**: Must be provided, host company conducting research
-  - If empty: ERROR "Company name is required. Example: 'Hupyy' or 'Acme Corp'"
+  - If empty: ERROR "Company name is required. Example: 'TechCo' or 'Acme Consulting'"
 
 **Check prerequisites:**
 - Verify current directory is template repository
@@ -483,7 +483,7 @@ If $1 (project-name) is empty:
 
 Usage: /init-project [project-name] [industry] [company-name]
 
-Example: /init-project "mosaic-vtol-analysis" "aviation" "Hupyy"
+Example: /init-project "aviation-opportunity-analysis" "aviation" "TechCo"
 
 Project name format:
 - Lowercase letters and hyphens
@@ -497,7 +497,7 @@ If $2 (industry) is empty:
 
 Usage: /init-project [project-name] [industry] [company-name]
 
-Example: /init-project "mosaic-vtol-analysis" "aviation" "Hupyy"
+Example: /init-project "aviation-opportunity-analysis" "aviation" "TechCo"
 
 Common industries:
 - aviation, aerospace, defense
@@ -513,7 +513,7 @@ If $3 (company-name) is empty:
 
 Usage: /init-project [project-name] [industry] [company-name]
 
-Example: /init-project "mosaic-vtol-analysis" "aviation" "Hupyy"
+Example: /init-project "aviation-opportunity-analysis" "aviation" "TechCo"
 
 Company name: Your company conducting the research
 ```

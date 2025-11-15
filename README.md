@@ -16,7 +16,7 @@ Automate comprehensive research using AI-powered skills, parallel execution, and
 
 ## Overview
 
-This framework automates strategic opportunity analysis through eight specialized AI skills and thirteen workflow commands. Born from a real consulting engagement (Hupyy × MOSAIC Aviation Analysis, 2024-2025), it reduces research time by 95%+ while maintaining publication quality and evidence-based rigor.
+This framework automates strategic opportunity analysis through eight specialized AI skills and thirteen workflow commands. Born from a real consulting engagement (TechCo × Industry Regulation XYZ Aviation Analysis, 2024-2025), it reduces research time by 95%+ while maintaining publication quality and evidence-based rigor.
 
 Traditional strategic research is slow, expensive, and inconsistent. Consultants spend 2-3 weeks per opportunity, costing $15K-$30K in labor. Quality varies by analyst expertise. Deadlines compress. Clients wait.
 
@@ -181,9 +181,9 @@ cookiecutter gh:o2alexanderfedin/strategic-research-automation-template
 
 ## Examples
 
-### Real Project Results: MOSAIC Aviation Analysis
+### Real Project Results: Industry Regulation XYZ Aviation Analysis
 
-**Project**: Hupyy evaluating MOSAIC eVTOL opportunities for strategic positioning
+**Project**: TechCo evaluating Industry Regulation XYZ eVTOL opportunities for strategic positioning
 **Scope**: 10 strategic opportunities analyzed
 **Output**: 349 files (20MB), 10 strategic reports, comparative analysis
 **Time**: 15 hours total vs. 6-8 weeks manual
@@ -202,7 +202,7 @@ cookiecutter gh:o2alexanderfedin/strategic-research-automation-template
 
 Complete working examples with full source code:
 
-- **[Aviation MOSAIC](examples/aviation-mosaic/)** - eVTOL opportunity analysis (reference implementation)
+- **[Aviation Industry Regulation XYZ](examples/aviation-mosaic/)** - eVTOL opportunity analysis (reference implementation)
 - **[Healthcare EHR](examples/healthcare-digital/)** - Digital health integration opportunities
 - **[FinTech RegTech](examples/fintech-saas/)** - Compliance automation opportunities
 
@@ -258,7 +258,7 @@ See [Architecture Documentation](docs/ARCHITECTURE.md) for deep dive.
 ### Supported Industries
 
 Pre-configured examples available:
-- **Aviation**: MOSAIC regulation analysis (complete reference)
+- **Aviation**: Industry Regulation XYZ regulation analysis (complete reference)
 - **Healthcare**: EHR integration and digital health
 - **FinTech**: RegTech compliance solutions
 - **SaaS**: Product-market fit analysis
@@ -332,7 +332,7 @@ Free for personal, commercial, and academic use.
 
 **Created by**: Alexander Fedin ([o2alexanderfedin](https://github.com/o2alexanderfedin))
 
-Methodology proven in real consulting engagement: Hupyy × MOSAIC Aviation Analysis (2024-2025).
+Methodology proven in real consulting engagement: TechCo × Industry Regulation XYZ Aviation Analysis (2024-2025).
 
 Built with:
 - [Claude Code](https://claude.ai) by Anthropic

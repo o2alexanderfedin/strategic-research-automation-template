@@ -47,7 +47,7 @@ terms:
 
 # Add industry-specific terms below
 # Example for Aviation:
-#   - term: "MOSAIC"
+#   - term: "Industry Regulation XYZ"
 #     full_name: "Modernization of Special Airworthiness Certification"
 #     definition: "FAA rule to modernize certification for special categories of aircraft"
 #     preferred_usage: "Use full name on first mention, then acronym"

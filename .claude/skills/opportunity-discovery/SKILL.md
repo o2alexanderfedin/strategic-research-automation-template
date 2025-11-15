@@ -57,7 +57,7 @@ You are the Opportunity Discovery specialist, responsible for automatically iden
 - Geographic limitations (e.g., US-based team only)
 - Scale limitations (e.g., max 5 concurrent projects)
 
-**Example Extraction (Hupyy):**
+**Example Extraction (Sample Company):**
 ```
 Core Capabilities:
 - SMT verification (Z3, dReal, CVC5 expertise)
@@ -67,7 +67,7 @@ Core Capabilities:
 - Real-time constraint solving
 
 Differentiators:
-- Only company combining formal verification + aviation certification
+- Unique combination of formal verification + aviation certification expertise
 - Proven track record: 10+ certified systems
 - Novel IP: SMT-based runtime monitoring
 
@@ -83,7 +83,7 @@ Constraints:
 
 **Process:**
 1. Use Read to load `context/client-info.md`
-2. Use Read to load domain documents (e.g., `MOSAIC_Final_Rule.pdf` for aviation)
+2. Use Read to load domain documents (e.g., regulatory documents for aviation)
 3. Use WebSearch for additional market context if needed
 4. Extract key domain dimensions:
 
@@ -100,7 +100,7 @@ Constraints:
 - Cost/efficiency gaps
 
 **C. Regulatory Drivers**
-- New rules or standards (e.g., MOSAIC effective 2026)
+- New rules or standards (e.g., new aviation regulations)
 - Compliance requirements
 - Certification pathways
 - Standards adoption
@@ -117,11 +117,11 @@ Constraints:
 - Integration challenges
 - Innovation opportunities
 
-**Example Extraction (MOSAIC):**
+**Example Extraction (Aviation Regulatory Modernization):**
 ```
 Industry Context:
 - Aviation: LSA and eVTOL sectors
-- Regulatory modernization (MOSAIC rule, effective 2026)
+- Regulatory modernization (new standards, effective 2026)
 - Market growth: 15% CAGR for eVTOL, $25B TAM by 2030
 
 Pain Points:
@@ -131,7 +131,7 @@ Pain Points:
 - Accident prevention: Collision avoidance, terrain awareness gaps
 
 Regulatory Drivers:
-- MOSAIC expands LSA to 3,000 lbs, 250 knots, 4 seats
+- New standards expand aircraft categories (weight, speed, capacity)
 - Enables advanced avionics (autopilot, collision avoidance)
 - Night VFR operations allowed
 - Multi-engine configurations permitted
@@ -178,8 +178,8 @@ Pain Point: VFR-into-IMC accidents (85% fatality rate)
 Capability: SMT verification for autonomous weather decision-making
 Fit Analysis:
 - Capability Match: 10/10 - Formal verification directly addresses safety
-- Differentiation: 10/10 - Only company with SMT + aviation cert
-- Market Size: 8/10 - $850M SAM (MOSAIC LSA segment)
+- Differentiation: 10/10 - Unique combination of SMT + aviation certification
+- Market Size: 8/10 - $850M SAM (new aircraft category segment)
 - Urgency: 10/10 - Severe safety issue (fatalities)
 - Feasibility: 9/10 - Clear certification path (DO-178C Level C)
 - Impact: 10/10 - Life-saving technology, regulatory differentiator
@@ -267,12 +267,12 @@ Fit Analysis:
 
   market_context:
     estimated_tam: "$2.8B"
-    estimated_sam: "$850M (MOSAIC LSA segment)"
+    estimated_sam: "$850M (new aircraft category segment)"
     growth_rate: "15% CAGR"
     customer_segment: "eVTOL OEMs, LSA manufacturers, avionics vendors"
 
   regulatory_context:
-    driver: "MOSAIC rule (effective 2026), FAA Part 91 VFR minima"
+    driver: "New aviation standards (effective 2026), FAA Part 91 VFR minima"
     pathway: "DO-178C Level C (software), ASTM F3269 (LSA avionics)"
     timeline: "18-24 months for certification"
 
@@ -280,17 +280,17 @@ Fit Analysis:
 
   rationale: |
     This opportunity represents the highest strategic fit due to the perfect alignment
-    of Hupyy's formal verification capabilities with a severe aviation safety problem.
+    of formal verification capabilities with a severe aviation safety problem.
     VFR-into-IMC accidents have an 85% fatality rate, creating urgent demand for automated
-    prevention. MOSAIC's 2026 effective date creates a time-sensitive market window.
+    prevention. New regulatory standards with a 2026 effective date create a time-sensitive market window.
 
-    Hupyy's unique combination of SMT verification expertise and DO-178C certification
-    experience provides a defensible competitive moat - no other company can formally prove
+    The unique combination of SMT verification expertise and DO-178C certification
+    experience provides a defensible competitive moat - few companies can formally prove
     the correctness of autonomous weather decisions at runtime. This addresses the FAA's
     key concern about autonomous systems: safety assurance.
 
     The market opportunity is substantial ($850M SAM) with strong growth (15% CAGR) driven
-    by eVTOL commercialization and LSA modernization. The regulatory pathway is clear
+    by eVTOL commercialization and aircraft modernization. The regulatory pathway is clear
     (DO-178C precedent exists) with reasonable timeline (18-24 months). This opportunity
     should be the first sprint executed.
 ```
