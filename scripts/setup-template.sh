@@ -443,7 +443,7 @@ EOF
     if [ -f ".env.example" ] && [ ! -f ".env" ]; then
         cp .env.example .env
         print_success "Created .env from template"
-        print_warning "IMPORTANT: Edit .env and add your ANTHROPIC_API_KEY"
+        print_info "Review .env for optional configuration (API key not required if using Claude Code CLI auth)"
     fi
 
     # Remove template-specific files
@@ -527,8 +527,9 @@ https://github.com/o2alexanderfedin/strategic-research-automation-template" || p
 
     print_info "Next steps:"
     echo ""
-    echo -e "${BOLD}1. Configure environment:${NC}"
-    echo "   - Edit .env and add your ANTHROPIC_API_KEY"
+    echo -e "${BOLD}1. Verify Claude Code authentication:${NC}"
+    echo "   - If not already authenticated, run: claude auth"
+    echo "   - Or set ANTHROPIC_API_KEY in .env (see .env for details)"
     echo ""
     echo -e "${BOLD}2. Enhance context files:${NC}"
     echo "   - vim context/company-profile.md"

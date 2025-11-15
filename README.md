@@ -389,4 +389,8 @@ Questions? [Open an issue](https://github.com/o2alexanderfedin/strategic-researc
 
 ---
 
-**Note**: This framework requires Claude Code v2.0+ with either an active Anthropic API key or a Claude subscription (more cost-effective for regular use).
+**Authentication**: This framework requires Claude Code v2.0+ to be authenticated. You have two options:
+- **Claude Code CLI** (Recommended): Run `claude auth` - uses your existing Claude subscription at no additional API cost
+- **Anthropic API Key**: Set `ANTHROPIC_API_KEY` in `.env` - pay-per-use pricing
+
+Most users already have Claude Code authenticated and don't need an API key.
