@@ -3,7 +3,7 @@
 [![GitHub Template](https://img.shields.io/badge/template-Use%20this%20template-brightgreen)](https://github.com/o2alexanderfedin/strategic-research-automation-template/generate)
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-v2.0+-purple.svg)](https://docs.claude.com)
+[![AI Hive](https://img.shields.io/badge/AI_Hive-v2.0+-purple.svg)](https://o2.services)
 [![Setup Time](https://img.shields.io/badge/setup-2%20minutes-green)]()
 
 > **Transform strategic opportunity analysis from weeks to hours**
@@ -335,7 +335,7 @@ Free for personal, commercial, and academic use.
 Methodology proven in real consulting engagements across multiple industry verticals (2024-2025).
 
 Built with:
-- [Claude Code](https://claude.ai) by Anthropic
+- [AI Hive®](https://o2.services) by O2.services
 - Map-reduce research paradigm
 - Git flow for version control
 
@@ -355,4 +355,4 @@ Questions? [Open an issue](https://github.com/o2alexanderfedin/strategic-researc
 
 ---
 
-**Note**: This framework requires Claude Code v2.0+ and an active Anthropic API key.
+**Note**: This framework requires AI Hive® v2.0+ and an active O2.services API key.
