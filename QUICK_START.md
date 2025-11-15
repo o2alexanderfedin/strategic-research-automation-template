@@ -1,6 +1,8 @@
 # Quick Start Guide - Strategic Research Automation Template
 
-Transform strategic research from weeks to hours in **2 minutes**.
+Transform strategic research from weeks to hours in **2 minutes**. Fully autonomous, zero permission prompts, hands-free execution.
+
+**YOLO Mode by Default**: This template uses fully autonomous operation for professional research automation.
 
 ---
 
@@ -92,7 +94,7 @@ curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-
    - Company and client names
    - Output preferences (formats, detail level)
 
-Done! Start researching with `/discover-opportunities` in Claude Code.
+Done! Start researching with autonomous YOLO mode.
 
 ### Method 3: Existing Project
 
@@ -158,14 +160,11 @@ nano context/industry-background.md
 
 ### 2. Discover Opportunities (5 minutes)
 
-Let AI identify strategic fit areas:
+Let AI autonomously identify strategic fit areas:
 
 ```bash
-# Open in Claude Code
-claude
-
-# In Claude Code, discover opportunities:
-/discover-opportunities
+# Fully autonomous discovery (YOLO mode)
+./scripts/setup/claude-eng -p "/discover-opportunities"
 ```
 
 **What happens:**
@@ -193,8 +192,8 @@ Run /execute-sprint 01 to begin research
 ### 3. Execute First Sprint (45 minutes)
 
 ```bash
-# In Claude Code:
-/execute-sprint 01
+# Fully autonomous sprint execution (YOLO mode)
+./scripts/setup/claude-eng -p "/execute-sprint 01"
 ```
 
 **What happens:**
@@ -249,7 +248,7 @@ Report saved to: reports/01-advanced system-operation-control-verification-repor
 cat reports/01-advanced system-operation-control-verification-report.md
 
 # Or export to PDF/DOCX for stakeholders
-/export-findings 01 --format pdf
+./scripts/setup/claude-eng -p "/export-findings 01 --format pdf"
 ```
 
 **Next**: Decide to pursue (STRONG GO) or move to next opportunity.
@@ -261,36 +260,36 @@ cat reports/01-advanced system-operation-control-verification-report.md
 ### Starting a New Engagement
 
 ```bash
-# 1. Initialize project
-claude -p "/init-project 'Client Engagement' 'Industry' 'Company Name'"
+# 1. Initialize project (YOLO mode)
+./scripts/setup/claude-eng -p "/init-project 'Client Engagement' 'Industry' 'Company Name'"
 
 # 2. Configure context
 vim context/company-profile.md
 vim context/client-info.md
 
-# 3. Discover opportunities
-claude -p "/discover-opportunities"
+# 3. Discover opportunities (fully autonomous)
+./scripts/setup/claude-eng -p "/discover-opportunities"
 
-# 4. Execute first sprint
-claude -p "/execute-sprint 01"
+# 4. Execute first sprint (fully autonomous)
+./scripts/setup/claude-eng -p "/execute-sprint 01"
 ```
 
 ### Working Through Multiple Opportunities
 
 ```bash
-# Execute all sprints autonomously
+# Execute all sprints autonomously (RECOMMENDED)
 ./scripts/run-autonomous-analysis.sh "Project" "Company" "context.pdf"
 
-# Or execute manually with control
-/execute-sprint 01    # Wait for completion
-/execute-sprint 02    # Wait for completion
-/execute-sprint 03    # Etc.
+# Or execute manually with YOLO mode
+./scripts/setup/claude-eng -p "/execute-sprint 01"  # Wait for completion
+./scripts/setup/claude-eng -p "/execute-sprint 02"  # Wait for completion
+./scripts/setup/claude-eng -p "/execute-sprint 03"  # Etc.
 
 # Compare opportunities
-/compare-sprints      # Generates prioritization matrix
+./scripts/setup/claude-eng -p "/compare-sprints"  # Generates prioritization matrix
 ```
 
-### YOLO Mode for Maximum Automation (Advanced)
+### YOLO Mode Details (Default Behavior)
 
 For fully autonomous execution without any permission prompts:
 
@@ -327,15 +326,15 @@ nohup ./scripts/setup/claude-eng -p "/execute-all" > research.log 2>&1 &
 ### Delivering to Stakeholders
 
 ```bash
-# Generate executive summary across all opportunities
-/synthesize-portfolio
+# Generate executive summary across all opportunities (YOLO mode)
+./scripts/setup/claude-eng -p "/synthesize-portfolio"
 
 # Export professional deliverables
-/export-findings --all --format pdf
-/export-findings --all --format docx
+./scripts/setup/claude-eng -p "/export-findings --all --format pdf"
+./scripts/setup/claude-eng -p "/export-findings --all --format docx"
 
 # Create release for client delivery
-/finalize-release v1.0 "Strategic Opportunity Portfolio - Q4 2024"
+./scripts/setup/claude-eng -p "/finalize-release v1.0 'Strategic Opportunity Portfolio - Q4 2024'"
 ```
 
 ---
@@ -344,17 +343,17 @@ nohup ./scripts/setup/claude-eng -p "/execute-all" > research.log 2>&1 &
 
 ### Essential Commands
 
-| Command | Purpose | Example |
+| Command | Purpose | Example (YOLO mode) |
 |---------|---------|---------|
-| `/init-project` | Initialize new research project | `/init-project "Industry Regulation XYZ Analysis" "technology" "TechCo"` |
-| `/discover-opportunities` | Auto-discover strategic fit areas | `/discover-opportunities` |
-| `/create-sprint` | Manually define opportunity sprint | `/create-sprint "advanced system Verification" "operation control certification"` |
-| `/execute-sprint` | Run complete sprint (6 tasks) | `/execute-sprint 01` |
-| `/execute-task` | Run single task | `/execute-task 01 02` (sprint 01, task 02) |
-| `/synthesize-report` | Generate final report | `/synthesize-report 01` |
-| `/score-opportunity` | Apply scoring rubric | `/score-opportunity 01` |
-| `/compare-sprints` | Prioritize opportunities | `/compare-sprints` |
-| `/export-findings` | Export to PDF/DOCX | `/export-findings 01 --format pdf` |
+| `/init-project` | Initialize new research project | `./scripts/setup/claude-eng -p "/init-project 'Industry Regulation XYZ Analysis' 'technology' 'TechCo'"` |
+| `/discover-opportunities` | Auto-discover strategic fit areas | `./scripts/setup/claude-eng -p "/discover-opportunities"` |
+| `/create-sprint` | Manually define opportunity sprint | `./scripts/setup/claude-eng -p "/create-sprint 'advanced system Verification' 'operation control certification'"` |
+| `/execute-sprint` | Run complete sprint (6 tasks) | `./scripts/setup/claude-eng -p "/execute-sprint 01"` |
+| `/execute-task` | Run single task | `./scripts/setup/claude-eng -p "/execute-task 01 02"` |
+| `/synthesize-report` | Generate final report | `./scripts/setup/claude-eng -p "/synthesize-report 01"` |
+| `/score-opportunity` | Apply scoring rubric | `./scripts/setup/claude-eng -p "/score-opportunity 01"` |
+| `/compare-sprints` | Prioritize opportunities | `./scripts/setup/claude-eng -p "/compare-sprints"` |
+| `/export-findings` | Export to PDF/DOCX | `./scripts/setup/claude-eng -p "/export-findings 01 --format pdf'"` |
 
 ### Advanced Commands
 
@@ -408,8 +407,8 @@ to update certification standards for light sport system, potentially including 
 - Certification pathways still emerging
 EOF
 
-# Discover opportunities
-claude -p "/discover-opportunities"
+# Discover opportunities (fully autonomous)
+./scripts/setup/claude-eng -p "/discover-opportunities"
 ```
 
 ### Healthcare (Digital Health/EHR)
@@ -437,8 +436,8 @@ cat > context/industry-background.md << 'EOF'
 - Patient data access requirements (21st Century Cures Act)
 EOF
 
-# Discover opportunities
-claude -p "/discover-opportunities"
+# Discover opportunities (fully autonomous)
+./scripts/setup/claude-eng -p "/discover-opportunities"
 ```
 
 ### FinTech (RegTech/Compliance)
@@ -466,8 +465,8 @@ cat > context/industry-background.md << 'EOF'
 - AI/ML adoption accelerating
 EOF
 
-# Discover opportunities
-claude -p "/discover-opportunities"
+# Discover opportunities (fully autonomous)
+./scripts/setup/claude-eng -p "/discover-opportunities"
 ```
 
 ---
@@ -510,7 +509,7 @@ ls -la .claude/skills/
 claude --version  # Should be v2.0+
 
 # Manually invoke skill
-claude -p "@technical-researcher Analyze Industry Standard ABC requirements"
+./scripts/setup/claude-eng -p "@technical-researcher Analyze Industry Standard ABC requirements"
 ```
 
 **Problem**: Tasks running sequentially instead of parallel
@@ -533,7 +532,7 @@ vim config/project-config.yml
 cat config/quality-standards.yml
 
 # Run with verbose logging
-claude -p "/execute-task 01 01" --verbose
+./scripts/setup/claude-eng -p "/execute-task 01 01"
 
 # Validate sprint configuration
 cat sprints/sprint-01.yml
@@ -641,13 +640,13 @@ vim config/project-config.yml
 # If you have 8 CPU cores, run 2 sprints simultaneously
 
 # Terminal 1
-claude -p "/execute-sprint 01"
+./scripts/setup/claude-eng -p "/execute-sprint 01"
 
 # Terminal 2 (while sprint 01 runs)
-claude -p "/execute-sprint 02"
+./scripts/setup/claude-eng -p "/execute-sprint 02"
 
 # Terminal 3 (while 01 and 02 run)
-claude -p "/execute-sprint 03"
+./scripts/setup/claude-eng -p "/execute-sprint 03"
 
 # Monitor progress
 watch -n 5 'find temp/ -type f | wc -l'  # Count research files
@@ -798,10 +797,13 @@ You now have everything you need to transform strategic research.
 **Your next command:**
 
 ```bash
-claude -p "/init-project 'My Engagement' 'My Industry' 'My Company'"
-# Configure context files
-claude -p "/discover-opportunities"
-claude -p "/execute-sprint 01"
+# Initialize and configure
+./scripts/setup/claude-eng -p "/init-project 'My Engagement' 'My Industry' 'My Company'"
+# Then edit context files (vim context/*.md)
+
+# Run fully autonomous research
+./scripts/setup/claude-eng -p "/discover-opportunities"
+./scripts/setup/claude-eng -p "/execute-sprint 01"
 ```
 
 **What to expect:**

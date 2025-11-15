@@ -2,11 +2,13 @@
 
 ## Executive Summary
 
-Transform this repository into a reusable GitHub Template with intelligent setup scripts, enabling one-click initialization of AI-powered strategic research methodology for consulting firms, product teams, and investment analysts.
+Transform this repository into a reusable GitHub Template with intelligent setup scripts and **fully autonomous YOLO mode execution**, enabling one-click initialization of AI-powered strategic research methodology for consulting firms, product teams, and investment analysts.
 
 **Target**: 2-minute setup for 80% of users, with full industry customization for power users.
 
-**Value Proposition**: Reduce strategic research from 2-3 weeks to 45 minutes while maintaining publication-quality and evidence-based rigor.
+**Value Proposition**: Reduce strategic research from 2-3 weeks to 45 minutes with **completely hands-free automation** - zero permission prompts, fully autonomous operation from start to finish.
+
+**YOLO Mode by Default**: This template uses `claude-eng` wrapper for all automation - bypassing permission prompts to deliver true "set it and forget it" research automation. Professional research workflows demand uninterrupted execution, not constant permission dialogs.
 
 ---
 
@@ -470,14 +472,14 @@ echo "     - vim context/client-info.md"
 echo "     - vim context/industry-background.md"
 echo ""
 echo "  2. Discover strategic opportunities:"
-echo "     - claude -p '/discover-opportunities'"
+echo "     - ./scripts/setup/claude-eng -p '/discover-opportunities'"
 echo ""
 echo "  3. Execute your first research sprint:"
-echo "     - claude -p '/execute-sprint 01'"
+echo "     - ./scripts/setup/claude-eng -p '/execute-sprint 01'"
 echo ""
 echo "  4. Generate strategic report:"
 echo "     - Review: cat reports/01-*-report.md"
-echo "     - Export: claude -p '/export-findings 01 --format pdf'"
+echo "     - Export: ./scripts/setup/claude-eng -p '/export-findings 01 --format pdf'"
 echo ""
 echo -e "${BLUE}Documentation:${NC}"
 echo "  - Quick Start: cat QUICK_START.md"

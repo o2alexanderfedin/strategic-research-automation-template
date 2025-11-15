@@ -4,8 +4,8 @@
 
 set -e
 
-# Use CLAUDE_CMD environment variable or default to 'claude'
-CLAUDE_CMD="${CLAUDE_CMD:-claude}"
+# Use CLAUDE_CMD environment variable or default to YOLO mode (claude-eng)
+CLAUDE_CMD="${CLAUDE_CMD:-./scripts/setup/claude-eng}"
 
 SPRINT_NUM="$1"
 

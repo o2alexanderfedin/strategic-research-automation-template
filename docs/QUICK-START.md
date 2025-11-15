@@ -46,7 +46,7 @@ echo $ANTHROPIC_API_KEY | head -c 20
 
 ```bash
 # Initialize with your project details
-claude -p "/init-project 'Industry Regulation XYZ advanced system Analysis' 'technology sector' 'TechCo Consulting'"
+./scripts/setup/claude-eng -p "/init-project 'Industry Regulation XYZ advanced system Analysis' 'technology sector' 'TechCo Consulting'"
 ```
 
 **What this does**:
@@ -146,7 +146,7 @@ Identify strategic opportunities where TechCo's rigorous verification and certif
 
 ```bash
 # Let AI analyze your context and discover opportunities
-claude -p "/discover-opportunities"
+./scripts/setup/claude-eng -p "/discover-opportunities"
 ```
 
 **What this does**:
@@ -197,7 +197,7 @@ Ready to execute with /execute-sprint [number]
 
 ```bash
 # Execute the top-scored opportunity
-claude -p "/execute-sprint 01"
+./scripts/setup/claude-eng -p "/execute-sprint 01"
 ```
 
 **What this does**:
@@ -292,7 +292,7 @@ cat reports/01-operation-control-verification.md
 **Quality indicators**:
 ```bash
 # Validate quality
-claude -p "/validate-quality 01"
+./scripts/setup/claude-eng -p "/validate-quality 01"
 
 # Expected output:
 ✓ File count: 32 (minimum: 25)
@@ -327,10 +327,10 @@ In 5 minutes of setup + 60 minutes of automated execution:
 
 ```bash
 # Execute sprint 2
-claude -p "/execute-sprint 02"
+./scripts/setup/claude-eng -p "/execute-sprint 02"
 
 # Or execute all remaining sprints
-claude -p "/execute-all"
+./scripts/setup/claude-eng -p "/execute-all"
 # Warning: This runs ALL sprints. For 10 sprints, expect 8-12 hours total.
 ```
 
@@ -338,7 +338,7 @@ claude -p "/execute-all"
 
 ```bash
 # After executing multiple sprints, compare them
-claude -p "/compare-sprints"
+./scripts/setup/claude-eng -p "/compare-sprints"
 
 # Generates comparative report showing:
 # - Side-by-side scoring
@@ -350,13 +350,13 @@ claude -p "/compare-sprints"
 
 ```bash
 # Export to PDF
-claude -p "/export-findings 01 pdf"
+./scripts/setup/claude-eng -p "/export-findings 01 pdf"
 
 # Export to DOCX
-claude -p "/export-findings 01 docx"
+./scripts/setup/claude-eng -p "/export-findings 01 docx"
 
 # Export all formats
-claude -p "/export-findings 01 all"
+./scripts/setup/claude-eng -p "/export-findings 01 all"
 ```
 
 ### Customize for Your Industry
@@ -435,7 +435,7 @@ top  # or htop
 **If quality validation fails**:
 ```bash
 # Check specific failures
-claude -p "/validate-quality 01"
+./scripts/setup/claude-eng -p "/validate-quality 01"
 
 # Common issues:
 # - Too few research files: Need more comprehensive research

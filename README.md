@@ -16,11 +16,11 @@ Automate comprehensive research using AI-powered skills, parallel execution, and
 
 ## Overview
 
-This framework automates strategic opportunity analysis through eight specialized AI skills and thirteen workflow commands. Born from real consulting engagements across multiple industry verticals (2024-2025), it reduces research time by 95%+ while maintaining publication quality and evidence-based rigor.
+This framework automates strategic opportunity analysis through eight specialized AI skills, thirteen workflow commands, and **fully autonomous YOLO mode execution**. Born from real consulting engagements across multiple industry verticals (2024-2025), it reduces research time by 95%+ while maintaining publication quality and evidence-based rigor.
 
 Traditional strategic research is slow, expensive, and inconsistent. Consultants spend 2-3 weeks per opportunity, costing $15K-$30K in labor. Quality varies by analyst expertise. Deadlines compress. Clients wait.
 
-This framework changes everything: 45 minutes per opportunity, $10-$20 in API costs, consistent methodology, parallel execution, and comprehensive audit trails. What took weeks now takes an afternoon.
+This framework changes everything: **fully autonomous execution** with zero permission prompts, 45 minutes per opportunity, $10-$20 in API costs, consistent methodology, parallel execution, and comprehensive audit trails. What took weeks now takes an afternoon - completely hands-free.
 
 **Who this is for**:
 - **Consulting firms** conducting strategic research and proposal development for clients
@@ -104,13 +104,15 @@ For fully autonomous operation without permission prompts, use the `claude-eng` 
 ./scripts/setup/claude-eng -p "/execute-all"
 ```
 
-**What YOLO mode does**:
-- Bypasses all permission prompts for maximum autonomy
-- Enables all tools for unrestricted operation
-- Injects project-specific system prompts from `.claude-system-prompt.md`
-- Best for: Overnight batch processing, CI/CD integration, large-scale research
+**YOLO mode is the default** for this template - providing:
+- **Zero permission prompts** - fully autonomous operation from start to finish
+- **All tools enabled** - unrestricted research capabilities
+- **Custom system prompts** - project-specific automation from `.claude-system-prompt.md`
+- **Perfect for**: Overnight batch processing, CI/CD integration, large-scale research pipelines
 
-**Security considerations**: YOLO mode has unrestricted access to your system. Only use in trusted environments with vetted prompts.
+**Why YOLO-only?** This template is designed for professional research automation. Manual permission prompts interrupt workflows and prevent true automation. YOLO mode delivers the promise: **weeks to hours, completely hands-free**.
+
+**Security note**: YOLO mode has unrestricted access to your system. Only use in controlled, trusted research environments.
 
 **What you get**:
 - 25-38 granular research files per sprint
@@ -170,19 +172,19 @@ cookiecutter gh:o2alexanderfedin/strategic-research-automation-template
 
 1. **Discover Opportunities** (5 minutes):
    ```bash
-   claude -p "/discover-opportunities"
-   # AI identifies 5-10 strategic fit areas
+   ./scripts/setup/claude-eng -p "/discover-opportunities"
+   # AI autonomously identifies 5-10 strategic fit areas
    ```
 
 2. **Execute Sprint** (45 minutes):
    ```bash
-   claude -p "/execute-sprint 01"
-   # Generates 25+ research files + 10-page report
+   ./scripts/setup/claude-eng -p "/execute-sprint 01"
+   # Fully autonomous: Generates 25+ research files + 10-page report
    ```
 
 3. **Export Deliverable** (2 minutes):
    ```bash
-   claude -p "/export-findings 01 pdf"
+   ./scripts/setup/claude-eng -p "/export-findings 01 pdf"
    # Professional PDF ready for stakeholders
    ```
 
@@ -366,12 +368,20 @@ Built with:
 
 ## Get Started
 
-Ready to 10x your strategic research?
+Ready to 10x your strategic research with fully autonomous automation?
 
 ```bash
 git clone https://github.com/o2alexanderfedin/strategic-research-automation-template
 cd strategic-research-automation-template
-claude -p "/init-project 'My Project' 'Industry' 'Company'"
+./scripts/setup/claude-eng -p "/init-project 'My Project' 'Industry' 'Company'"
+```
+
+**Then run completely hands-free**:
+```bash
+# Discover + execute all opportunities autonomously
+./scripts/run-autonomous-analysis.sh "My Project" "My Company" "context.pdf"
+
+# Returns in 2-4 hours with complete strategic portfolio
 ```
 
 Questions? [Open an issue](https://github.com/o2alexanderfedin/strategic-research-automation-template/issues/new) or read the [docs](docs/).

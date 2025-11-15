@@ -405,7 +405,7 @@ set -euo pipefail
 # Test custom skill activation
 test_skill_activation() {
   local result
-  result=$(echo "trigger keyword" | claude -p "/execute-task 01 01")
+  result=$(echo "trigger keyword" | ./scripts/setup/claude-eng -p "/execute-task 01 01")
 
   if [[ "$result" =~ "custom-analyst skill activated" ]]; then
     echo "PASS: Skill activation"

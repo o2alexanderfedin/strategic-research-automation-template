@@ -848,7 +848,7 @@ To verify custom skill activates correctly:
 
 ```bash
 # Test activation
-echo "We need to ensure HIPAA compliance and FDA 510(k) clearance" | claude -p "/execute-task 01 04"
+echo "We need to ensure HIPAA compliance and FDA 510(k) clearance" | ./scripts/setup/claude-eng -p "/execute-task 01 04"
 
 # Should activate healthcare-compliance-analyst skill
 ```

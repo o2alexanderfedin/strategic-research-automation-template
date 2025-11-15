@@ -344,9 +344,9 @@ scoring_criteria:
 ### Test Installation
 
 ```bash
-# Test Claude Code
-claude -p "Test message"
-# Expected: Response from Claude
+# Test YOLO mode wrapper
+./scripts/setup/claude-eng -p "Test message"
+# Expected: Fully autonomous response from Claude
 
 # Test project structure
 ls -la
@@ -364,14 +364,15 @@ git status
 ### Initialize First Project
 
 ```bash
-# Use init-project command
-claude -p "/init-project 'Test Project' 'Test Industry' 'Test Company'"
+# Use init-project command (YOLO mode - fully autonomous)
+./scripts/setup/claude-eng -p "/init-project 'Test Project' 'Test Industry' 'Test Company'"
 
 # Expected output:
 # ✓ Project initialized: Test Project
 # ✓ Configuration files created
 # ✓ Context templates created
 # ✓ Git repository configured
+# (All executed autonomously without permission prompts)
 ```
 
 ---
@@ -413,8 +414,8 @@ echo $ANTHROPIC_API_KEY
 # If empty or incorrect, reset:
 export ANTHROPIC_API_KEY="sk-ant-your-actual-key"
 
-# Test with simple request
-claude -p "Hello"
+# Test with simple autonomous request
+./scripts/setup/claude-eng -p "Hello"
 
 # Make permanent (add to ~/.bashrc or ~/.zshrc):
 echo 'export ANTHROPIC_API_KEY="sk-ant-your-key"' >> ~/.bashrc
