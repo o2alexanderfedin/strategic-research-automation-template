@@ -40,7 +40,7 @@ cd my-strategic-research-project
 # - Project name?
 # - Company name (your consulting firm)?
 # - Client name (if applicable)?
-# - Industry? (Aviation/Healthcare/FinTech/SaaS/Manufacturing/etc.)
+# - Industry? (Technology/Services/FinTech/Manufacturing/Healthcare/etc.)
 # - Research focus? (Market analysis/Tech assessment/Due diligence/Comprehensive)
 # - Output format preferences? (Markdown/PDF/DOCX/All)
 # - Detail level? (Executive/Detailed/Comprehensive)
@@ -57,7 +57,7 @@ cd my-strategic-research-project
 **One-Liner (Advanced):**
 ```bash
 curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-automation-template/main/scripts/quick-start.sh | \
-  bash -s my-project --industry aviation --focus comprehensive
+  bash -s my-project --industry technology --focus comprehensive
 ```
 
 ### Mode 2: Existing Consulting Project (15% of users)
@@ -144,7 +144,7 @@ strategic-research-automation-template/
 │   ├── client-info.md.example       # Template with {{VARIABLES}}
 │   └── industry-background.md.example # Template with {{VARIABLES}}
 ├── templates/                       # Industry-specific variants
-│   ├── aviation/
+│   ├── technology/
 │   │   ├── config/
 │   │   ├── context/
 │   │   └── glossary.yml
@@ -164,7 +164,7 @@ strategic-research-automation-template/
 │   ├── run-complete-analysis.sh     # Manual control
 │   └── update-template.sh           # Pull improvements
 ├── examples/                        # Real project examples
-│   ├── aviation-mosaic/             # Complete reference
+│   ├── technology-mosaic/             # Complete reference
 │   ├── healthcare-ehr/
 │   └── fintech-regtech/
 ├── docs/
@@ -231,7 +231,7 @@ read -p "Client name (or press Enter to skip): " CLIENT_NAME
 # Industry selection with descriptions
 echo ""
 echo "Select industry:"
-echo "  1. Aviation (eVTOL, certification, aerospace)"
+echo "  1. technology (advanced system, certification, aerospace)"
 echo "  2. Healthcare (EHR, digital health, medical devices)"
 echo "  3. FinTech (RegTech, payments, compliance)"
 echo "  4. SaaS (product-market fit, enterprise software)"
@@ -241,7 +241,7 @@ echo "  7. Other (custom industry)"
 read -p "Choice [1-7]: " INDUSTRY_CHOICE
 
 case $INDUSTRY_CHOICE in
-    1) INDUSTRY="aviation" ;;
+    1) INDUSTRY="technology" ;;
     2) INDUSTRY="healthcare" ;;
     3) INDUSTRY="fintech" ;;
     4) INDUSTRY="saas" ;;
@@ -618,7 +618,7 @@ jobs:
 - [ ] Mark repository as GitHub Template
 
 ### Phase 2: Industry Variants (In Progress)
-- [ ] Create `templates/aviation/` variant
+- [ ] Create `templates/technology/` variant
 - [ ] Create `templates/healthcare/` variant
 - [ ] Create `templates/fintech/` variant
 - [ ] Create `templates/saas/` variant
@@ -636,7 +636,7 @@ jobs:
 ### Phase 4: Documentation & Polish (Planned)
 - [ ] Comprehensive README
 - [ ] Video walkthrough
-- [ ] Example projects using template (aviation, healthcare, fintech)
+- [ ] Example projects using template (technology, healthcare, fintech)
 - [ ] Blog post / announcement
 - [ ] Gather user feedback
 
@@ -726,7 +726,7 @@ workspace/
 3. **Test on fresh clone** to validate approach
 4. **Update README.md** with template usage instructions
 5. **Mark as GitHub Template** in repository settings
-6. **Create example projects** for aviation, healthcare, fintech
+6. **Create example projects** for technology, healthcare, fintech
 
 ---
 

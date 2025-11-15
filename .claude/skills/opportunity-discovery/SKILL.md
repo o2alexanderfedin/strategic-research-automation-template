@@ -33,9 +33,9 @@ You are the Opportunity Discovery specialist, responsible for automatically iden
 2. Extract key capability dimensions:
 
 **A. Core Capabilities**
-- Technologies mastered (e.g., SMT verification, Z3 solvers, DO-178C certification)
-- Methodologies expertise (e.g., formal methods, AI/ML, embedded systems)
-- Domain knowledge (e.g., aviation, automotive, healthcare)
+- Technologies mastered (e.g., advanced verification, Z3 solvers, Industry Standard ABC certification)
+- Methodologies expertise (e.g., advanced methodologies, AI/ML, embedded systems)
+- Domain knowledge (e.g., technology sector, automotive, healthcare)
 
 **B. Technology Stack**
 - Programming languages (e.g., TypeScript, Python, C++)
@@ -44,11 +44,11 @@ You are the Opportunity Discovery specialist, responsible for automatically iden
 
 **C. Team Strengths**
 - Engineering disciplines (e.g., aerospace, software, verification)
-- Certifications held (e.g., DO-178C experience, FAA DER)
-- Academic expertise (e.g., PhD in formal methods)
+- Certifications held (e.g., Industry Standard ABC experience, Regulatory Body DER)
+- Academic expertise (e.g., PhD in advanced methodologies)
 
 **D. Differentiators**
-- Unique competitive advantages (e.g., only company with SMT + aviation cert)
+- Unique competitive advantages (e.g., only company with advanced methodology + technology sector cert)
 - Proprietary IP (e.g., verification algorithms, patents)
 - Track record (e.g., certified 10 safety-critical systems)
 
@@ -60,20 +60,20 @@ You are the Opportunity Discovery specialist, responsible for automatically iden
 **Example Extraction (Sample Company):**
 ```
 Core Capabilities:
-- SMT verification (Z3, dReal, CVC5 expertise)
+- advanced verification (Z3, dReal, CVC5 expertise)
 - Formal methods for safety-critical systems
-- DO-178C/DO-333 certification consulting
+- Industry Standard ABC/Compliance Framework DEF certification consulting
 - Autonomous systems architecture
 - Real-time constraint solving
 
 Differentiators:
-- Unique combination of formal verification + aviation certification expertise
+- Unique combination of rigorous verification + technology sector certification expertise
 - Proven track record: 10+ certified systems
-- Novel IP: SMT-based runtime monitoring
+- Novel IP: advanced methodology-based runtime monitoring
 
 Constraints:
 - No hardware manufacturing
-- Focus on safety-critical domains (aviation, automotive, medical)
+- Focus on safety-critical domains (technology sector, automotive, medical)
 - Software/algorithms only
 ```
 
@@ -83,12 +83,12 @@ Constraints:
 
 **Process:**
 1. Use Read to load `context/client-info.md`
-2. Use Read to load domain documents (e.g., regulatory documents for aviation)
+2. Use Read to load domain documents (e.g., regulatory documents for technology sector)
 3. Use WebSearch for additional market context if needed
 4. Extract key domain dimensions:
 
 **A. Industry Context**
-- Sector (e.g., aviation, healthcare, finance)
+- Sector (e.g., technology sector, healthcare, finance)
 - Market size and growth trends
 - Regulatory environment
 - Competitive landscape
@@ -100,13 +100,13 @@ Constraints:
 - Cost/efficiency gaps
 
 **C. Regulatory Drivers**
-- New rules or standards (e.g., new aviation regulations)
+- New rules or standards (e.g., new technology sector regulations)
 - Compliance requirements
 - Certification pathways
 - Standards adoption
 
 **D. Market Opportunities**
-- Emerging segments (e.g., eVTOL, LSA modernization)
+- Emerging segments (e.g., advanced system, LSA modernization)
 - Technology enablement trends
 - Funding/investment climate
 - Partnership ecosystems
@@ -117,29 +117,29 @@ Constraints:
 - Integration challenges
 - Innovation opportunities
 
-**Example Extraction (Aviation Regulatory Modernization):**
+**Example Extraction (technology sector Regulatory Modernization):**
 ```
 Industry Context:
-- Aviation: LSA and eVTOL sectors
+- technology sector: LSA and advanced system sectors
 - Regulatory modernization (new standards, effective 2026)
-- Market growth: 15% CAGR for eVTOL, $25B TAM by 2030
+- Market growth: 15% CAGR for advanced system, $25B TAM by 2030
 
 Pain Points:
-- Flight safety: 300+ general aviation accidents/year, 85% fatal VFR-into-IMC
+- operation safety: 300+ general technology sector accidents/year, 85% fatal VFR-into-IMC
 - Certification costs: $2M+ for avionics systems
 - Pilot workload: Manual systems, high cognitive load
 - Accident prevention: Collision avoidance, terrain awareness gaps
 
 Regulatory Drivers:
-- New standards expand aircraft categories (weight, speed, capacity)
+- New standards expand system categories (weight, speed, capacity)
 - Enables advanced avionics (autopilot, collision avoidance)
 - Night VFR operations allowed
 - Multi-engine configurations permitted
 
 Technology Gaps:
-- Formal verification for aviation software (immature)
+- Formal verification for technology sector software (immature)
 - Automated compliance checking (doesn't exist)
-- SMT-based safety proofs (novel approach)
+- advanced methodology-based safety proofs (novel approach)
 - Real-time verified autonomous systems (research area)
 ```
 
@@ -175,13 +175,13 @@ For each Client Pain Point:
 **Example Strategic Fit:**
 ```
 Pain Point: VFR-into-IMC accidents (85% fatality rate)
-Capability: SMT verification for autonomous weather decision-making
+Capability: advanced verification for autonomous weather decision-making
 Fit Analysis:
 - Capability Match: 10/10 - Formal verification directly addresses safety
-- Differentiation: 10/10 - Unique combination of SMT + aviation certification
-- Market Size: 8/10 - $850M SAM (new aircraft category segment)
+- Differentiation: 10/10 - Unique combination of advanced methodology + technology sector certification
+- Market Size: 8/10 - $850M SAM (new system category segment)
 - Urgency: 10/10 - Severe safety issue (fatalities)
-- Feasibility: 9/10 - Clear certification path (DO-178C Level C)
+- Feasibility: 9/10 - Clear certification path (Industry Standard ABC Level C)
 - Impact: 10/10 - Life-saving technology, regulatory differentiator
 => Overall Fit: 9.5/10 (HIGH FIT - Strategic Opportunity)
 ```
@@ -243,8 +243,8 @@ Fit Analysis:
 **Example Opportunity (Generated):**
 ```yaml
 - id: 01
-  name: "Autonomous Weather Decision-Making for LSA/eVTOL"
-  description: "SMT-verified real-time weather go/no-go decision system that formally proves VFR/IFR minima compliance to prevent VFR-into-IMC accidents."
+  name: "Autonomous Weather Decision-Making for LSA/advanced system"
+  description: "advanced methodology-verified real-time weather go/no-go decision system that formally proves VFR/IFR minima compliance to prevent VFR-into-IMC accidents."
 
   strategic_fit:
     capability_match: 10/10
@@ -256,9 +256,9 @@ Fit Analysis:
     overall_fit: 9.5/10
 
   company_capability:
-    primary: "SMT verification (Z3, dReal) for real-time weather rule compliance"
-    secondary: "DO-178C certification expertise, AI/ML integration, weather data parsing"
-    differentiator: "Only company with formal verification + aviation certification; can prove correctness of autonomous weather decisions"
+    primary: "advanced verification (Z3, dReal) for real-time weather rule compliance"
+    secondary: "Industry Standard ABC certification expertise, AI/ML integration, weather data parsing"
+    differentiator: "Only company with rigorous verification + technology sector certification; can prove correctness of autonomous weather decisions"
 
   client_need:
     pain_point: "VFR-into-IMC accidents (300+ annually, 85% fatality rate)"
@@ -267,31 +267,31 @@ Fit Analysis:
 
   market_context:
     estimated_tam: "$2.8B"
-    estimated_sam: "$850M (new aircraft category segment)"
+    estimated_sam: "$850M (new system category segment)"
     growth_rate: "15% CAGR"
-    customer_segment: "eVTOL OEMs, LSA manufacturers, avionics vendors"
+    customer_segment: "advanced system OEMs, LSA manufacturers, avionics vendors"
 
   regulatory_context:
-    driver: "New aviation standards (effective 2026), FAA Part 91 VFR minima"
-    pathway: "DO-178C Level C (software), ASTM F3269 (LSA avionics)"
+    driver: "New technology sector standards (effective 2026), Regulatory Body Part 91 VFR minima"
+    pathway: "Industry Standard ABC Level C (software), ASTM F3269 (LSA avionics)"
     timeline: "18-24 months for certification"
 
   priority: "high"
 
   rationale: |
     This opportunity represents the highest strategic fit due to the perfect alignment
-    of formal verification capabilities with a severe aviation safety problem.
+    of rigorous verification capabilities with a severe technology sector safety problem.
     VFR-into-IMC accidents have an 85% fatality rate, creating urgent demand for automated
     prevention. New regulatory standards with a 2026 effective date create a time-sensitive market window.
 
-    The unique combination of SMT verification expertise and DO-178C certification
+    The unique combination of advanced verification expertise and Industry Standard ABC certification
     experience provides a defensible competitive moat - few companies can formally prove
-    the correctness of autonomous weather decisions at runtime. This addresses the FAA's
+    the correctness of autonomous weather decisions at runtime. This addresses the Regulatory Body's
     key concern about autonomous systems: safety assurance.
 
     The market opportunity is substantial ($850M SAM) with strong growth (15% CAGR) driven
-    by eVTOL commercialization and aircraft modernization. The regulatory pathway is clear
-    (DO-178C precedent exists) with reasonable timeline (18-24 months). This opportunity
+    by advanced system commercialization and system modernization. The regulatory pathway is clear
+    (Industry Standard ABC precedent exists) with reasonable timeline (18-24 months). This opportunity
     should be the first sprint executed.
 ```
 
@@ -310,30 +310,30 @@ Fit Analysis:
 sprints:
   - id: 01
     name: "Autonomous Weather Decision-Making"
-    description: "SMT-verified real-time weather go/no-go decision system that formally proves VFR/IFR minima compliance to prevent VFR-into-IMC accidents."
+    description: "advanced methodology-verified real-time weather go/no-go decision system that formally proves VFR/IFR minima compliance to prevent VFR-into-IMC accidents."
     priority: "high"
     estimated_duration: "5 days"
     strategic_fit_score: 9.5
     tasks:
       - id: 01
         name: "Technical & Regulatory Landscape"
-        description: "Research VFR/IFR weather minima regulations (14 CFR Part 91), weather data sources (METAR/TAF), formal verification approaches (SMT, DO-178C), and competitive weather systems (Garmin, Honeywell)."
+        description: "Research VFR/IFR weather minima regulations (14 CFR Part 91), weather data sources (METAR/TAF), rigorous verification approaches (advanced methodology, Industry Standard ABC), and competitive weather systems (Garmin, Honeywell)."
         estimated_duration: "1 day"
       - id: 02
         name: "Market & Competitive Assessment"
-        description: "Analyze TAM/SAM/SOM for aviation weather systems, identify customer pain points (VFR-into-IMC accidents), assess competitive landscape (advisory systems), and define differentiation strategy (formal verification)."
+        description: "Analyze TAM/SAM/SOM for technology sector weather systems, identify customer pain points (VFR-into-IMC accidents), assess competitive landscape (advisory systems), and define differentiation strategy (rigorous verification)."
         estimated_duration: "1 day"
       - id: 03
         name: "Solution Architecture Design"
-        description: "Design system architecture (weather data ingestion, NLP parsing, VFR/IFR rules engine, SMT verifier), specify components, integration points (FAA APIs, aircraft systems), and POC scope."
+        description: "Design system architecture (weather data ingestion, NLP parsing, VFR/IFR rules engine, advanced methodology verifier), specify components, integration points (Regulatory Body APIs, system systems), and POC scope."
         estimated_duration: "1 day"
       - id: 04
         name: "Certification & Testing Strategy"
-        description: "Define certification pathway (DO-178C Level C), testing requirements (weather scenario validation, 1000+ test cases), timeline (18-24 months), and cost estimates ($2M-$4M)."
+        description: "Define certification pathway (Industry Standard ABC Level C), testing requirements (weather scenario validation, 1000+ test cases), timeline (18-24 months), and cost estimates ($2M-$4M)."
         estimated_duration: "1 day"
       - id: 05
         name: "Implementation Roadmap"
-        description: "Specify POC (Python prototype, OpenWeather API, Z3 verification), prototype (C++ implementation, FAA APIs, flight testing), productization (OEM partnerships, production deployment), and risk mitigation."
+        description: "Specify POC (Python prototype, OpenWeather API, Z3 verification), prototype (C++ implementation, Regulatory Body APIs, operation testing), productization (OEM partnerships, production deployment), and risk mitigation."
         estimated_duration: "1 day"
       - id: 06
         name: "Final Report Synthesis"

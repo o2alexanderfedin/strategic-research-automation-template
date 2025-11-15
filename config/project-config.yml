@@ -5,7 +5,7 @@ project:
   name: "{{PROJECT_NAME}}"                # String, required - Your project name
   company: "{{COMPANY_NAME}}"             # String, required - Your company name
   client: "{{CLIENT_NAME}}"               # String, required - Client name (or "Internal" for internal projects)
-  industry: "{{INDUSTRY}}"                # String, required (e.g., "Aviation", "Healthcare", "Finance", "Manufacturing")
+  industry: "{{INDUSTRY}}"                # String, required (e.g., "Technology", "Services", "Manufacturing", "Healthcare")
   analysis_type: "strategic_opportunity"  # Enum: strategic_opportunity, competitive_intelligence, market_entry, technology_assessment
 
 research:

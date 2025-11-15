@@ -163,8 +163,8 @@ After all tasks complete, create sprint-level synthesis integrating Task 01-05 s
 
 **Example Insights:**
 - "While market is large ($2B TAM), certification timeline (3 years) creates first-mover advantage window"
-- "Technical approach (SMT verification) directly addresses top customer pain point (safety certification costs)"
-- "Architecture decision to use DO-178C-certified RTOS reduces certification risk but increases upfront costs"
+- "Technical approach (advanced verification) directly addresses top customer pain point (safety certification costs)"
+- "Architecture decision to use Industry Standard ABC-certified RTOS reduces certification risk but increases upfront costs"
 
 ### 6. Synthesis Workflow
 

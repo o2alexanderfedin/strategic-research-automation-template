@@ -435,7 +435,7 @@ set -euo pipefail
 # Test complete sprint execution
 test_sprint_execution() {
   # Initialize project
-  /init-project "Test Project" "Aviation" "Test Company"
+  /init-project "Test Project" "technology sector" "Test Company"
 
   # Create sprint
   /create-sprint 01 "Test Sprint" "Test description"

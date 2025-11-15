@@ -52,7 +52,7 @@ All commands reside in `.claude/commands/` as markdown files.
 
 **Arguments**:
 - `project-name` (required) - Descriptive name for your research project
-- `industry` (required) - Industry vertical (aviation, healthcare, fintech, etc.)
+- `industry` (required) - Industry vertical (technology sector, healthcare, fintech, etc.)
 - `company-name` (required) - Your company or consultancy name
 
 **Output**:
@@ -63,7 +63,7 @@ All commands reside in `.claude/commands/` as markdown files.
 
 **Examples**:
 ```bash
-/init-project "Industry Regulation XYZ eVTOL Analysis" "Aviation" "TechCo"
+/init-project "Industry Regulation XYZ advanced system Analysis" "technology sector" "TechCo"
 /init-project "EHR Integration Study" "Healthcare" "HealthTech Consulting"
 /init-project "RegTech Compliance" "FinTech" "Compliance Advisors"
 ```
@@ -96,7 +96,7 @@ All commands reside in `.claude/commands/` as markdown files.
 
 **Examples**:
 ```bash
-/create-sprint 01 "Flight Control Verification" "SMT-based verification for eVTOL flight control systems"
+/create-sprint 01 "operation Control Verification" "advanced methodology-based verification for advanced system operation control systems"
 /create-sprint 02 "EHR Interoperability" "HL7 FHIR integration for hospital EHR systems"
 ```
 
@@ -272,7 +272,7 @@ research:
 **Examples**:
 ```bash
 /discover-opportunities
-# Discovers 8 opportunities for Industry Regulation XYZ eVTOL market
+# Discovers 8 opportunities for Industry Regulation XYZ advanced system market
 # Creates Sprint 01-08 configurations automatically
 ```
 

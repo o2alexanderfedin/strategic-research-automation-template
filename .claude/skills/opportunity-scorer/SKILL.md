@@ -124,7 +124,7 @@ market_opportunity:
     Score: 85/100
 
   growth_rate (weight: 0.3):
-    Evidence: "eVTOL market growing at 15% CAGR (2024-2030)"
+    Evidence: "advanced system market growing at 15% CAGR (2024-2030)"
     Assessment: Strong growth, multiple sources confirm
     Score: 80/100
 
@@ -170,10 +170,10 @@ Final Score: 21.25 + 20.50 + 17.60 + 11.25 + 12.00 = 82.6/100
 ### Market Opportunity: 85/100
 
 **Evidence:**
-- TAM: $2.8B (FAA market report, 2024)
-- SAM: $850M (new standards-eligible aircraft segment)
+- TAM: $2.8B (Regulatory Body market report, 2024)
+- SAM: $850M (new standards-eligible system segment)
 - SOM: $85M over 5 years (2% market share)
-- Growth: 15% CAGR (eVTOL market projections)
+- Growth: 15% CAGR (advanced system market projections)
 - Pain: VFR-into-IMC accidents (85% fatality), high certification costs ($2M+)
 
 **Strengths:**

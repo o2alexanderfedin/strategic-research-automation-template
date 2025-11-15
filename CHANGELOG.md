@@ -101,7 +101,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Configuration file templates (project-config.yml, sprint-config.yml, quality-standards.yml, scoring-rubric.yml, glossary.yml)
   - Context file templates (company-profile.md, client-info.md, industry-background.md)
   - Sprint and task templates
-  - Example configurations for aviation industry
+  - Example configurations for technology industry
 
 ### Changed
 

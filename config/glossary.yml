@@ -46,22 +46,24 @@ terms:
     preferred_usage: "Use acronym (widely understood)"
 
 # Add industry-specific terms below
-# Example for Aviation:
-#   - term: "Industry Regulation XYZ"
-#     full_name: "Modernization of Special Airworthiness Certification"
-#     definition: "FAA rule to modernize certification for special categories of aircraft"
+# Customize this section for your industry vertical
+
+# Example Pattern (Industry A - Technology Sector):
+#   - term: "Industry Standard ABC"
+#     full_name: "Advanced Business Certification Standard"
+#     definition: "Regulatory framework for product compliance in technology sector"
 #     preferred_usage: "Use full name on first mention, then acronym"
 
-# Example for Healthcare:
-#   - term: "HIPAA"
-#     full_name: "Health Insurance Portability and Accountability Act"
-#     definition: "US legislation providing data privacy and security provisions for safeguarding medical information"
+# Example Pattern (Industry B - Service Sector):
+#   - term: "Compliance Framework XYZ"
+#     full_name: "Extended Yield Zones Compliance Framework"
+#     definition: "Industry regulation governing service delivery and data handling"
 #     preferred_usage: "Use acronym (widely understood)"
 
-# Example for Fintech:
-#   - term: "PCI DSS"
-#     full_name: "Payment Card Industry Data Security Standard"
-#     definition: "Information security standard for organizations that handle credit cards"
+# Example Pattern (Industry C - Manufacturing):
+#   - term: "Quality Standard QRS"
+#     full_name: "Quality Reliability Standard"
+#     definition: "Manufacturing quality assurance framework for critical components"
 #     preferred_usage: "Use full name on first mention, then acronym"
 
 # Consistency Rules

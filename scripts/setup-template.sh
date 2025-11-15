@@ -143,7 +143,7 @@ main() {
     # Industry selection with descriptions
     echo ""
     print_highlight "Select industry:"
-    echo "  1. Aviation (eVTOL, certification, aerospace)"
+    echo "  1. technology (advanced system, certification, aerospace)"
     echo "  2. Healthcare (EHR, digital health, medical devices)"
     echo "  3. FinTech (RegTech, payments, compliance)"
     echo "  4. SaaS (product-market fit, enterprise software)"
@@ -156,7 +156,7 @@ main() {
     read -p "Choice [1-10]: " INDUSTRY_CHOICE
 
     case $INDUSTRY_CHOICE in
-        1) INDUSTRY="aviation" ;;
+        1) INDUSTRY="technology" ;;
         2) INDUSTRY="healthcare" ;;
         3) INDUSTRY="fintech" ;;
         4) INDUSTRY="saas" ;;

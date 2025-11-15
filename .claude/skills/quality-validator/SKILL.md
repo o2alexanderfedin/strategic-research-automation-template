@@ -65,7 +65,7 @@ File Count Validation: PASS
 5. Flag files below 80% threshold
 
 **Citation Patterns to Detect:**
-- Inline citations: `[FAA, 2024]`, `(Smith et al., 2023)`
+- Inline citations: `[Regulatory Body, 2024]`, `(Smith et al., 2023)`
 - Footnote references: `[1]`, `[2]`
 - Source mentions: `According to [Source],`
 

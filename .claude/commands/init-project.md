@@ -20,10 +20,10 @@ Initialize a new strategic research project with parameterized configuration, es
 
 - **$1 (project-name)**: Must be provided, alphanumeric with hyphens, 3-50 characters
   - If empty or invalid: ERROR "Project name is required. Format: lowercase-with-hyphens"
-  - Example: "aviation-opportunity-analysis", "ai-manufacturing-study"
+  - Example: "technology sector-opportunity-analysis", "ai-manufacturing-study"
 
 - **$2 (industry)**: Must be provided, describe target industry
-  - If empty: ERROR "Industry is required. Examples: aviation, healthcare, fintech, manufacturing"
+  - If empty: ERROR "Industry is required. Examples: technology sector, healthcare, fintech, manufacturing"
   - Length: 3-30 characters
 
 - **$3 (company-name)**: Must be provided, host company conducting research
@@ -483,7 +483,7 @@ If $1 (project-name) is empty:
 
 Usage: /init-project [project-name] [industry] [company-name]
 
-Example: /init-project "aviation-opportunity-analysis" "aviation" "TechCo"
+Example: /init-project "technology sector-opportunity-analysis" "technology sector" "TechCo"
 
 Project name format:
 - Lowercase letters and hyphens
@@ -497,10 +497,10 @@ If $2 (industry) is empty:
 
 Usage: /init-project [project-name] [industry] [company-name]
 
-Example: /init-project "aviation-opportunity-analysis" "aviation" "TechCo"
+Example: /init-project "technology sector-opportunity-analysis" "technology sector" "TechCo"
 
 Common industries:
-- aviation, aerospace, defense
+- technology sector, aerospace, defense
 - healthcare, medtech, biotech
 - fintech, banking, insurance
 - manufacturing, automotive, industrial
@@ -513,7 +513,7 @@ If $3 (company-name) is empty:
 
 Usage: /init-project [project-name] [industry] [company-name]
 
-Example: /init-project "aviation-opportunity-analysis" "aviation" "TechCo"
+Example: /init-project "technology sector-opportunity-analysis" "technology sector" "TechCo"
 
 Company name: Your company conducting the research
 ```

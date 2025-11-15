@@ -65,7 +65,7 @@ Report any broken links.
 ### Step 8: Validate Terminology Consistency
 
 Extract key domain terms (top 20 by frequency).
-Check for inconsistent usage (e.g., "eVTOL" vs "evtol" vs "EVTOL").
+Check for inconsistent usage (e.g., "advanced system" vs "advanced system" vs "advanced system").
 Flag significant inconsistencies.
 
 ### Step 9: Generate Quality Report

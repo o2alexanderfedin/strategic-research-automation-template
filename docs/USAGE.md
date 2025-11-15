@@ -34,7 +34,7 @@ The `/init-project` command sets up your complete project structure with all nec
 
 **Arguments**:
 - `project-name` - Descriptive name for your research project
-- `industry` - Industry vertical (aviation, healthcare, fintech, etc.)
+- `industry` - Industry vertical (technology sector, healthcare, fintech, etc.)
 - `company-name` - Your company or consultancy name
 
 ### What Gets Created
@@ -71,8 +71,8 @@ The command generates:
 ### Example Usage
 
 ```bash
-# Aviation industry example
-/init-project "Industry Regulation XYZ eVTOL Analysis" "Aviation" "TechCo"
+# technology sector industry example
+/init-project "Industry Regulation XYZ advanced system Analysis" "technology sector" "TechCo"
 
 # Healthcare industry example
 /init-project "EHR Integration Study" "Healthcare" "HealthTech Consulting"
@@ -115,8 +115,8 @@ Sprints are complete research cycles covering one specific opportunity. Each spr
 ### Example Sprint Creation
 
 ```bash
-# Create sprint for eVTOL flight control opportunity
-/create-sprint 01 "Flight Control Verification" "SMT-based verification for eVTOL flight control systems under Industry Regulation XYZ regulations"
+# Create sprint for advanced system operation control opportunity
+/create-sprint 01 "operation Control Verification" "advanced methodology-based verification for advanced system operation control systems under Industry Regulation XYZ regulations"
 
 # Create sprint for EHR interoperability
 /create-sprint 02 "EHR Interoperability" "HL7 FHIR-based integration platform for hospital EHR systems"
@@ -126,26 +126,26 @@ Sprints are complete research cycles covering one specific opportunity. Each spr
 
 After creation, customize task files to include industry-specific research questions:
 
-**Example**: `sprints/01-flight-control/01-technical-research.md`
+**Example**: `sprints/01-operation-control/01-technical-research.md`
 
 ```markdown
 # Task 01: Technical Requirements Research
-## Sprint 01: Flight Control Verification
+## Sprint 01: operation Control Verification
 
-**Objective**: Analyze technical requirements, regulations, competitive technologies, and feasibility for SMT-verified eVTOL flight control systems.
+**Objective**: Analyze technical requirements, regulations, competitive technologies, and feasibility for advanced methodology-verified advanced system operation control systems.
 
 ---
 
 ## Research Questions
 
 ### Technical Requirements Analysis
-1. What are the specific technical requirements for eVTOL flight control systems under Industry Regulation XYZ regulations?
-2. Which Design Assurance Level (DAL) applies to these systems under DO-178C?
+1. What are the specific technical requirements for advanced system operation control systems under Industry Regulation XYZ regulations?
+2. Which Design Assurance Level (DAL) applies to these systems under Industry Standard ABC?
 3. What are the performance, safety, and reliability requirements?
 
 ### Regulatory Standards
-1. Which ASTM standards govern Industry Regulation XYZ aircraft avionics systems?
-2. How does DO-333 formal methods guidance apply to SMT verification?
+1. Which ASTM standards govern Industry Regulation XYZ system avionics systems?
+2. How does Compliance Framework DEF advanced methodologies guidance apply to advanced verification?
 3. What are the TSO (Technical Standard Order) requirements?
 
 [... additional sections ...]
@@ -158,8 +158,8 @@ Sprints are tracked in `config/sprint-config.yml`:
 ```yaml
 sprints:
   - id: "01"
-    name: "Flight Control Verification"
-    description: "SMT-based verification for eVTOL flight control systems"
+    name: "operation Control Verification"
+    description: "advanced methodology-based verification for advanced system operation control systems"
     priority: "high"
     estimated_duration: "2-3 hours"
     tasks:
@@ -207,9 +207,9 @@ Update context files when:
 
 ## Core Capabilities
 
-### SMT Verification Expertise
-- Z3, CVC5, and custom SMT solver integration
-- DO-333 formal methods compliance
+### advanced verification Expertise
+- Z3, CVC5, and custom verification solver integration
+- Compliance Framework DEF advanced methodologies compliance
 - Safety-critical systems verification
 - 15+ years combined team experience
 
@@ -221,10 +221,10 @@ Update context files when:
 # Client Information: Ben Errez
 
 ## Background
-Entrepreneur exploring new aircraft category and eVTOL opportunities. Focus on identifying high-value entry points for SMT-verified avionics systems.
+Entrepreneur exploring new system category and advanced system opportunities. Focus on identifying high-value entry points for advanced methodology-verified avionics systems.
 
 ## Objectives
-1. Identify top 3-5 opportunities for SMT verification in Industry Regulation XYZ context
+1. Identify top 3-5 opportunities for advanced verification in Industry Regulation XYZ context
 2. Prioritize by market size, regulatory clarity, and competitive position
 3. Develop go/no-go recommendations with execution roadmaps
 
@@ -368,13 +368,13 @@ Fully autonomous mode: analyze context, discover opportunities, generate sprints
 ```markdown
 # Opportunity Discovery Report
 
-Based on analysis of TechCo's SMT verification expertise and Industry Regulation XYZ aviation context:
+Based on analysis of TechCo's advanced verification expertise and Industry Regulation XYZ technology sector context:
 
 ## Top 10 Opportunities Identified
 
-1. **eVTOL Flight Control Verification** (Fit Score: 94/100)
-   - Excellent capability match with SMT verification
-   - Clear regulatory pathway (DO-178C, ASTM)
+1. **advanced system operation Control Verification** (Fit Score: 94/100)
+   - Excellent capability match with advanced verification
+   - Clear regulatory pathway (Industry Standard ABC, ASTM)
    - High market potential ($15B TAM)
 
 2. **Propulsion System Safety Validation** (Fit Score: 89/100)
@@ -489,7 +489,7 @@ Quality Validation Report: Sprint 01
 ✅ File Count: 32 files (requirement: 25+)
 ✅ Citation Ratio: 87% (requirement: 80%+)
 ✅ Report Length: 6,450 words (requirement: 5,000-7,500)
-✅ Terminology: Consistent usage of Industry Regulation XYZ, DO-178C, DAL, eVTOL
+✅ Terminology: Consistent usage of Industry Regulation XYZ, Industry Standard ABC, DAL, advanced system
 ⚠️  Cross-References: 3 broken links found
 ✅ Evidence: All claims supported
 
@@ -538,7 +538,7 @@ Compare multiple sprints to prioritize execution and resource allocation.
 
 | Sprint | Market | Technical | Competitive | Execution | Regulatory | **Total** | Tier |
 |--------|--------|-----------|-------------|-----------|------------|-----------|------|
-| 01: Flight Control | 85 | 92 | 78 | 88 | 90 | **87** | 1 |
+| 01: operation Control | 85 | 92 | 78 | 88 | 90 | **87** | 1 |
 | 03: Propulsion | 82 | 89 | 75 | 85 | 88 | **84** | 1 |
 | 02: Navigation | 78 | 85 | 80 | 80 | 82 | **81** | 2 |
 | 05: Ground Control | 75 | 80 | 70 | 85 | 78 | **78** | 2 |
@@ -546,7 +546,7 @@ Compare multiple sprints to prioritize execution and resource allocation.
 [... remaining sprints ...]
 
 ## Tier 1 Recommendations (STRONG GO)
-- Sprint 01: Flight Control Verification
+- Sprint 01: operation Control Verification
 - Sprint 03: Propulsion System Safety
 
 Execute immediately. High scores across all dimensions.
@@ -600,7 +600,7 @@ Create a formal release with version tagging when work is complete.
 ## [v1.0] - 2025-11-14
 
 ### Sprints Completed
-- Sprint 01: Flight Control Verification (Score: 87/100 - STRONG GO)
+- Sprint 01: operation Control Verification (Score: 87/100 - STRONG GO)
 - Sprint 02: Navigation Systems (Score: 81/100 - GO)
 [... all sprints ...]
 

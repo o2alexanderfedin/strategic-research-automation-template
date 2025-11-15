@@ -10,7 +10,7 @@ Transform strategic research from weeks to hours in **2 minutes**.
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-automation-template/main/scripts/quick-start.sh | \
-  bash -s my-project --industry aviation --focus comprehensive
+  bash -s my-project --industry technology --focus comprehensive
 ```
 
 That's it! Your research framework is ready with:
@@ -49,7 +49,7 @@ Choose the method that fits your workflow:
 ```bash
 curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-automation-template/main/scripts/quick-start.sh | \
   bash -s my-project \
-    --industry aviation \
+    --industry technology \
     --focus market_analysis \
     --company "Acme Consulting" \
     --client "Client Corp"
@@ -66,7 +66,7 @@ curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-
 ```bash
 curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-automation-template/main/scripts/quick-start.sh | \
   bash -s PROJECT_NAME \
-    --industry INDUSTRY \              # aviation, healthcare, fintech, etc.
+    --industry INDUSTRY \              # technology, services, manufacturing, etc.
     --focus RESEARCH_FOCUS \           # market_analysis, technology_assessment, etc.
     --company "YOUR_COMPANY" \
     --client "CLIENT_NAME" \
@@ -87,7 +87,7 @@ curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-
    ```
 4. **Answer questions:**
    - Project name
-   - Industry (aviation/healthcare/fintech/etc.)
+   - Industry (technology/services/manufacturing/etc.)
    - Research focus (market analysis/tech assessment/etc.)
    - Company and client names
    - Output preferences (formats, detail level)
@@ -181,7 +181,7 @@ claude
 ✓ Analyzed industry-background.md (4 regulatory frameworks found)
 
 Discovered 7 strategic opportunities:
-  1. eVTOL Flight Control Verification (Score: 95/100 - STRONG FIT)
+  1. advanced system operation Control Verification (Score: 95/100 - STRONG FIT)
   2. Advanced Air Mobility Infrastructure (Score: 88/100 - STRONG FIT)
   3. Autonomous Systems Certification (Score: 82/100 - MODERATE FIT)
   ...
@@ -206,16 +206,16 @@ Run /execute-sprint 01 to begin research
 
 **Expected output:**
 ```
-Sprint 01: eVTOL Flight Control Verification
+Sprint 01: advanced system operation Control Verification
 ✓ Task 01 - Technical Analysis (32 files, 18,432 words)
-  - DO-178C software certification requirements
-  - FAA regulatory framework (Part 23, Part 27)
-  - Formal verification methods (SMT solvers, model checking)
+  - Industry Standard ABC software certification requirements
+  - Regulatory Body regulatory framework (Part 23, Part 27)
+  - Formal verification methods (verification solvers, model checking)
 
 ✓ Task 02 - Market Assessment (27 files, 15,847 words)
   - TAM: $12.4B by 2030
-  - SAM: $450M (aviation software verification)
-  - SOM: $45M-$85M (eVTOL segment)
+  - SAM: $450M (technology software verification)
+  - SOM: $45M-$85M (advanced system segment)
 
 ✓ Task 03 - Architecture Design (29 files, 16,923 words)
   - System architecture and component breakdown
@@ -223,7 +223,7 @@ Sprint 01: eVTOL Flight Control Verification
   - POC implementation roadmap
 
 ✓ Task 04 - Compliance Strategy (25 files, 14,256 words)
-  - Certification pathways (DO-178C levels)
+  - Certification pathways (Industry Standard ABC levels)
   - Testing requirements and methodologies
   - Timeline and resource estimates
 
@@ -238,15 +238,15 @@ Sprint 01: eVTOL Flight Control Verification
   - Opportunity score: 95/100 - STRONG GO
   - Recommendation: Prioritize for immediate development
 
-All files saved to: temp/01-evtol-flight-control-verification/
-Report saved to: reports/01-evtol-flight-control-verification-report.md
+All files saved to: temp/01-advanced system-operation-control-verification/
+Report saved to: reports/01-advanced system-operation-control-verification-report.md
 ```
 
 ### 4. Review Results (10 minutes)
 
 ```bash
 # Read the strategic report
-cat reports/01-evtol-flight-control-verification-report.md
+cat reports/01-advanced system-operation-control-verification-report.md
 
 # Or export to PDF/DOCX for stakeholders
 /export-findings 01 --format pdf
@@ -312,9 +312,9 @@ claude -p "/execute-sprint 01"
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `/init-project` | Initialize new research project | `/init-project "Industry Regulation XYZ Analysis" "Aviation" "TechCo"` |
+| `/init-project` | Initialize new research project | `/init-project "Industry Regulation XYZ Analysis" "technology" "TechCo"` |
 | `/discover-opportunities` | Auto-discover strategic fit areas | `/discover-opportunities` |
-| `/create-sprint` | Manually define opportunity sprint | `/create-sprint "eVTOL Verification" "Flight control certification"` |
+| `/create-sprint` | Manually define opportunity sprint | `/create-sprint "advanced system Verification" "operation control certification"` |
 | `/execute-sprint` | Run complete sprint (6 tasks) | `/execute-sprint 01` |
 | `/execute-task` | Run single task | `/execute-task 01 02` (sprint 01, task 02) |
 | `/synthesize-report` | Generate final report | `/synthesize-report 01` |
@@ -345,12 +345,12 @@ Skills auto-activate based on context in `.claude/skills/`:
 
 ## 🎨 Industry-Specific Quick Starts
 
-### Aviation (Industry Regulation XYZ/eVTOL)
+### technology (Industry Regulation XYZ/advanced system)
 
 ```bash
 # Create project
 curl -sSL https://raw.githubusercontent.com/o2alexanderfedin/strategic-research-automation-template/main/scripts/quick-start.sh | \
-  bash -s mosaic-analysis --industry aviation --focus comprehensive
+  bash -s mosaic-analysis --industry technology --focus comprehensive
 
 cd mosaic-analysis
 
@@ -359,18 +359,18 @@ cat > context/industry-background.md << 'EOF'
 # Industry Regulation XYZ Regulation Background
 
 ## Overview
-Modernization of Special Airworthiness Certification (Industry Regulation XYZ) is an FAA initiative
-to update certification standards for light sport aircraft, potentially including eVTOL.
+Modernization of Special Airworthiness Certification (Industry Regulation XYZ) is an Regulatory Body initiative
+to update certification standards for light sport system, potentially including advanced system.
 
 ## Key Regulations
-- Part 23 (Normal Category Aircraft)
+- Part 23 (Normal Category system)
 - Part 27 (Normal Category Rotorcraft)
 - Industry Regulation XYZ NPRM (Notice of Proposed Rulemaking)
-- DO-178C (Software Certification)
+- Industry Standard ABC (Software Certification)
 
 ## Market Context
-- eVTOL market projected at $12.4B by 2030
-- 50+ eVTOL manufacturers globally
+- advanced system market projected at $12.4B by 2030
+- 50+ advanced system manufacturers globally
 - Certification pathways still emerging
 EOF
 
@@ -476,7 +476,7 @@ ls -la .claude/skills/
 claude --version  # Should be v2.0+
 
 # Manually invoke skill
-claude -p "@technical-researcher Analyze DO-178C requirements"
+claude -p "@technical-researcher Analyze Industry Standard ABC requirements"
 ```
 
 **Problem**: Tasks running sequentially instead of parallel
@@ -589,15 +589,15 @@ vim config/project-config.yml
 
 # Company profile: Be specific
 ✗ "We do software consulting"
-✓ "We specialize in safety-critical software certification (DO-178C, ISO 26262)
-   with 15 years experience in aviation and automotive sectors.
+✓ "We specialize in safety-critical software certification (Industry Standard ABC, ISO 26262)
+   with 15 years experience in technology and automotive sectors.
    Team of 8 engineers (3 DERs, 2 PhDs). Past clients: Boeing, Airbus, Tesla."
 
 # Client info: Capture decision criteria
-✗ "Client wants to enter eVTOL market"
-✓ "Client (Series B eVTOL startup, $50M funding) needs certification roadmap
-   to satisfy investors. Timeline: 18 months to first flight.
-   Decision criteria: Cost <$2M, proven methodology, FAA credibility."
+✗ "Client wants to enter advanced system market"
+✓ "Client (Series B advanced system startup, $50M funding) needs certification roadmap
+   to satisfy investors. Timeline: 18 months to first operation.
+   Decision criteria: Cost <$2M, proven methodology, Regulatory Body credibility."
 ```
 
 ### Parallel Execution
@@ -642,12 +642,12 @@ watch -n 5 'find temp/ -type f | wc -l'  # Count research files
 # Save successful configurations
 
 # After successful sprint:
-mkdir -p templates/aviation-certification/
-cp sprints/01-*.yml templates/aviation-certification/sprint-template.yml
-cp config/scoring-rubric.yml templates/aviation-certification/
+mkdir -p templates/technology-certification/
+cp sprints/01-*.yml templates/technology-certification/sprint-template.yml
+cp config/scoring-rubric.yml templates/technology-certification/
 
 # Reuse for next engagement:
-cp templates/aviation-certification/sprint-template.yml sprints/new-sprint.yml
+cp templates/technology-certification/sprint-template.yml sprints/new-sprint.yml
 vim sprints/new-sprint.yml  # Customize for new opportunity
 ```
 

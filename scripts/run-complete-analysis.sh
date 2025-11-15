@@ -12,8 +12,8 @@ if [ $# -lt 4 ]; then
   echo "Usage: $0 \"Project Name\" \"Industry\" \"Company Name\" \"sprint1|description1\" [\"sprint2|desc2\" ...]"
   echo ""
   echo "Example:"
-  echo "  $0 \"Industry Regulation XYZ Analysis\" \"Aviation\" \"TechCo\" \\"
-  echo "    \"Flight Control|SMT verification of flight control\" \\"
+  echo "  $0 \"Industry Regulation XYZ Analysis\" \"technology\" \"TechCo\" \\"
+  echo "    \"operation Control|advanced verification of operation control\" \\"
   echo "    \"Collision Avoidance|Verified collision avoidance system\""
   exit 1
 fi

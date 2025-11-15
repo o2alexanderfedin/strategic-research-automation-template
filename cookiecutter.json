@@ -5,15 +5,15 @@
   "company_name": "Your Company",
   "client_name": "Client Name",
   "industry": [
-    "aviation",
-    "healthcare",
-    "fintech",
-    "saas",
+    "technology",
+    "services",
     "manufacturing",
+    "financial_services",
+    "healthcare",
     "energy",
-    "automotive",
-    "telecommunications",
     "retail",
+    "telecommunications",
+    "professional_services",
     "other"
   ],
   "research_focus": [

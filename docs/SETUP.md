@@ -200,7 +200,7 @@ vim config/project-config.yml
 ```yaml
 project:
   name: "Your Project Name"
-  industry: "Aviation"  # Or Healthcare, FinTech, etc.
+  industry: "technology sector"  # Or Healthcare, FinTech, etc.
   company: "Your Company Name"
   description: "Strategic opportunity analysis for..."
 
@@ -246,7 +246,7 @@ vim context/company-profile.md
 
 - Technology stack (languages, frameworks, tools)
 - Domain expertise (industries, regulations, standards)
-- Methodologies (agile, formal methods, etc.)
+- Methodologies (agile, advanced methodologies, etc.)
 
 ## Past Projects
 
@@ -518,7 +518,7 @@ After successful installation and configuration:
    - Complete workflow guide
    - All commands and skills
 
-3. **Explore examples**: [examples/aviation-mosaic/](../examples/aviation-mosaic/)
+3. **Explore examples**: [examples/technology sector-mosaic/](../examples/technology sector-mosaic/)
    - Real project walkthrough
    - Expected outputs and reports
 

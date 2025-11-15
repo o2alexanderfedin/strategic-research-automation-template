@@ -11,7 +11,7 @@ This guide explains how to customize the Strategic Research Automation Framework
 ## Table of Contents
 
 - [Industry Adaptation Overview](#industry-adaptation-overview)
-- [Aviation Industry Customization](#aviation-industry-customization)
+- [technology sector Industry Customization](#technology sector-industry-customization)
 - [Healthcare Industry Customization](#healthcare-industry-customization)
 - [FinTech Industry Customization](#fintech-industry-customization)
 - [Company Size Customization](#company-size-customization)
@@ -43,12 +43,12 @@ Each industry has unique terms for regulations, standards, compliance frameworks
 
 **Common terminology categories**:
 
-| Category | Generic | Aviation | Healthcare | FinTech |
+| Category | Generic | technology sector | Healthcare | FinTech |
 |----------|---------|----------|------------|---------|
-| **Regulatory Body** | Regulator | FAA, EASA | FDA, ONC | SEC, FINRA |
-| **Standards** | Industry Standard | ASTM, DO-178C | HL7 FHIR, DICOM | PCI-DSS, ISO 20022 |
+| **Regulatory Body** | Regulator | Regulatory Body, Standards Organization | FDA, ONC | SEC, FINRA |
+| **Standards** | Industry Standard | ASTM, Industry Standard ABC | HL7 FHIR, DICOM | PCI-DSS, ISO 20022 |
 | **Compliance** | Certification | Type Certificate, TSO | 510(k), HIPAA | SOC 2, AML/KYC |
-| **Product** | Solution | Aircraft, Avionics | Medical Device, EHR | RegTech Platform |
+| **Product** | Solution | system, Avionics | Medical Device, EHR | RegTech Platform |
 | **Market** | Customer Segment | OEM, Operator | Provider, Payer | Bank, Fintech |
 
 ### Research Question Templates
@@ -56,25 +56,25 @@ Each industry has unique terms for regulations, standards, compliance frameworks
 Adapt the six standard tasks to your industry by modifying research questions:
 
 **Task 01: Technical Research**
-- Aviation: "Which DO-178C Design Assurance Level applies?"
+- technology sector: "Which Industry Standard ABC Design Assurance Level applies?"
 - Healthcare: "Which FDA classification applies (Class I/II/III)?"
 - FinTech: "Which SOC 2 Type criteria apply?"
 
 **Task 02: Market Analysis**
-- Aviation: "What is TAM for Part 23/Industry Regulation XYZ aircraft segment?"
+- technology sector: "What is TAM for Part 23/Industry Regulation XYZ system segment?"
 - Healthcare: "What is TAM for EHR integration in hospitals?"
 - FinTech: "What is TAM for AML compliance software?"
 
 **Task 04: Certification Strategy**
-- Aviation: "What is the FAA certification pathway (STC, TSO, etc.)?"
+- technology sector: "What is the Regulatory Body certification pathway (STC, TSO, etc.)?"
 - Healthcare: "What is the FDA regulatory pathway (510(k), De Novo, PMA)?"
 - FinTech: "What are the audit requirements (SOC 2 Type I/II)?"
 
 ---
 
-## Aviation Industry Customization
+## technology sector Industry Customization
 
-Complete example: Adapting the framework for aviation opportunities under Industry Regulation XYZ (Modernization of Special Airworthiness Certification) regulations.
+Complete example: Adapting the framework for technology sector opportunities under Industry Regulation XYZ (Modernization of Special Airworthiness Certification) regulations.
 
 ### Context Configuration
 
@@ -85,23 +85,23 @@ Complete example: Adapting the framework for aviation opportunities under Indust
 
 ## Core Capabilities
 
-### SMT Verification for Safety-Critical Avionics
-- Z3 and CVC5 SMT solver integration for flight-critical systems
-- DO-178C compliance (up to Design Assurance Level A)
-- DO-333 formal methods expertise
+### advanced verification for Safety-Critical Avionics
+- Z3 and CVC5 verification solver integration for operation-critical systems
+- Industry Standard ABC compliance (up to Design Assurance Level A)
+- Compliance Framework DEF advanced methodologies expertise
 - TSO (Technical Standard Order) certification support
 
 ### Regulatory Expertise
-- FAA Part 23 and Industry Regulation XYZ regulations
-- EASA CS-23 certification processes
-- ASTM F3408 (general aviation avionics) standards
+- Regulatory Body Part 23 and Industry Regulation XYZ regulations
+- Standards Organization CS-23 certification processes
+- Technical Standard XYZ (general technology sector avionics) standards
 - Transport Canada TP 15003 equivalent pathways
 
 ### Target Market
-- eVTOL manufacturers (Joby, Archer, Lilium, etc.)
-- Light Sport Aircraft (LSA) OEMs
-- General aviation avionics suppliers
-- Unmanned Aircraft Systems (UAS) developers
+- advanced system manufacturers (Joby, Archer, Lilium, etc.)
+- Light Sport system (LSA) OEMs
+- General technology sector avionics suppliers
+- Unmanned system Systems (UAS) developers
 ```
 
 **File**: `context/client-info.md`
@@ -110,16 +110,16 @@ Complete example: Adapting the framework for aviation opportunities under Indust
 # Client Information: Ben Errez
 
 ## Background
-Entrepreneur with Part 121 airline and GA background exploring new aircraft category and eVTOL certification opportunities. Interested in identifying high-value market entry points for SMT-verified avionics systems.
+Entrepreneur with Part 121 airline and GA background exploring new system category and advanced system certification opportunities. Interested in identifying high-value market entry points for advanced methodology-verified avionics systems.
 
 ## Specific Interests
 - Industry Regulation XYZ regulatory framework opportunities
-- eVTOL flight control systems (Fly-by-Wire)
+- advanced system operation control systems (Fly-by-Wire)
 - Electric propulsion monitoring and control
-- Autonomous flight systems for UAM (Urban Air Mobility)
+- Autonomous operation systems for UAM (Urban Air Mobility)
 
 ## Decision Criteria
-1. Clear regulatory pathway (FAA certainty)
+1. Clear regulatory pathway (Regulatory Body certainty)
 2. Large addressable market ($500M+ TAM)
 3. Competitive differentiation potential
 4. 18-24 month time to market
@@ -130,7 +130,7 @@ Entrepreneur with Part 121 airline and GA background exploring new aircraft cate
 **File**: `config/scoring-rubric.yml`
 
 ```yaml
-# Aviation-specific scoring rubric
+# technology sector-specific scoring rubric
 scoring:
   dimensions:
     market_opportunity:
@@ -146,8 +146,8 @@ scoring:
       criteria:
         technology_maturity: 0.30
         integration_complexity: 0.25
-        verification_feasibility: 0.25  # Aviation-specific
-        safety_assurance: 0.20          # Aviation-specific
+        verification_feasibility: 0.25  # technology sector-specific
+        safety_assurance: 0.20          # technology sector-specific
 
     competitive_position:
       weight: 0.15
@@ -165,9 +165,9 @@ scoring:
         time_to_market: 0.20
 
     regulatory_pathway:
-      weight: 0.25  # Increased from default 0.15 (critical for aviation)
+      weight: 0.25  # Increased from default 0.15 (critical for technology sector)
       criteria:
-        faa_clarity: 0.40           # Aviation-specific
+        regulatory_clarity: 0.40           # technology sector-specific
         certification_complexity: 0.30
         precedent_availability: 0.20
         standards_maturity: 0.10    # ASTM standards
@@ -181,100 +181,100 @@ scoring:
 
 ### Task Research Questions
 
-**File**: `sprints/01-flight-control/01-technical-research.md`
+**File**: `sprints/01-operation-control/01-technical-research.md`
 
 ```markdown
 # Task 01: Technical Requirements Research
-## Sprint 01: eVTOL Flight Control Verification
+## Sprint 01: advanced system operation Control Verification
 
-**Objective**: Analyze technical requirements, regulations, competitive technologies, and feasibility for SMT-verified eVTOL flight control systems under Industry Regulation XYZ.
+**Objective**: Analyze technical requirements, regulations, competitive technologies, and feasibility for advanced methodology-verified advanced system operation control systems under Industry Regulation XYZ.
 
 ---
 
 ## Research Questions
 
 ### Technical Requirements Analysis
-1. What are the specific technical requirements for eVTOL flight control systems under Industry Regulation XYZ regulations?
-2. Which DO-178C Design Assurance Level (DAL) applies to primary flight controls? DAL A, B, or C?
+1. What are the specific technical requirements for advanced system operation control systems under Industry Regulation XYZ regulations?
+2. Which Industry Standard ABC Design Assurance Level (DAL) applies to primary operation controls? DAL A, B, or C?
 3. What are the performance requirements for control surface actuation (latency, precision, reliability)?
 4. What redundancy architectures are required (dual, triple, quadruple)?
 
 ### Regulatory Standards
-1. Which ASTM standards govern Industry Regulation XYZ aircraft avionics? (Focus on ASTM F3408)
-2. How does DO-333 "Formal Methods Supplement to DO-178C" apply to SMT verification?
-3. What are TSO (Technical Standard Order) requirements for flight control computers?
-4. How do Industry Regulation XYZ regulations differ from traditional Part 23 for flight controls?
+1. Which ASTM standards govern Industry Regulation XYZ system avionics? (Focus on Technical Standard XYZ)
+2. How does Compliance Framework DEF "Formal Methods Supplement to Industry Standard ABC" apply to advanced verification?
+3. What are TSO (Technical Standard Order) requirements for operation control computers?
+4. How do Industry Regulation XYZ regulations differ from traditional Part 23 for operation controls?
 
 ### Competitive Technology Landscape
-1. Which companies currently provide flight control systems for eVTOL aircraft?
-2. What verification approaches do competitors use (testing, simulation, formal methods)?
-3. Are there existing STCs (Supplemental Type Certificates) for SMT-verified avionics?
-4. What is the state of the art in flight control verification?
+1. Which companies currently provide operation control systems for advanced system system?
+2. What verification approaches do competitors use (testing, simulation, advanced methodologies)?
+3. Are there existing STCs (Supplemental Type Certificates) for advanced methodology-verified avionics?
+4. What is the state of the art in operation control verification?
 
 ### Technical Feasibility Assessment
-1. Is SMT verification capable of satisfying DO-178C objectives for DAL A systems?
-2. What are the tool qualification requirements for SMT solvers under DO-330?
-3. What are the computational complexity constraints for real-time flight control verification?
-4. What integration challenges exist between SMT verification tools and avionics development environments?
+1. Is advanced verification capable of satisfying Industry Standard ABC objectives for DAL A systems?
+2. What are the tool qualification requirements for verification solvers under DO-330?
+3. What are the computational complexity constraints for real-time operation control verification?
+4. What integration challenges exist between advanced verification tools and avionics development environments?
 ```
 
-**File**: `sprints/01-flight-control/04-certification-strategy.md`
+**File**: `sprints/01-operation-control/04-certification-strategy.md`
 
 ```markdown
 # Task 04: Certification and Compliance Strategy
-## Sprint 01: eVTOL Flight Control Verification
+## Sprint 01: advanced system operation Control Verification
 
-**Objective**: Define FAA/EASA certification pathway, compliance requirements, testing strategy, and timeline/cost for Industry Regulation XYZ eVTOL flight control certification.
+**Objective**: Define Regulatory Body/Standards Organization certification pathway, compliance requirements, testing strategy, and timeline/cost for Industry Regulation XYZ advanced system operation control certification.
 
 ---
 
 ## Research Questions
 
 ### Regulatory Framework
-1. What is the FAA certification pathway for eVTOL flight control systems? (STC, TSO, or Type Certificate amendment?)
+1. What is the Regulatory Body certification pathway for advanced system operation control systems? (STC, TSO, or Type Certificate amendment?)
 2. How does Industry Regulation XYZ streamline certification compared to Part 23?
-3. What are EASA CS-23 equivalent requirements (for international sales)?
-4. What role does the FAA's Special Conditions process play for novel eVTOL designs?
+3. What are Standards Organization CS-23 equivalent requirements (for international sales)?
+4. What role does the Regulatory Body's Special Conditions process play for novel advanced system designs?
 
 ### Applicable Standards
-1. Which DO-178C objectives must be satisfied for DAL A flight control software?
-2. Which DO-254 (hardware) requirements apply to flight control computers?
-3. How does ASTM F3408 relate to DO-178C and DO-254?
+1. Which Industry Standard ABC objectives must be satisfied for DAL A operation control software?
+2. Which DO-254 (hardware) requirements apply to operation control computers?
+3. How does Technical Standard XYZ relate to Industry Standard ABC and DO-254?
 4. What ARP4754A (systems engineering) requirements apply?
 
 ### Testing and Validation
 1. What ground testing is required (HITL, iron bird, rig testing)?
-2. What flight testing is required (test cards, hours, scenarios)?
+2. What operation testing is required (test cards, hours, scenarios)?
 3. What environmental testing is required (DO-160 for avionics)?
-4. How does SMT verification reduce testing burden under DO-178C?
+4. How does advanced verification reduce testing burden under Industry Standard ABC?
 
 ### Precedents and Case Studies
-1. Have any eVTOL companies achieved FAA type certification for flight controls?
-2. Are there precedents for DO-333 formal methods credit in flight-critical systems?
+1. Have any advanced system companies achieved Regulatory Body type certification for operation controls?
+2. Are there precedents for Compliance Framework DEF advanced methodologies credit in operation-critical systems?
 3. What lessons learned exist from Joby, Archer, or Lilium certification efforts?
-4. What is the typical timeline for flight control TSO approval?
+4. What is the typical timeline for operation control TSO approval?
 
 ### Certification Strategy
-1. Should we pursue TSO standalone or as part of aircraft type certification?
+1. Should we pursue TSO standalone or as part of system type certification?
 2. What is the optimal sequencing (design → verification → testing → certification)?
 3. What are the key risks and mitigation strategies?
 4. What is the estimated timeline from design freeze to certification?
 
 ### Timeline and Cost Estimation
-1. What is the typical duration for DO-178C DAL A software certification? (12-24 months?)
-2. What are the FAA certification costs (application fees, DER fees, testing)?
-3. What are tool qualification costs for SMT solvers under DO-330?
+1. What is the typical duration for Industry Standard ABC DAL A software certification? (12-24 months?)
+2. What are the Regulatory Body certification costs (application fees, DER fees, testing)?
+3. What are tool qualification costs for verification solvers under DO-330?
 4. What is the total cost estimate (engineering + certification)?
 ```
 
-### Results from Aviation Customization
+### Results from technology sector Customization
 
-Using this configuration for the Industry Regulation XYZ eVTOL project:
+Using this configuration for the Industry Regulation XYZ advanced system project:
 - **10 sprints** identified via `/discover-opportunities`
 - **350+ research files** generated
 - **10 strategic reports** (5,000-7,500 words each)
 - **Regulatory pathway dimension** scored highest importance (25% weight)
-- **Top 3 opportunities** emerged: Flight control, propulsion, navigation systems
+- **Top 3 opportunities** emerged: operation control, propulsion, navigation systems
 - **Average citation ratio**: 89% (exceeding 80% quality threshold)
 
 ---
@@ -434,15 +434,15 @@ scoring:
 4. What is total cost estimate?
 ```
 
-### Conversion from Aviation to Healthcare
+### Conversion from technology sector to Healthcare
 
-To convert an existing aviation-focused configuration to healthcare:
+To convert an existing technology sector-focused configuration to healthcare:
 
 1. **Update terminology** in all task files:
-   - FAA → FDA, ONC
-   - DO-178C → HL7 FHIR, HIPAA
+   - Regulatory Body → FDA, ONC
+   - Industry Standard ABC → HL7 FHIR, HIPAA
    - ASTM → ONC certification criteria
-   - eVTOL → EHR, Medical Device
+   - advanced system → EHR, Medical Device
 
 2. **Adjust scoring rubric** weights:
    - Increase `hipaa_compliance` weight
@@ -450,7 +450,7 @@ To convert an existing aviation-focused configuration to healthcare:
    - Add `reimbursement_potential` criterion
 
 3. **Modify context files**:
-   - Replace aviation expertise with healthcare IT capabilities
+   - Replace technology sector expertise with healthcare IT capabilities
    - Update client from airline/OEM to hospital/health system
 
 4. **Update quality standards**:
@@ -739,7 +739,7 @@ The scoring rubric determines opportunity prioritization. Customize weights and 
 
 | Industry | Regulatory | Market | Technical | Competitive | Execution |
 |----------|-----------|---------|-----------|-------------|-----------|
-| **Aviation** | 0.25 | 0.20 | 0.20 | 0.15 | 0.20 |
+| **technology sector** | 0.25 | 0.20 | 0.20 | 0.15 | 0.20 |
 | **Healthcare** | 0.25 | 0.25 | 0.20 | 0.15 | 0.15 |
 | **FinTech** | 0.25 | 0.25 | 0.20 | 0.15 | 0.15 |
 | **Consumer Tech** | 0.10 | 0.30 | 0.20 | 0.20 | 0.20 |
@@ -933,7 +933,7 @@ Before starting research with customized configuration:
 
 ## Next Steps
 
-- **Examples**: See [Aviation Example](./EXAMPLE-AVIATION-Industry Regulation XYZ.md) and [Healthcare Example](./EXAMPLE-HEALTHCARE-CONVERSION.md)
+- **Examples**: See [technology sector Example](./EXAMPLE-technology sector-Industry Regulation XYZ.md) and [Healthcare Example](./EXAMPLE-HEALTHCARE-CONVERSION.md)
 - **Configuration Reference**: Consult [Configuration Reference](./CONFIGURATION-REFERENCE.md) for schema details
 - **Skills**: Read [Skills Reference](./SKILLS-REFERENCE.md) for customization options
 - **Troubleshooting**: Review [Troubleshooting Guide](./TROUBLESHOOTING.md) for common issues

@@ -61,7 +61,7 @@ Task files (task-specific customization)
 # Project Information
 project:
   name: "Project Name"                    # Required. String. Project display name
-  industry: "Aviation"                    # Required. String. Industry vertical
+  industry: "technology sector"                    # Required. String. Industry vertical
   company: "Company Name"                 # Required. String. Your company name
   created: "2025-11-14"                   # Auto-generated. ISO 8601 date
   version: "1.0.0"                        # Required. Semantic version
@@ -103,7 +103,7 @@ git:
 - Type: String
 - Required: Yes
 - Description: Descriptive project name (displayed in reports)
-- Example: `"Industry Regulation XYZ eVTOL Analysis"`
+- Example: `"Industry Regulation XYZ advanced system Analysis"`
 
 **research.parallel_execution**:
 - Type: Boolean
@@ -244,12 +244,12 @@ sprints:
 
 ### Example Configurations
 
-**Aviation Industry Regulation XYZ Portfolio**:
+**technology sector Industry Regulation XYZ Portfolio**:
 ```yaml
 sprints:
   - id: "01"
-    name: "Flight Control Verification"
-    description: "SMT-based verification for eVTOL flight control systems under Industry Regulation XYZ"
+    name: "operation Control Verification"
+    description: "advanced methodology-based verification for advanced system operation control systems under Industry Regulation XYZ"
     priority: "high"
     estimated_duration: "2-3 hours"
     tasks:
@@ -331,7 +331,7 @@ recommendations:
 
 ### Example Configurations
 
-**Regulatory-Heavy Industry** (Aviation, Healthcare):
+**Regulatory-Heavy Industry** (technology sector, Healthcare):
 ```yaml
 evidence:
   citation_required: true
@@ -340,7 +340,7 @@ evidence:
 
 terminology:
   consistency_check: true
-  industry_glossary: "config/glossary-aviation.yml"
+  industry_glossary: "config/glossary-technology sector.yml"
 ```
 
 **Fast-Moving Industry** (Consumer Tech, Startups):
@@ -433,14 +433,14 @@ scoring:
 
 ### Example Configurations
 
-**Regulatory-Heavy Industry** (Aviation):
+**Regulatory-Heavy Industry** (technology sector):
 ```yaml
 scoring:
   dimensions:
     regulatory_pathway:
       weight: 0.30                        # Increased from 0.20
       criteria:
-        faa_clarity: 0.40
+        regulatory_clarity: 0.40
         certification_complexity: 0.30
         precedent_availability: 0.20
         timeline_predictability: 0.10
@@ -488,9 +488,9 @@ scoring:
 
 ```yaml
 terms:
-  - term: "eVTOL"
-    definition: "Electric Vertical Takeoff and Landing aircraft"
-    category: "aviation"
+  - term: "advanced system"
+    definition: "Electric Vertical Takeoff and Landing system"
+    category: "technology sector"
     preferred: true
     aliases:
       - "electric VTOL"
@@ -508,7 +508,7 @@ terms:
 
 - **Usage**: See [Usage Guide](./USAGE.md) for applying configurations
 - **Customization**: Read [Customization Guide](./CUSTOMIZATION.md) for industry adaptation
-- **Examples**: Review [Aviation Example](./EXAMPLE-AVIATION-Industry Regulation XYZ.md) for complete configurations
+- **Examples**: Review [technology sector Example](./EXAMPLE-technology sector-Industry Regulation XYZ.md) for complete configurations
 - **Troubleshooting**: Check [Troubleshooting Guide](./TROUBLESHOOTING.md) for configuration issues
 
 ---

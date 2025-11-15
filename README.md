@@ -16,7 +16,7 @@ Automate comprehensive research using AI-powered skills, parallel execution, and
 
 ## Overview
 
-This framework automates strategic opportunity analysis through eight specialized AI skills and thirteen workflow commands. Born from a real consulting engagement (TechCo × Industry Regulation XYZ Aviation Analysis, 2024-2025), it reduces research time by 95%+ while maintaining publication quality and evidence-based rigor.
+This framework automates strategic opportunity analysis through eight specialized AI skills and thirteen workflow commands. Born from real consulting engagements across multiple industry verticals (2024-2025), it reduces research time by 95%+ while maintaining publication quality and evidence-based rigor.
 
 Traditional strategic research is slow, expensive, and inconsistent. Consultants spend 2-3 weeks per opportunity, costing $15K-$30K in labor. Quality varies by analyst expertise. Deadlines compress. Clients wait.
 
@@ -167,23 +167,23 @@ cookiecutter gh:o2alexanderfedin/strategic-research-automation-template
 
 **Expected output**:
 ```
-✓ Sprint initialized: eVTOL Flight Control Verification
-✓ Task 01: 32 research files (DO-178C analysis, FAA regulations)
+✓ Sprint initialized: Core System Verification Platform
+✓ Task 01: 32 research files (regulatory analysis, compliance standards)
 ✓ Task 02: 27 files (TAM $12B, SAM $450M, SOM $45M-$85M)
-✓ Task 03: 29 files (system architecture, verification framework)
-✓ Task 04: 25 files (certification pathways, testing strategy)
+✓ Task 03: 29 files (system architecture, implementation framework)
+✓ Task 04: 25 files (compliance pathways, testing strategy)
 ✓ Task 05: 28 files (3-year roadmap, partnership strategy)
 ✓ Task 06: Strategic report (6,847 words, score 95/100 - STRONG GO)
-✓ PDF exported: reports/01-evtol-flight-control.pdf
+✓ PDF exported: reports/01-core-system-verification.pdf
 ```
 
 ---
 
 ## Examples
 
-### Real Project Results: Industry Regulation XYZ Aviation Analysis
+### Real Project Results: Technology Sector Compliance Analysis
 
-**Project**: TechCo evaluating Industry Regulation XYZ eVTOL opportunities for strategic positioning
+**Project**: Enterprise organization evaluating regulatory compliance opportunities for strategic positioning
 **Scope**: 10 strategic opportunities analyzed
 **Output**: 349 files (20MB), 10 strategic reports, comparative analysis
 **Time**: 15 hours total vs. 6-8 weeks manual
@@ -202,9 +202,9 @@ cookiecutter gh:o2alexanderfedin/strategic-research-automation-template
 
 Complete working examples with full source code:
 
-- **[Aviation Industry Regulation XYZ](examples/aviation-mosaic/)** - eVTOL opportunity analysis (reference implementation)
-- **[Healthcare EHR](examples/healthcare-digital/)** - Digital health integration opportunities
-- **[FinTech RegTech](examples/fintech-saas/)** - Compliance automation opportunities
+- **[Technology Sector](docs/EXAMPLE-INDUSTRY-A.md)** - Enterprise software compliance analysis (reference implementation)
+- **[Service Sector](docs/EXAMPLE-CROSS-INDUSTRY-ADAPTATION.md)** - Cross-industry adaptation guide
+- **[Multi-Industry](docs/)** - Additional examples across various verticals
 
 Each example includes:
 - Complete context files
@@ -257,13 +257,13 @@ See [Architecture Documentation](docs/ARCHITECTURE.md) for deep dive.
 
 ### Supported Industries
 
-Pre-configured examples available:
-- **Aviation**: Industry Regulation XYZ regulation analysis (complete reference)
-- **Healthcare**: EHR integration and digital health
-- **FinTech**: RegTech compliance solutions
-- **SaaS**: Product-market fit analysis
-- **Manufacturing**: Supply chain optimization
-- **Energy**: Renewable technology assessment
+Framework is industry-agnostic and can be adapted to any vertical:
+- **Technology**: Enterprise software, SaaS platforms, system integration
+- **Professional Services**: Consulting, managed services, business process outsourcing
+- **Manufacturing**: Industrial systems, supply chain, quality management
+- **Financial Services**: Compliance solutions, risk management, fintech platforms
+- **Healthcare**: Digital health, data integration, quality systems
+- **Energy**: Renewable systems, resource management, compliance frameworks
 
 ### Customization Path
 
@@ -332,7 +332,7 @@ Free for personal, commercial, and academic use.
 
 **Created by**: Alexander Fedin ([o2alexanderfedin](https://github.com/o2alexanderfedin))
 
-Methodology proven in real consulting engagement: TechCo × Industry Regulation XYZ Aviation Analysis (2024-2025).
+Methodology proven in real consulting engagements across multiple industry verticals (2024-2025).
 
 Built with:
 - [Claude Code](https://claude.ai) by Anthropic

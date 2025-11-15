@@ -23,12 +23,12 @@ Create a comprehensive sprint definition by copying templates, customizing task 
 **Check $2 (sprint-name)**:
 - Must be non-empty quoted string
 - Will be used for directory naming (slugified)
-- Example: "Flight Control Verification", "AI Pilot Assistance"
+- Example: "operation Control Verification", "AI Pilot Assistance"
 
 **Check $3 (description)**:
 - Must be non-empty quoted string
 - Brief description of opportunity area
-- Example: "Automated flight control verification for new aviation standards"
+- Example: "Automated operation control verification for new technology sector standards"
 
 **Verify prerequisites**:
 - config/sprint-config.yml exists
@@ -405,7 +405,7 @@ Got: "$1"
 Examples: 01, 02, 10, 25
 
 Usage: /create-sprint [sprint-number] "[name]" "[description]"
-Example: /create-sprint 01 "Flight Control" "SMT verification for flight systems"
+Example: /create-sprint 01 "operation Control" "advanced verification for operation systems"
 ```
 
 ### Missing Sprint Name
@@ -417,7 +417,7 @@ If $2 is empty:
 Usage: /create-sprint [sprint-number] "[name]" "[description]"
 
 Sprint name should describe the opportunity area.
-Example: /create-sprint 01 "Flight Control Verification" "Description here"
+Example: /create-sprint 01 "operation Control Verification" "Description here"
 
 Use quotes for multi-word names.
 ```
@@ -431,7 +431,7 @@ If $3 is empty:
 Usage: /create-sprint [sprint-number] "[name]" "[description]"
 
 Description should briefly explain the opportunity.
-Example: /create-sprint 01 "Sprint Name" "Automated flight control verification for new aviation standards"
+Example: /create-sprint 01 "Sprint Name" "Automated operation control verification for new technology sector standards"
 
 Use quotes for multi-word descriptions.
 ```

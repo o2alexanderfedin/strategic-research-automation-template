@@ -11,10 +11,10 @@
 - CI/CD pipelines
 
 ## Domain Expertise
-- Aerospace
-- Automotive
-- Medical devices
+- Enterprise systems
+- Industrial platforms
+- Regulated industries
 
 ## Competitive Advantages
-- Certification experience
-- SMT solver expertise
+- Compliance experience
+- Advanced methodologies

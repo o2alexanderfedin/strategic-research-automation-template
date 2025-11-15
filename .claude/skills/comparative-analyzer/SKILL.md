@@ -107,7 +107,7 @@ What risks appear across multiple opportunities?
 
 **E. Technology Themes**
 What technical approaches are recurring?
-- Example: "6 opportunities leverage SMT verification for safety assurance"
+- Example: "6 opportunities leverage advanced verification for safety assurance"
 
 ### 4. Thematic Analysis
 
@@ -116,17 +116,17 @@ What technical approaches are recurring?
 **Themes to Extract:**
 
 **A. Market Themes**
-- Target customer segments (eVTOL OEMs, LSA manufacturers, pilots)
+- Target customer segments (advanced system OEMs, LSA manufacturers, pilots)
 - Pain point categories (safety, cost, certification, efficiency)
 - Market timing (Industry Regulation XYZ 2026 creates urgency)
 
 **B. Technical Themes**
-- Core technologies (SMT verification, AI/ML, sensor fusion)
+- Core technologies (advanced verification, AI/ML, sensor fusion)
 - Architecture patterns (edge processing, cloud integration, hybrid)
-- Verification approaches (formal methods, simulation, testing)
+- Verification approaches (advanced methodologies, simulation, testing)
 
 **C. Competitive Themes**
-- Differentiation strategies (formal verification IP, certification expertise)
+- Differentiation strategies (rigorous verification IP, certification expertise)
 - Competitive positioning (premium vs. cost-effective, incumbent vs. disruptor)
 - Barriers to entry (IP, regulatory approval, partnerships)
 
@@ -166,7 +166,7 @@ Tier 1 - Immediate (0-12 months):
    - Dependencies: None (standalone)
 
 2. Sprint 02: Collision Avoidance (83/100)
-   - Rationale: Strong market, leverages Sprint 01 SMT verification IP
+   - Rationale: Strong market, leverages Sprint 01 advanced verification IP
    - Investment: $6M-$11M
    - Timeline: 3.5 years
    - Dependencies: Benefits from Sprint 01 verification framework
@@ -201,19 +201,19 @@ Expected Portfolio ROI: [Calculated based on SOM projections]
 - Investment distribution (capital allocation across opportunities)
 
 **C. Portfolio Synergies**
-- Technology reuse (e.g., SMT verification framework used across 6 opportunities)
-- Customer overlaps (e.g., eVTOL OEMs as customers for 4 opportunities)
+- Technology reuse (e.g., advanced verification framework used across 6 opportunities)
+- Customer overlaps (e.g., advanced system OEMs as customers for 4 opportunities)
 - Partnership leverage (e.g., Honeywell partnership enables 3 opportunities)
 
 **D. Portfolio Risks**
 - Concentration risk (too many opportunities depend on single partner/customer)
-- Regulatory risk (all opportunities subject to FAA approval uncertainty)
-- Technology risk (all opportunities depend on SMT verification maturity)
+- Regulatory risk (all opportunities subject to Regulatory Body approval uncertainty)
+- Technology risk (all opportunities depend on advanced verification maturity)
 
 **Example Portfolio Insight:**
 ```
 Portfolio Synergy Insight:
-- 6 out of 10 opportunities leverage SMT verification core IP
+- 6 out of 10 opportunities leverage advanced verification core IP
 - Investing in Sprint 01 (Weather Decisions) develops verification framework
 - Framework can be reused for Sprints 02, 03, 04, 06, 08 (cost savings: $3M-$6M)
 - Recommendation: Prioritize Sprint 01 to maximize portfolio leverage

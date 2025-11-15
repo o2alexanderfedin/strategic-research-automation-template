@@ -59,10 +59,10 @@ DETECTED_INDUSTRY=""
 DETECTED_LANG=""
 
 # Try to detect industry from existing files
-if grep -qi "aviation\|aircraft\|eVTOL\|FAA\|DO-178C" README.md 2>/dev/null || \
-   grep -qi "aviation\|aircraft" *.md 2>/dev/null; then
-    DETECTED_INDUSTRY="aviation"
-    echo -e "${GREEN}Detected: Aviation industry${NC}"
+if grep -qi "technology\|system\|advanced system\|Regulatory Body\|Industry Standard ABC" README.md 2>/dev/null || \
+   grep -qi "technology\|system" *.md 2>/dev/null; then
+    DETECTED_INDUSTRY="technology"
+    echo -e "${GREEN}Detected: technology industry${NC}"
 elif grep -qi "healthcare\|medical\|EHR\|HIPAA\|FHIR" README.md 2>/dev/null || \
      grep -qi "healthcare\|medical" *.md 2>/dev/null; then
     DETECTED_INDUSTRY="healthcare"
@@ -106,7 +106,7 @@ if [ -n "$DETECTED_INDUSTRY" ]; then
 else
     echo ""
     echo "Select industry:"
-    echo "  1. Aviation"
+    echo "  1. technology"
     echo "  2. Healthcare"
     echo "  3. FinTech"
     echo "  4. SaaS"
@@ -115,7 +115,7 @@ else
     echo "  7. Other"
     read -p "Choice [1-7]: " INDUSTRY_CHOICE
     case $INDUSTRY_CHOICE in
-        1) INDUSTRY="aviation" ;;
+        1) INDUSTRY="technology" ;;
         2) INDUSTRY="healthcare" ;;
         3) INDUSTRY="fintech" ;;
         4) INDUSTRY="saas" ;;

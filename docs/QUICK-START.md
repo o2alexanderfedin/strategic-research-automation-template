@@ -46,7 +46,7 @@ echo $ANTHROPIC_API_KEY | head -c 20
 
 ```bash
 # Initialize with your project details
-claude -p "/init-project 'Industry Regulation XYZ eVTOL Analysis' 'Aviation' 'TechCo Consulting'"
+claude -p "/init-project 'Industry Regulation XYZ advanced system Analysis' 'technology sector' 'TechCo Consulting'"
 ```
 
 **What this does**:
@@ -57,8 +57,8 @@ claude -p "/init-project 'Industry Regulation XYZ eVTOL Analysis' 'Aviation' 'Te
 
 **Expected output**:
 ```
-✓ Project initialized: Industry Regulation XYZ eVTOL Analysis
-✓ Industry: Aviation
+✓ Project initialized: Industry Regulation XYZ advanced system Analysis
+✓ Industry: technology sector
 ✓ Company: TechCo Consulting
 ✓ Configuration files created in config/
 ✓ Context templates created in context/
@@ -88,8 +88,8 @@ vim context/company-profile.md
 
 ## Core Capabilities
 
-- Formal verification and SMT-based analysis
-- DO-178C and DO-333 certification expertise
+- Formal verification and advanced methodology-based analysis
+- Industry Standard ABC and Compliance Framework DEF certification expertise
 - Autonomous systems architecture and safety analysis
 - Safety-critical software development
 
@@ -97,20 +97,20 @@ vim context/company-profile.md
 
 - Programming languages: Rust, C, Python, Dafny
 - Verification tools: Z3, CVC5, Klee, AFL
-- Standards: DO-178C, DO-333, ARP4754A, DO-326A
-- Domains: Aviation, autonomous systems, embedded safety
+- Standards: Industry Standard ABC, Compliance Framework DEF, ARP4754A, DO-326A
+- Domains: technology sector, autonomous systems, embedded safety
 
 ## Past Projects
 
-- Flight control software verification for business jets
+- operation control software verification for business jets
 - Autonomous navigation safety cases
-- FAA certification consultation for avionics
+- Regulatory Body certification consultation for avionics
 
 ## Strategic Goals
 
-- Expand into eVTOL and urban air mobility market
+- Expand into advanced system and urban air mobility market
 - Leverage Industry Regulation XYZ regulation for new market opportunities
-- Build partnerships with aircraft manufacturers
+- Build partnerships with system manufacturers
 ```
 
 ### Edit Client Information
@@ -126,11 +126,11 @@ vim context/client-info.md
 
 ## Context
 
-The FAA's Industry Regulation XYZ (Modernization of Special Airworthiness Certification) final rule, effective July 2026, expands the Light Sport Aircraft (LSA) category to include aircraft up to 3,000 lbs and 250 knots. This creates new certification pathways and market opportunities.
+The Regulatory Body's Industry Regulation XYZ (Modernization of Special Airworthiness Certification) final rule, effective July 2026, expands the Light Sport system (LSA) category to include system up to 3,000 lbs and 250 knots. This creates new certification pathways and market opportunities.
 
 ## Objective
 
-Identify strategic opportunities where TechCo's formal verification and certification expertise provides competitive advantage in the expanding Industry Regulation XYZ/eVTOL market.
+Identify strategic opportunities where TechCo's rigorous verification and certification expertise provides competitive advantage in the expanding Industry Regulation XYZ/advanced system market.
 
 ## Success Criteria
 
@@ -160,18 +160,18 @@ claude -p "/discover-opportunities"
 ```
 Analyzing context...
 ✓ Company capabilities parsed: 4 core competencies, 8 technical skills
-✓ Client domain analyzed: Industry Regulation XYZ regulation, eVTOL market trends
+✓ Client domain analyzed: Industry Regulation XYZ regulation, advanced system market trends
 ✓ Discovering strategic fit opportunities...
 
 Top 10 Opportunities Discovered:
 
-1. Flight Control System Verification (Score: 95/100)
-   - Technical fit: 98% (DO-178C + SMT expertise)
+1. operation Control System Verification (Score: 95/100)
+   - Technical fit: 98% (Industry Standard ABC + advanced methodology expertise)
    - Market potential: $12B TAM, $450M SAM
    - Regulatory clarity: High (Industry Regulation XYZ defines pathway)
 
 2. Collision Avoidance Verification (Score: 92/100)
-   - Technical fit: 95% (formal methods + autonomy)
+   - Technical fit: 95% (advanced methodologies + autonomy)
    - Market potential: $8B TAM, $320M SAM
    - Regulatory clarity: Medium-High (evolving standards)
 
@@ -215,7 +215,7 @@ claude -p "/execute-sprint 01"
 
 **Expected output**:
 ```
-Sprint 01: Flight Control System Verification
+Sprint 01: operation Control System Verification
 
 Task 01 (Technical Researcher) - In progress...
 Task 02 (Market Analyst) - In progress...
@@ -226,15 +226,15 @@ Task 05 (Roadmap Planner) - In progress...
 [~40 minutes of parallel research execution]
 
 Task 01 completed: 32 files
-  - DO-178C requirements analysis
-  - FAA Industry Regulation XYZ regulatory framework
-  - SMT verification feasibility
-  - Related standards (DO-333, ARP4754A)
+  - Industry Standard ABC requirements analysis
+  - Regulatory Body Industry Regulation XYZ regulatory framework
+  - advanced verification feasibility
+  - Related standards (Compliance Framework DEF, ARP4754A)
 
 Task 02 completed: 27 files
   - Market sizing: TAM $12B, SAM $450M, SOM $45M-$85M
   - Competitive landscape: 8 key players
-  - Customer segments: eVTOL manufacturers, retrofit opportunities
+  - Customer segments: advanced system manufacturers, retrofit opportunities
   - Pricing analysis
 
 Task 03 completed: 29 files
@@ -255,12 +255,12 @@ Task 05 completed: 28 files
   - Investment needs: $7.5M-$14M
 
 Task 06 (Report Synthesizer) - Generating final report...
-✓ Strategic report generated: reports/01-flight-control-verification.md
+✓ Strategic report generated: reports/01-operation-control-verification.md
 ✓ Report length: 6,847 words
 ✓ Opportunity score: 95/100 - STRONG GO
 ✓ Recommendation: Execute immediately
 
-Sprint 01 complete. Review reports/01-flight-control-verification.md
+Sprint 01 complete. Review reports/01-operation-control-verification.md
 ```
 
 **This takes 40-50 minutes**. Grab lunch while it runs.
@@ -271,7 +271,7 @@ Sprint 01 complete. Review reports/01-flight-control-verification.md
 
 ```bash
 # Open the strategic report
-cat reports/01-flight-control-verification.md
+cat reports/01-operation-control-verification.md
 # Or open in your preferred markdown viewer
 ```
 
@@ -376,8 +376,8 @@ See [CUSTOMIZATION.md](CUSTOMIZATION.md) to adapt the framework for:
 **Good context**:
 ```markdown
 # Company Profile
-- Specific capabilities: "DO-178C certification with 8 successful FAA audits"
-- Technical depth: "Rust-based verification with Z3 SMT solver integration"
+- Specific capabilities: "Industry Standard ABC certification with 8 successful Regulatory Body audits"
+- Technical depth: "Rust-based verification with Z3 verification solver integration"
 - Past results: "Reduced certification time by 40% on 737 MAX project"
 ```
 

@@ -193,7 +193,7 @@ Analyzes company capabilities and client needs to autonomously identify high-fit
 ```bash
 /discover-opportunities
 # Analyzes context files
-# Identifies 8 opportunities for Industry Regulation XYZ eVTOL market
+# Identifies 8 opportunities for Industry Regulation XYZ advanced system market
 # Generates sprint configs and task files automatically
 ```
 
@@ -263,10 +263,10 @@ Conducts comprehensive technical requirements analysis, regulatory research, com
 
 ### Example Output Structure
 
-**File**: `temp/01-evtol-flight-control/01-technical/requirements-analysis.md`
+**File**: `temp/01-advanced system-operation-control/01-technical/requirements-analysis.md`
 
 ```markdown
-# Technical Requirements Analysis: eVTOL Flight Control Systems
+# Technical Requirements Analysis: advanced system operation Control Systems
 ## Sprint 01 - Task 01
 
 **Created**: 2025-11-14
@@ -274,18 +274,18 @@ Conducts comprehensive technical requirements analysis, regulatory research, com
 
 ---
 
-## Primary Flight Control Requirements
+## Primary operation Control Requirements
 
 ### Design Assurance Level (DAL)
-Primary flight controls for eVTOL aircraft fall under DAL A (catastrophic failure condition) per DO-178C [1]. This requires:
+Primary operation controls for advanced system system fall under DAL A (catastrophic failure condition) per Industry Standard ABC [1]. This requires:
 - Comprehensive verification and validation
 - Full requirements traceability
-- Formal methods consideration per DO-333 [2]
+- Formal methods consideration per Compliance Framework DEF [2]
 
 ### Performance Requirements
 - Control surface actuation latency: <10ms [3]
 - Position accuracy: ±0.5 degrees [3]
-- Reliability: MTBF >10,000 flight hours [4]
+- Reliability: MTBF >10,000 operation hours [4]
 
 [Citations with sources]
 
@@ -293,10 +293,10 @@ Primary flight controls for eVTOL aircraft fall under DAL A (catastrophic failur
 
 ## References
 
-[1] RTCA DO-178C, "Software Considerations in Airborne Systems and Equipment Certification", 2012
-[2] RTCA DO-333, "Formal Methods Supplement to DO-178C", 2011
-[3] SAE ARP4754A, "Guidelines for Development of Civil Aircraft and Systems", 2010
-[4] Industry analysis based on Joby Aviation G-1 type certification application, 2023
+[1] RTCA Industry Standard ABC, "Software Considerations in Airborne Systems and Equipment Certification", 2012
+[2] RTCA Compliance Framework DEF, "Formal Methods Supplement to Industry Standard ABC", 2011
+[3] SAE ARP4754A, "Guidelines for Development of Civil system and Systems", 2010
+[4] Industry analysis based on Joby technology sector G-1 type certification application, 2023
 ```
 
 ---
@@ -368,10 +368,10 @@ Conducts market sizing (TAM/SAM/SOM), customer needs analysis, competitive lands
 
 ### Example Output Structure
 
-**File**: `temp/01-evtol-flight-control/02-market/market-sizing.md`
+**File**: `temp/01-advanced system-operation-control/02-market/market-sizing.md`
 
 ```markdown
-# Market Sizing: eVTOL Flight Control Systems
+# Market Sizing: advanced system operation Control Systems
 ## Sprint 01 - Task 02
 
 **Created**: 2025-11-14
@@ -381,15 +381,15 @@ Conducts market sizing (TAM/SAM/SOM), customer needs analysis, competitive lands
 
 ## Total Addressable Market (TAM)
 
-### eVTOL Aircraft Market
-- Global eVTOL aircraft market: $15.2B by 2030 [1]
-- Flight control systems: 12-15% of aircraft cost [2]
-- **TAM for eVTOL flight controls: $1.8-2.3B by 2030**
+### advanced system system Market
+- Global advanced system system market: $15.2B by 2030 [1]
+- operation control systems: 12-15% of system cost [2]
+- **TAM for advanced system operation controls: $1.8-2.3B by 2030**
 
-### new aircraft category Market
-- Estimated 5,000-8,000 Industry Regulation XYZ aircraft deliveries 2025-2030 [3]
-- Flight control avionics: $50K-80K per aircraft [4]
-- **TAM for Industry Regulation XYZ flight controls: $250-640M by 2030**
+### new system category Market
+- Estimated 5,000-8,000 Industry Regulation XYZ system deliveries 2025-2030 [3]
+- operation control avionics: $50K-80K per system [4]
+- **TAM for Industry Regulation XYZ operation controls: $250-640M by 2030**
 
 ### Combined TAM: $2.05-2.94B by 2030
 
@@ -397,8 +397,8 @@ Conducts market sizing (TAM/SAM/SOM), customer needs analysis, competitive lands
 
 ## Serviceable Available Market (SAM)
 
-### SMT-Verified Systems Segment
-- Safety-critical flight controls requiring formal verification: 40% of market [5]
+### advanced methodology-Verified Systems Segment
+- Safety-critical operation controls requiring rigorous verification: 40% of market [5]
 - **SAM: $820M-1.18B by 2030**
 
 [... detailed analysis continues ...]
@@ -407,8 +407,8 @@ Conducts market sizing (TAM/SAM/SOM), customer needs analysis, competitive lands
 
 ## References
 
-[1] Morgan Stanley Research, "eVTOL Market Forecast", 2024
-[2] Aviation Week, "eVTOL Development Cost Breakdown", 2023
+[1] Morgan Stanley Research, "advanced system Market Forecast", 2024
+[2] technology sector Week, "advanced system Development Cost Breakdown", 2023
 [3] GAMA, "Industry Regulation XYZ Rulemaking Impact Analysis", 2024
 [... additional citations ...]
 ```
@@ -483,10 +483,10 @@ Designs system architecture, component specifications, integration approach, and
 
 ### Example Output Structure
 
-**File**: `temp/01-evtol-flight-control/03-solution/architecture-overview.md`
+**File**: `temp/01-advanced system-operation-control/03-solution/architecture-overview.md`
 
 ```markdown
-# System Architecture: eVTOL Flight Control Verification
+# System Architecture: advanced system operation Control Verification
 ## Sprint 01 - Task 03
 
 **Created**: 2025-11-14
@@ -498,16 +498,16 @@ Designs system architecture, component specifications, integration approach, and
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│               Flight Control Software (C/C++)               │
+│               operation Control Software (C/C++)               │
 │                    (Customer Codebase)                      │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ↓
 ┌─────────────────────────────────────────────────────────────┐
-│              SMT Verification Platform                      │
+│              advanced verification Platform                      │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
 │  │ CBMC Frontend│  │  Z3 Solver   │  │  CVC5 Solver │     │
-│  │ (C → SMT)    │  │              │  │              │     │
+│  │ (C → advanced methodology)    │  │              │  │              │     │
 │  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘     │
 │         │                 │                 │              │
 │         └─────────────────┴─────────────────┘              │
@@ -520,7 +520,7 @@ Designs system architecture, component specifications, integration approach, and
                             │
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│              DO-178C Compliance Artifacts                   │
+│              Industry Standard ABC Compliance Artifacts                   │
 │  - Verification test cases                                  │
 │  - Requirements traceability matrix                         │
 │  - Tool qualification data (DO-330)                         │
@@ -530,11 +530,11 @@ Designs system architecture, component specifications, integration approach, and
 ## Key Components
 
 ### 1. CBMC Frontend
-- Converts C/C++ flight control code to SMT formulas
+- Converts C/C++ operation control code to advanced methodology formulas
 - Supports ACSL (ANSI/ISO C Specification Language) annotations
 - Generates bounded model checking queries
 
-### 2. SMT Solver Layer
+### 2. verification solver Layer
 - Dual solver approach (Z3 + CVC5) for cross-validation
 - Bounded verification with configurable loop unrolling
 - Timeout management (configurable per property)
@@ -566,12 +566,12 @@ Analyzes regulatory pathways, certification requirements, compliance testing, an
    - Regulatory precedents and guidance
 
 2. **Standards and Compliance**
-   - Industry standards (DO-178C, HL7 FHIR, etc.)
+   - Industry standards (Industry Standard ABC, HL7 FHIR, etc.)
    - Compliance requirements and documentation
    - Tool qualification (if applicable)
 
 3. **Testing and Validation**
-   - Required testing (ground, flight, environmental)
+   - Required testing (ground, operation, environmental)
    - Validation approach and acceptance criteria
    - Third-party testing and certification
 
@@ -787,7 +787,7 @@ Aggregates all research findings, applies scoring rubric, and generates comprehe
 - **Usage**: See [Usage Guide](./USAGE.md) for workflow examples
 - **Commands**: Consult [Commands Reference](./COMMANDS-REFERENCE.md) for slash commands
 - **Customization**: Read [Customization Guide](./CUSTOMIZATION.md) for skill adaptation
-- **Examples**: Review [Aviation Example](./EXAMPLE-AVIATION-Industry Regulation XYZ.md)
+- **Examples**: Review [technology sector Example](./EXAMPLE-technology sector-Industry Regulation XYZ.md)
 
 ---
 
