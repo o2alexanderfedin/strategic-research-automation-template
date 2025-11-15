@@ -18,6 +18,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.2.1] - 2025-11-15
+
+### Changed
+
+- **Simplified automation script to 3 freeform questions**
+  - Reduced from 10+ detailed questions to 3 simple, freeform questions
+  - Question 1: About your company (name, services, URLs - all in freeform text)
+  - Question 2: About the client (name, URLs, any other info - freeform)
+  - Question 3: Additional context (optional)
+  - Claude now researches all details automatically using web search
+
+- **Enhanced autonomous research capabilities**
+  - Context files now include "Instructions for Claude" sections
+  - Claude researches company capabilities, client needs, and industry context
+  - Discovery phase explicitly instructs Claude to research before identifying opportunities
+  - Truly hands-free operation - user provides minimal input, Claude does all analysis
+
+### Fixed
+
+- Typo in final summary report (`wee -l` → `wc -l`)
+
+### Benefits
+
+- ✓ **Even more rookie-friendly** - no need to know company details upfront
+- ✓ **Less time to start** - answer 3 questions instead of 10+
+- ✓ **More autonomous** - Claude researches everything automatically
+- ✓ **Better results** - AI discovers details users might not know or forget to mention
+
+---
+
 ## [3.2.0] - 2025-11-15
 
 ### Added

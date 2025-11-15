@@ -40,32 +40,37 @@ echo -e "${BOLD}${BLUE}  STEP 1: Information Gathering${NC}"
 echo -e "${BOLD}${BLUE}═══════════════════════════════════════════════════════════${NC}"
 echo ""
 
-# Company Information
-echo -e "${CYAN}About Your Company:${NC}"
+# Question 1: Your company
+echo -e "${CYAN}${BOLD}Question 1: About Your Company${NC}"
 echo ""
-
-read -p "Company name: " COMPANY_NAME
-read -p "What does your company do? (brief description): " COMPANY_DESCRIPTION
-read -p "Key capabilities (comma-separated): " COMPANY_CAPABILITIES
-read -p "Team size (optional, press Enter to skip): " TEAM_SIZE
-read -p "Notable past projects (optional, comma-separated): " PAST_PROJECTS
-
+echo "Tell me about your company. Include:"
+echo "  - Company name"
+echo "  - What you do / services you offer"
+echo "  - Website or LinkedIn URL (if you have one)"
 echo ""
-echo -e "${CYAN}About Your Client:${NC}"
+echo "Example: 'Hupyy - We do AI consulting and development. https://linkedin.com/company/hupyy'"
 echo ""
-
-read -p "Client company name: " CLIENT_NAME
-read -p "Client industry: " CLIENT_INDUSTRY
-read -p "Client website (if known): " CLIENT_WEBSITE
-read -p "Client LinkedIn URL (if known): " CLIENT_LINKEDIN
-read -p "What problem are they trying to solve?: " CLIENT_PROBLEM
-read -p "What are their goals? (brief): " CLIENT_GOALS
+read -p "Your company info: " COMPANY_INFO
 
 echo ""
-echo -e "${CYAN}Research Focus:${NC}"
+echo -e "${CYAN}${BOLD}Question 2: About Your Client${NC}"
 echo ""
+echo "Tell me about the client. Include:"
+echo "  - Client company name"
+echo "  - Their website or LinkedIn URL"
+echo "  - Any other info you have about them"
+echo ""
+echo "Example: 'Innova Technology - https://innova-technology.com/ - They do enterprise software'"
+echo ""
+read -p "Client info: " CLIENT_INFO
 
-read -p "What should we research for this client? (e.g., 'AI integration opportunities', 'market expansion strategy'): " RESEARCH_FOCUS
+echo ""
+echo -e "${CYAN}${BOLD}Question 3: Additional Context (Optional)${NC}"
+echo ""
+echo "Anything else you want me to know? Industry focus, specific problems, constraints, etc."
+echo "Press Enter to skip if nothing to add."
+echo ""
+read -p "Additional context: " ADDITIONAL_CONTEXT
 
 echo ""
 echo -e "${CYAN}Number of Opportunities:${NC}"
@@ -87,11 +92,14 @@ echo -e "${BOLD}${BLUE}═══════════════════
 echo -e "${BOLD}${BLUE}  Configuration Summary${NC}"
 echo -e "${BOLD}${BLUE}═══════════════════════════════════════════════════════════${NC}"
 echo ""
-echo -e "${BOLD}Company:${NC} $COMPANY_NAME"
-echo -e "${BOLD}Client:${NC} $CLIENT_NAME ($CLIENT_INDUSTRY)"
-echo -e "${BOLD}Research Focus:${NC} $RESEARCH_FOCUS"
-echo -e "${BOLD}Opportunities:${NC} $NUM_OPPORTUNITIES"
+echo -e "${BOLD}Your Company:${NC} $COMPANY_INFO"
+echo -e "${BOLD}Client:${NC} $CLIENT_INFO"
+echo -e "${BOLD}Additional Context:${NC} ${ADDITIONAL_CONTEXT:-None}"
+echo -e "${BOLD}Opportunities to explore:${NC} $NUM_OPPORTUNITIES"
 echo -e "${BOLD}Export Format:${NC} $EXPORT_FORMAT"
+echo ""
+echo -e "${YELLOW}I will research both companies, figure out what you offer,"
+echo -e "identify what the client needs, and analyze opportunities.${NC}"
 echo ""
 read -p "Proceed with fully autonomous execution? (y/n): " FINAL_CONFIRM
 if [ "$FINAL_CONFIRM" != "y" ]; then
@@ -106,99 +114,78 @@ echo -e "${BOLD}${BLUE}  STEP 2: Creating Context Files${NC}"
 echo -e "${BOLD}${BLUE}═══════════════════════════════════════════════════════════${NC}"
 echo ""
 
-# Company profile
+# Company profile - simple, let Claude research the details
 echo -e "${GREEN}→ Creating company profile...${NC}"
 cat > context/company-profile.md <<EOF
-# $COMPANY_NAME Company Profile
+# Company Profile
 
-## Overview
+## Raw Information Provided
 
-$COMPANY_DESCRIPTION
+$COMPANY_INFO
 
-## Core Competencies
+## Instructions for Claude
 
+Research this company to understand:
+- What services/products they offer
+- Their core capabilities and expertise
+- Team size and structure (if publicly available)
+- Notable projects or clients (if publicly available)
+- Technologies and methodologies they use
+- Their competitive advantages
+
+Use web search to gather this information from their website, LinkedIn, or other public sources.
 EOF
-
-# Add capabilities
-IFS=',' read -ra CAPS <<< "$COMPANY_CAPABILITIES"
-for cap in "${CAPS[@]}"; do
-    echo "- $(echo $cap | xargs)" >> context/company-profile.md
-done
-
-cat >> context/company-profile.md <<EOF
-
-## Team
-
-${TEAM_SIZE:+Team Size: $TEAM_SIZE}
-
-## Past Projects
-
-EOF
-
-# Add past projects if provided
-if [ -n "$PAST_PROJECTS" ]; then
-    IFS=',' read -ra PROJECTS <<< "$PAST_PROJECTS"
-    for project in "${PROJECTS[@]}"; do
-        echo "- $(echo $project | xargs)" >> context/company-profile.md
-    done
-else
-    echo "- [Add relevant past projects]" >> context/company-profile.md
-fi
 
 echo -e "${GREEN}✓ Company profile created${NC}"
 
-# Client info
+# Client info - simple, let Claude research
 echo -e "${GREEN}→ Creating client information...${NC}"
 cat > context/client-info.md <<EOF
-# $CLIENT_NAME Client Information
+# Client Information
 
-## Client Profile
+## Raw Information Provided
 
-**Name**: $CLIENT_NAME
-**Industry**: $CLIENT_INDUSTRY
-${CLIENT_WEBSITE:+**Website**: $CLIENT_WEBSITE}
-${CLIENT_LINKEDIN:+**LinkedIn**: $CLIENT_LINKEDIN}
+$CLIENT_INFO
 
-## Problem Statement
+${ADDITIONAL_CONTEXT:+## Additional Context
 
-$CLIENT_PROBLEM
+$ADDITIONAL_CONTEXT}
 
-## Goals and Objectives
+## Instructions for Claude
 
-$CLIENT_GOALS
+Research this client company to understand:
+- Their industry and market position
+- What products/services they offer
+- Their current challenges and opportunities
+- Technology stack and infrastructure (if publicly available)
+- Strategic direction and goals
+- Recent news, funding, or major initiatives
 
-## Research Focus
-
-$RESEARCH_FOCUS
+Use web search to gather comprehensive information about this company.
 EOF
 
 echo -e "${GREEN}✓ Client information created${NC}"
 
-# Industry background
+# Industry background - let Claude figure it out
 echo -e "${GREEN}→ Creating industry background...${NC}"
 cat > context/industry-background.md <<EOF
-# $CLIENT_INDUSTRY Industry Background
+# Industry Research Context
 
-## Industry Overview
+## Task
 
-This research will focus on the $CLIENT_INDUSTRY sector, with emphasis on:
-- $RESEARCH_FOCUS
+Based on the company and client information provided, research the relevant industry context.
 
-## Research Objectives
+## Instructions for Claude
 
-We will analyze strategic opportunities for $CLIENT_NAME in the context of:
-1. Current market trends and dynamics
-2. Technology landscape and innovations
-3. Regulatory and compliance requirements
-4. Competitive positioning
-5. Implementation feasibility
+1. Identify the industry/sector based on the client's business
+2. Research current market trends and dynamics
+3. Understand regulatory requirements and compliance needs
+4. Analyze competitive landscape
+5. Identify technology trends and innovations
+6. Assess market opportunities and challenges
 
-## Target Outcomes
-
-Identify and evaluate the top $NUM_OPPORTUNITIES strategic opportunities that align with:
-- $COMPANY_NAME's capabilities: $COMPANY_CAPABILITIES
-- $CLIENT_NAME's goals: $CLIENT_GOALS
-- Market viability and ROI potential
+Use this research to identify strategic opportunities where our company's capabilities
+align with the client's needs and market opportunities.
 EOF
 
 echo -e "${GREEN}✓ Industry background created${NC}"
@@ -225,28 +212,36 @@ echo "Started at: $(date)" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 
 # Discovery phase
-echo -e "${CYAN}Phase 1: Opportunity Discovery${NC}" | tee -a "$LOG_FILE"
-echo "Finding top $NUM_OPPORTUNITIES strategic opportunities..." | tee -a "$LOG_FILE"
+echo -e "${CYAN}Phase 1: Research & Opportunity Discovery${NC}" | tee -a "$LOG_FILE"
+echo "Researching companies and finding top $NUM_OPPORTUNITIES strategic opportunities..." | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 
 # Create discovery prompt
-DISCOVERY_PROMPT="Analyze the context files and identify exactly $NUM_OPPORTUNITIES strategic opportunities for $CLIENT_NAME.
+DISCOVERY_PROMPT="I need you to research and identify strategic opportunities. Here's what to do:
 
-Focus on: $RESEARCH_FOCUS
+STEP 1: Research the Companies
+- Read context/company-profile.md and research our company (use web search if URLs provided)
+- Read context/client-info.md and research the client company thoroughly
+- Read context/industry-background.md for additional context
+- Understand what WE offer and what THEY need
 
-For each opportunity, create a sprint definition file in sprints/ directory (01-opportunity-name.md, 02-opportunity-name.md, etc.).
+STEP 2: Identify Opportunities
+Find exactly $NUM_OPPORTUNITIES strategic opportunities where:
+- Our capabilities match their potential needs
+- There's clear business value for the client
+- Market opportunity exists
+- Implementation is feasible
 
-Each sprint should include:
-- Clear opportunity title
-- Business value proposition
-- Technical feasibility assessment
-- Market potential
-- Implementation complexity
+STEP 3: Create Sprint Files
+For each opportunity, create a sprint file in sprints/ directory:
+- File format: 01-opportunity-name.md, 02-opportunity-name.md, etc.
+- Include: opportunity title, business value, technical feasibility, market potential
 
-Create exactly $NUM_OPPORTUNITIES sprint files and respond with 'DISCOVERY COMPLETE' when done."
+Work autonomously. Do all the research needed. Use web search extensively.
+Respond with 'DISCOVERY COMPLETE - [number] opportunities identified' when done."
 
 # Run discovery
-echo "$DISCOVERY_PROMPT" | ./scripts/setup/claude-eng 2>&1 | tee -a "$LOG_FILE"
+./scripts/setup/claude-eng -p "$DISCOVERY_PROMPT" 2>&1 | tee -a "$LOG_FILE"
 
 # Wait for sprints to be created
 RETRY_COUNT=0
@@ -318,7 +313,7 @@ echo "" | tee -a "$LOG_FILE"
 echo -e "${BOLD}Results:${NC}" | tee -a "$LOG_FILE"
 echo "  • Opportunities analyzed: $SPRINT_COUNT" | tee -a "$LOG_FILE"
 echo "  • Reports generated: $(ls -1 reports/*.md 2>/dev/null | wc -l)" | tee -a "$LOG_FILE"
-echo "  • Exports created: $(ls -1 reports/*.$EXPORT_FORMAT 2>/dev/null | wee -l)" | tee -a "$LOG_FILE"
+echo "  • Exports created: $(ls -1 reports/*.$EXPORT_FORMAT 2>/dev/null | wc -l)" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 echo -e "${BOLD}Output locations:${NC}" | tee -a "$LOG_FILE"
 echo "  • Sprint definitions: sprints/" | tee -a "$LOG_FILE"
