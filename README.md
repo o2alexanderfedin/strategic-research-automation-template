@@ -6,9 +6,9 @@
 [![Setup Time](https://img.shields.io/badge/setup-5%20minutes-green)]()
 [![Quick Start](https://img.shields.io/badge/quick%20start-2%20commands-brightgreen)](#-start-here-for-first-time-users)
 
-> **Transform strategic opportunity analysis from weeks to hours**
+> **Turn weeks of research into hours**
 
-Automate comprehensive research using AI-powered skills, parallel execution, and proven map-reduce methodology. Generate publication-quality strategic reports with evidence-based recommendations.
+AI does the research work for you. You answer a few questions, then it automatically finds opportunities, researches them deeply, and writes professional reports with recommendations.
 
 ---
 
@@ -45,11 +45,18 @@ cd strategic-research-automation-template
 
 ## Overview
 
-This framework automates strategic opportunity analysis through eight specialized AI skills, thirteen workflow commands, and **fully autonomous YOLO mode execution**. Born from real consulting engagements across multiple industry verticals (2024-2025), it reduces research time by 95%+ while maintaining publication quality and evidence-based rigor.
+**The Problem:**
+Research takes forever. Consultants spend 2-3 weeks per project, costing $15K-$30K in time. Quality varies. Deadlines get missed.
 
-Traditional strategic research is slow, expensive, and inconsistent. Consultants spend 2-3 weeks per opportunity, costing $15K-$30K in labor. Quality varies by analyst expertise. Deadlines compress. Clients wait.
+**The Solution:**
+This tool does the research automatically. Run one command, answer a few questions, and AI handles everything:
+- Finds strategic opportunities for you
+- Researches each one thoroughly (regulations, market size, competitors, technical requirements)
+- Writes professional reports with recommendations
+- Scores and prioritizes everything
 
-This framework changes everything: **fully autonomous execution** with zero permission prompts, 45 minutes per opportunity, $10-$20 in API costs, consistent methodology, parallel execution, and comprehensive audit trails. What took weeks now takes an afternoon - completely hands-free.
+**The Results:**
+What took 2-3 weeks now takes 2-6 hours, costs $50-$200 in AI usage, and runs completely unattended while you do other work.
 
 **Who this is for**:
 - **Consulting firms** conducting strategic research and proposal development for clients
@@ -59,35 +66,35 @@ This framework changes everything: **fully autonomous execution** with zero perm
 - **Innovation teams** researching emerging technologies, regulatory changes, and market trends
 
 **Key benefits**:
-- **95%+ time reduction** - strategic research from weeks to hours
-- **Consistent methodology** - same rigorous approach across all opportunities
-- **Evidence-based analysis** - every claim supported by credible citations
-- **Parallel execution** - leverage multiple CPU cores for maximum research speed
-- **Publication-quality deliverables** - professional reports in PDF, DOCX, and Markdown
-- **Audit trail** - complete git history and research file provenance
+- **Save weeks of time** - research that took 2-3 weeks now takes 2-6 hours
+- **Always thorough** - same rigorous research process every time
+- **Properly cited** - every claim backed by real sources
+- **Runs fast** - researches multiple opportunities at the same time
+- **Professional output** - polished reports ready to share with clients (PDF, Word, or Markdown)
+- **Trackable** - complete history of what was researched and when
 
 ---
 
 ## Features
 
-### Eight Specialized Skills
+### What The AI Does For You
 
-AI-powered research agents (skills) that automatically activate based on research context:
+The AI has 8 specialized research roles that work together automatically:
 
-| Skill | Purpose | Activates For |
-|-------|---------|---------------|
-| **Sprint Orchestrator** | Manages multi-sprint execution | Multi-sprint workflows |
-| **Opportunity Discovery** | Auto-identifies strategic opportunities | Context analysis |
-| **Technical Researcher** | Deep technical and regulatory analysis | Task 01 - Technical landscape |
-| **Market Analyst** | TAM/SAM/SOM, competitive intelligence | Task 02 - Market assessment |
-| **Solution Architect** | System design and POC specifications | Task 03 - Architecture design |
-| **Compliance Analyst** | Certification pathways and testing | Task 04 - Compliance strategy |
-| **Roadmap Planner** | Implementation strategy and partnerships | Task 05 - Roadmap planning |
-| **Report Synthesizer** | Executive-ready strategic reports | Task 06 - Final synthesis |
+| Role | What It Does |
+|------|--------------|
+| **Opportunity Discovery** | Finds strategic opportunities based on your company and client |
+| **Technical Researcher** | Researches regulations, technical standards, and requirements |
+| **Market Analyst** | Analyzes market size, competitors, and customer needs |
+| **Solution Architect** | Designs technical solutions and architectures |
+| **Compliance Analyst** | Figures out certification and testing requirements |
+| **Roadmap Planner** | Creates implementation plans and timelines |
+| **Report Synthesizer** | Writes executive summaries and final reports |
+| **Sprint Orchestrator** | Coordinates all the research work |
 
-### Thirteen Slash Commands
+### Advanced Commands (Optional)
 
-User-invoked commands for complete workflow control:
+For power users who want more control:
 
 ```bash
 /init-project              # Initialize new research project
