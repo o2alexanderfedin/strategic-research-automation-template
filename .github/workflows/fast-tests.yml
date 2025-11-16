@@ -22,14 +22,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y bats shellcheck yamllint
 
-          # Install BATS helper libraries if not present
-          mkdir -p test/test_helper
-          if [ ! -d "test/test_helper/bats-support" ]; then
-            git clone https://github.com/bats-core/bats-support.git test/test_helper/bats-support
-          fi
-          if [ ! -d "test/test_helper/bats-assert" ]; then
-            git clone https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert
-          fi
+      - name: Checkout BATS support library
+        uses: actions/checkout@v4
+        with:
+          repository: bats-core/bats-support
+          path: test/test_helper/bats-support
+
+      - name: Checkout BATS assert library
+        uses: actions/checkout@v4
+        with:
+          repository: bats-core/bats-assert
+          path: test/test_helper/bats-assert
 
       - name: Run comprehensive testing suite
         run: |
