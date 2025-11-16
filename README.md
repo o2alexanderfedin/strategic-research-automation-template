@@ -3,13 +3,44 @@
 [![GitHub Template](https://img.shields.io/badge/template-Use%20this%20template-brightgreen)](https://github.com/o2alexanderfedin/strategic-research-automation-template/generate)
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Setup Time](https://img.shields.io/badge/setup-2%20minutes-green)]()
+[![Setup Time](https://img.shields.io/badge/setup-5%20minutes-green)]()
+[![Quick Start](https://img.shields.io/badge/quick%20start-3%20commands-brightgreen)](#-start-here-for-first-time-users)
 
 > **Transform strategic opportunity analysis from weeks to hours**
 
 Automate comprehensive research using AI-powered skills, parallel execution, and proven map-reduce methodology. Generate publication-quality strategic reports with evidence-based recommendations.
 
-[Quick Start](#quick-start) • [Template Usage](QUICK_START.md) • [Documentation](#documentation) • [Examples](#examples) • [Contributing](#contributing)
+---
+
+## 🚀 START HERE (For First-Time Users)
+
+**Get your first strategic research report in 3 commands:**
+
+```bash
+# 1. Clone this repository
+git clone https://github.com/o2alexanderfedin/strategic-research-automation-template.git
+cd strategic-research-automation-template
+
+# 2. Run the interactive rookie setup
+./scripts/rookie-setup.sh
+
+# 3. Go get coffee ☕ - Your reports will be ready in 2-6 hours!
+```
+
+**What just happened?**
+- ✅ Verified Claude CLI and dependencies
+- ✅ Asked you 4 quick questions (company, industry, topic, client)
+- ✅ Created all configuration files automatically
+- ✅ Launched fully autonomous research (no more prompts!)
+- ✅ Will discover opportunities, run research, and generate professional reports
+
+**Requirements**: Claude subscription (desktop app or API) - that's it!
+
+**Cost**: ~$50-$200 in API usage (one-time for this research)
+**Time**: 2-6 hours completely unattended
+**Output**: 5-10 strategic reports with scoring, PDFs, and 25+ research files each
+
+[Advanced Usage](#documentation) • [Customization](#customization) • [Examples](#examples)
 
 ---
 

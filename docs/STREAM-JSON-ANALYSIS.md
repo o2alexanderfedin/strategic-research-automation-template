@@ -126,7 +126,7 @@ The first 5 lines of CHANGELOG.md are:
 
 ## Recommendation for Automation Scripts
 
-### For `run-full-automation.sh`:
+### For `run-full.sh`:
 
 **DO NOT use stream-json** for rookie mode because:
 
@@ -153,7 +153,7 @@ The first 5 lines of CHANGELOG.md are:
 
 **Advanced Mode** - Optional flag for power users:
 ```bash
-./scripts/run-full-automation.sh --machine-readable
+./scripts/run-full.sh --machine-readable
 ```
 
 Could output stream-json and pipe through parser to show:

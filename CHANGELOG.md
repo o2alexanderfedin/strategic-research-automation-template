@@ -138,7 +138,7 @@ Implemented comprehensive unbuffered output strategy across all automation tools
 - Falls back gracefully if stdbuf unavailable
 - Technical: Line buffering flushes on every newline, not when buffer fills
 
-**2. `run-full-automation.sh`**
+**2. `run-full.sh`**
 - Wraps all `claude-eng` calls with stdbuf for unbuffered execution
 - Applies stdbuf to `tee` commands (unbuffered logging to file)
 - Disables terminal flow control (`stty -ixon`)
@@ -170,7 +170,7 @@ Rookie users were confused during long 2-6 hour autonomous research runs, thinki
 #### Solution
 Enhanced all automation tools with comprehensive, real-time progress feedback:
 
-**1. Enhanced `run-full-automation.sh`**
+**1. Enhanced `run-full.sh`**
 - **Discovery Phase**: Clear startup messages and real-time sprint creation tracking
 - **Execution Phase**:
   - Heartbeat updates every 10 seconds showing elapsed time
@@ -255,7 +255,7 @@ Enhanced all automation tools with comprehensive, real-time progress feedback:
 
 ### Added
 
-- **Fully Automated One-Command Research Script** (`scripts/run-full-automation.sh`)
+- **Fully Automated One-Command Research Script** (`scripts/run-full.sh`)
   - **Zero interruptions** - ask all questions upfront, then run completely hands-free
   - **Rookie-friendly** - simple question/answer format like setup-template.sh
   - **Complete automation** - discovery → execution → export, all in one command
@@ -267,7 +267,7 @@ Enhanced all automation tools with comprehensive, real-time progress feedback:
 
 **Usage**:
 ```bash
-./scripts/run-full-automation.sh
+./scripts/run-full.sh
 ```
 
 **What it does**:
@@ -299,7 +299,7 @@ Enhanced all automation tools with comprehensive, real-time progress feedback:
 
 ### Technical Details
 
-**File**: `scripts/run-full-automation.sh` (335 lines, executable)
+**File**: `scripts/run-full.sh` (335 lines, executable)
 
 **Workflow**:
 1. Information gathering via interactive prompts

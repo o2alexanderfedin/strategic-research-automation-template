@@ -84,7 +84,7 @@ With enhanced verbosity:
 
 ## Verbosity Features
 
-### 1. Shell Script Progress (`run-full-automation.sh`)
+### 1. Shell Script Progress (`run-full.sh`)
 
 **Discovery Phase:**
 ```
