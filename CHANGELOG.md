@@ -18,6 +18,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.5.3] - 2025-11-16
+
+### Added
+
+- **Telegram marketing post** - Added `docs/TELEGRAM-POST.md` with promotional content for social media outreach
+  - Highlights key value proposition: weeks → hours
+  - Includes live demo reports link
+  - Shows ROI comparison: $50-$200 AI cost vs $15K-$30K consultant time
+  - Lists target audiences and key features
+  - Ready to copy/paste for marketing campaigns
+
+### Changed
+
+- **CI/CD enhancement** - Updated `.github/workflows/fast-tests.yml` to include quality tests
+  - Now runs all 198+ tests: setup (50) + quality (41) + docs (7) + commands (100+)
+  - Ensures Mermaid diagram enforcement tests run automatically on every push/PR
+  - Removed duplicate `tests.yml` file
+
+### Documentation
+
+- Marketing content for social media outreach
+- CI/CD coverage now explicitly includes all test suites from v3.4.1+
+
+---
+
 ## [3.4.0] - 2025-11-16
 
 ### Added - Stream-JSON Parser for Animated Progress Indicators
