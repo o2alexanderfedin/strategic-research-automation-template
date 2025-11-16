@@ -18,6 +18,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.6.3] - 2025-11-16
+
+### Fixed
+
+- **Sprint progress monitoring** - File counting now works correctly during execution
+  - Fixed file path pattern from `temp/"${SPRINT_NUM}"-*` to `temp/sprint-"${SPRINT_NUM_PADDED}"/`
+  - Added zero-padding for sprint numbers (01, 02, etc.)
+  - Progress now correctly shows "X research files created" instead of "0 research files"
+  - Fixed report existence check to use padded sprint numbers
+  - Updated `/execute-sprint` command calls to use consistent formatting
+
+### Technical Details
+
+Previously showed: `Sprint 01 running... 37m 17s elapsed, 0 research files created so far`
+Now shows correctly: `Sprint 01 running... 37m 17s elapsed, 25 research files created so far`
+
+---
+
 ## [3.6.2] - 2025-11-16
 
 ### Added
