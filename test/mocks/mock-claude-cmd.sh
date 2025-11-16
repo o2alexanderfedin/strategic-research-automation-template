@@ -3,8 +3,10 @@
 # Simulates claude command behavior without actual API calls
 
 # Parse arguments
+# shellcheck disable=SC2034
 MODE=""
 PROMPT=""
+# shellcheck disable=SC2034
 OUTPUT_FORMAT="text"
 
 while [[ $# -gt 0 ]]; do

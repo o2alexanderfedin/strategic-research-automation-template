@@ -8,16 +8,24 @@
 set -e
 
 # Colors
+# shellcheck disable=SC2034
 RED='\033[0;31m'
+# shellcheck disable=SC2034
 GREEN='\033[0;32m'
+# shellcheck disable=SC2034
 YELLOW='\033[1;33m'
+# shellcheck disable=SC2034
 BLUE='\033[0;34m'
+# shellcheck disable=SC2034
 BOLD='\033[1m'
 NC='\033[0m'
 
 # Counters
+# shellcheck disable=SC2034
 TOTAL_TESTS=0
+# shellcheck disable=SC2034
 PASSED_TESTS=0
+# shellcheck disable=SC2034
 FAILED_TESTS=0
 
 # Print header
