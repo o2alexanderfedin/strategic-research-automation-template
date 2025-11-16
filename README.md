@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Setup Time](https://img.shields.io/badge/setup-5%20minutes-green)]()
-[![Quick Start](https://img.shields.io/badge/quick%20start-3%20commands-brightgreen)](#-start-here-for-first-time-users)
+[![Quick Start](https://img.shields.io/badge/quick%20start-2%20commands-brightgreen)](#-start-here-for-first-time-users)
 
 > **Transform strategic opportunity analysis from weeks to hours**
 
@@ -14,31 +14,30 @@ Automate comprehensive research using AI-powered skills, parallel execution, and
 
 ## 🚀 START HERE (For First-Time Users)
 
-**Get your first strategic research report in 3 commands:**
+**Get your first strategic research report in 2 commands:**
 
 ```bash
 # 1. Clone this repository
 git clone https://github.com/o2alexanderfedin/strategic-research-automation-template.git
 cd strategic-research-automation-template
 
-# 2. Run the interactive rookie setup
-./scripts/rookie-setup.sh
+# 2. Run the full automation script
+./scripts/run-full.sh
 
-# 3. Go get coffee ☕ - Your reports will be ready in 2-6 hours!
+# Answer a few quick questions, then go get coffee ☕
 ```
 
-**What just happened?**
-- ✅ Verified Claude CLI and dependencies
-- ✅ Asked you 4 quick questions (company, industry, topic, client)
-- ✅ Created all configuration files automatically
-- ✅ Launched fully autonomous research (no more prompts!)
-- ✅ Will discover opportunities, run research, and generate professional reports
+**What happens:**
+1. Script asks you quick questions about your company and client
+2. Discovers strategic opportunities automatically
+3. Executes ALL research sprints completely hands-free (no more prompts!)
+4. Generates professional reports with scoring and PDFs
 
 **Requirements**: Claude subscription (desktop app or API) - that's it!
 
 **Cost**: ~$50-$200 in API usage (one-time for this research)
-**Time**: 2-6 hours completely unattended
-**Output**: 5-10 strategic reports with scoring, PDFs, and 25+ research files each
+**Time**: 2-6 hours completely unattended after initial questions
+**Output**: 3-10 strategic reports with scoring, PDFs, and 25+ research files each
 
 [Advanced Usage](#documentation) • [Customization](#customization) • [Examples](#examples)
 
