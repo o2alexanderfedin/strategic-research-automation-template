@@ -34,9 +34,9 @@ echo "  3. Execute ALL research sprints completely hands-free"
 echo "  4. Generate final reports and exports"
 echo ""
 echo -e "${YELLOW}Time estimate: 2-6 hours (runs unattended)${NC}"
-echo -e "${YELLOW}Cost estimate: \$50-$200 in API usage${NC}"
+echo -e "${YELLOW}Cost estimate: \$50-\$200 in API usage${NC}"
 echo ""
-read -p "Ready to begin? (y/n): " CONFIRM
+read -r -p "Ready to begin? (y/n): " CONFIRM
 if [ "$CONFIRM" != "y" ]; then
     echo -e "${RED}Cancelled.${NC}"
     exit 0
@@ -58,7 +58,7 @@ echo "  - Website or LinkedIn URL (if you have one)"
 echo ""
 echo "Example: 'Hupyy - We do AI consulting and development. https://linkedin.com/company/hupyy'"
 echo ""
-read -p "Your company info: " COMPANY_INFO
+read -r -p "Your company info: " COMPANY_INFO
 
 echo ""
 echo -e "${CYAN}${BOLD}Question 2: About Your Client${NC}"
@@ -70,7 +70,7 @@ echo "  - Any other info you have about them"
 echo ""
 echo "Example: 'Innova Technology - https://innova-technology.com/ - They do enterprise software'"
 echo ""
-read -p "Client info: " CLIENT_INFO
+read -r -p "Client info: " CLIENT_INFO
 
 echo ""
 echo -e "${CYAN}${BOLD}Question 3: Additional Context (Optional)${NC}"
@@ -78,7 +78,7 @@ echo ""
 echo "Anything else you want me to know? Industry focus, specific problems, constraints, etc."
 echo "Press Enter to skip if nothing to add."
 echo ""
-read -p "Additional context: " ADDITIONAL_CONTEXT
+read -r -p "Additional context: " ADDITIONAL_CONTEXT
 
 echo ""
 echo -e "${CYAN}Number of Opportunities:${NC}"
@@ -86,12 +86,12 @@ echo "How many strategic opportunities should we explore?"
 echo "  1-3   = Quick analysis (1-2 hours, \$30-\$60)"
 echo "  4-6   = Comprehensive (3-4 hours, \$100-\$150)"
 echo "  7-10  = Exhaustive (5-6 hours, \$200+)"
-read -p "Number of opportunities [default: 3]: " NUM_OPPORTUNITIES
+read -r -p "Number of opportunities [default: 3]: " NUM_OPPORTUNITIES
 NUM_OPPORTUNITIES=${NUM_OPPORTUNITIES:-3}
 
 echo ""
 echo -e "${CYAN}Export Format:${NC}"
-read -p "Export format (markdown/pdf/docx/all) [default: pdf]: " EXPORT_FORMAT
+read -r -p "Export format (markdown/pdf/docx/all) [default: pdf]: " EXPORT_FORMAT
 EXPORT_FORMAT=${EXPORT_FORMAT:-pdf}
 
 # Summary
@@ -109,7 +109,7 @@ echo ""
 echo -e "${YELLOW}I will research both companies, figure out what you offer,"
 echo -e "identify what the client needs, and analyze opportunities.${NC}"
 echo ""
-read -p "Proceed with fully autonomous execution? (y/n): " FINAL_CONFIRM
+read -r -p "Proceed with fully autonomous execution? (y/n): " FINAL_CONFIRM
 if [ "$FINAL_CONFIRM" != "y" ]; then
     echo -e "${RED}Cancelled.${NC}"
     exit 0
@@ -268,9 +268,9 @@ echo -e "${CYAN}→ Verifying sprint creation...${NC}" | tee -a "$LOG_FILE"
 RETRY_COUNT=0
 MAX_RETRIES=30
 LAST_COUNT=0
-while [ $(ls -1 sprints/*.md 2>/dev/null | wc -l) -lt $NUM_OPPORTUNITIES ] && [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-    CURRENT_COUNT=$(ls -1 sprints/*.md 2>/dev/null | wc -l)
-    if [ $CURRENT_COUNT -ne $LAST_COUNT ]; then
+while [ "$(find sprints -name "*.md" -type f 2>/dev/null | wc -l)" -lt "$NUM_OPPORTUNITIES" ] && [ "$RETRY_COUNT" -lt "$MAX_RETRIES" ]; do
+    CURRENT_COUNT=$(find sprints -name "*.md" -type f 2>/dev/null | wc -l)
+    if [ "$CURRENT_COUNT" -ne "$LAST_COUNT" ]; then
         echo -e "${GREEN}  ✓ Created sprint $CURRENT_COUNT of $NUM_OPPORTUNITIES${NC}" | tee -a "$LOG_FILE"
         LAST_COUNT=$CURRENT_COUNT
     else
@@ -280,7 +280,7 @@ while [ $(ls -1 sprints/*.md 2>/dev/null | wc -l) -lt $NUM_OPPORTUNITIES ] && [ 
     RETRY_COUNT=$((RETRY_COUNT + 1))
 done
 
-SPRINT_COUNT=$(ls -1 sprints/*.md 2>/dev/null | wc -l)
+SPRINT_COUNT=$(find sprints -name "*.md" -type f 2>/dev/null | wc -l)
 echo "" | tee -a "$LOG_FILE"
 echo -e "${GREEN}✓ Discovery complete: $SPRINT_COUNT opportunities identified${NC}" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
@@ -291,7 +291,7 @@ echo "Executing all $SPRINT_COUNT research sprints..." | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 
 # Execute each sprint with detailed progress tracking
-SPRINT_NUM_TOTAL=$(ls -1 sprints/*.md 2>/dev/null | wc -l)
+SPRINT_NUM_TOTAL=$(find sprints -name "*.md" -type f 2>/dev/null | wc -l)
 SPRINT_NUM_CURRENT=0
 
 for sprint_file in sprints/*.md; do
@@ -331,7 +331,7 @@ for sprint_file in sprints/*.md; do
             SECS=$((ELAPSED % 60))
 
             # Count research files created so far
-            FILE_COUNT=$(find temp/${SPRINT_NUM}-* -type f 2>/dev/null | wc -l | tr -d ' ')
+            FILE_COUNT=$(find temp/"${SPRINT_NUM}"-* -type f 2>/dev/null | wc -l | tr -d ' ')
 
             # Show heartbeat every 10 seconds
             if [ $((DOTS % 2)) -eq 0 ]; then
@@ -352,8 +352,8 @@ for sprint_file in sprints/*.md; do
 
         if [ $SPRINT_EXIT_CODE -eq 0 ]; then
             # Count final files
-            FINAL_FILE_COUNT=$(find temp/${SPRINT_NUM}-* -type f 2>/dev/null | wc -l | tr -d ' ')
-            REPORT_EXISTS=$(ls -1 reports/${SPRINT_NUM}-*.md 2>/dev/null | wc -l | tr -d ' ')
+            FINAL_FILE_COUNT=$(find temp/"${SPRINT_NUM}"-* -type f 2>/dev/null | wc -l | tr -d ' ')
+            REPORT_EXISTS=$(find reports -name "${SPRINT_NUM}-*.md" -type f 2>/dev/null | wc -l | tr -d ' ')
 
             echo "" | tee -a "$LOG_FILE"
             echo -e "${GREEN}✓ Sprint $SPRINT_NUM complete in ${SPRINT_MINS}m ${SPRINT_SECS}s${NC}" | tee -a "$LOG_FILE"
@@ -380,7 +380,7 @@ echo "" | tee -a "$LOG_FILE"
 
 # Export each sprint with progress feedback
 EXPORT_NUM_CURRENT=0
-EXPORT_NUM_TOTAL=$(ls -1 sprints/*.md 2>/dev/null | wc -l)
+EXPORT_NUM_TOTAL=$(find sprints -name "*.md" -type f 2>/dev/null | wc -l)
 
 for sprint_file in sprints/*.md; do
     if [ -f "$sprint_file" ]; then
@@ -422,8 +422,8 @@ echo "Total duration: ${HOURS}h ${MINUTES}m" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 echo -e "${BOLD}Results:${NC}" | tee -a "$LOG_FILE"
 echo "  • Opportunities analyzed: $SPRINT_COUNT" | tee -a "$LOG_FILE"
-echo "  • Reports generated: $(ls -1 reports/*.md 2>/dev/null | wc -l)" | tee -a "$LOG_FILE"
-echo "  • Exports created: $(ls -1 reports/*.$EXPORT_FORMAT 2>/dev/null | wc -l)" | tee -a "$LOG_FILE"
+echo "  • Reports generated: $(find reports -name "*.md" -type f 2>/dev/null | wc -l)" | tee -a "$LOG_FILE"
+echo "  • Exports created: $(find reports -name "*.$EXPORT_FORMAT" -type f 2>/dev/null | wc -l)" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 echo -e "${BOLD}Output locations:${NC}" | tee -a "$LOG_FILE"
 echo "  • Sprint definitions: sprints/" | tee -a "$LOG_FILE"
