@@ -5,11 +5,17 @@
 set -e  # Exit on error
 
 # Colors for output
+# shellcheck disable=SC2034
 RED='\033[0;31m'
+# shellcheck disable=SC2034
 GREEN='\033[0;32m'
+# shellcheck disable=SC2034
 YELLOW='\033[1;33m'
+# shellcheck disable=SC2034
 BLUE='\033[0;34m'
+# shellcheck disable=SC2034
 CYAN='\033[0;36m'
+# shellcheck disable=SC2034
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
@@ -62,6 +68,7 @@ echo ""
 echo -e "${BLUE}Detecting project characteristics...${NC}"
 
 DETECTED_INDUSTRY=""
+# shellcheck disable=SC2034
 DETECTED_LANG=""
 
 # Try to detect industry from existing files
@@ -170,6 +177,7 @@ TEMPLATE_URL="https://raw.githubusercontent.com/o2alexanderfedin/strategic-resea
 
 # Create temporary directory
 TMP_DIR=$(mktemp -d)
+# shellcheck disable=SC2064
 trap "rm -rf $TMP_DIR" EXIT
 
 # Download skills

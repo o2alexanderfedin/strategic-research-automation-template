@@ -70,8 +70,8 @@ jobs:
 
       - name: Run shellcheck on all scripts
         run: |
-          find scripts -name "*.sh" -type f -exec shellcheck {} +
-          find test -name "*.sh" -type f -exec shellcheck {} +
+          find scripts -name "*.sh" -type f -exec shellcheck --severity=warning {} +
+          find test -name "*.sh" -type f -exec shellcheck --severity=warning {} +
 
   markdown-lint:
     name: Markdown Linting

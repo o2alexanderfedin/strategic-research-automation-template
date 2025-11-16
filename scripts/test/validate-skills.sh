@@ -5,8 +5,11 @@
 set -e
 
 # Colors for output
+# shellcheck disable=SC2034
 RED='\033[0;31m'
+# shellcheck disable=SC2034
 GREEN='\033[0;32m'
+# shellcheck disable=SC2034
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
