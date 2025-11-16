@@ -18,6 +18,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.3.1] - 2025-11-15
+
+### Fixed - Unbuffered Output for Immediate Real-Time Visibility
+
+#### Problem
+Even with verbose progress indicators, output was buffered by the system, causing delays of several seconds before rookies could see any progress. This made it appear the system was frozen.
+
+#### Solution
+Implemented comprehensive unbuffered output strategy across all automation tools:
+
+**1. `claude-eng` wrapper**
+- Uses `stdbuf -oL -eL` for line-buffered output (zero buffering delay)
+- Redirects all Claude CLI output to stderr (`2>&1 >&2`) for immediate display
+- Falls back gracefully if stdbuf unavailable
+- Technical: Line buffering flushes on every newline, not when buffer fills
+
+**2. `run-full-automation.sh`**
+- Wraps all `claude-eng` calls with stdbuf for unbuffered execution
+- Applies stdbuf to `tee` commands (unbuffered logging to file)
+- Disables terminal flow control (`stty -ixon`)
+- Sets `PYTHONUNBUFFERED=1` environment variable
+
+**3. Documentation**
+- Updated `VERBOSITY-GUIDE.md` with unbuffered output explanation
+- Documented technical approach (`stdbuf -oL -eL`)
+- Added troubleshooting section
+
+#### Impact
+- ✅ **Instant output**: Every line appears immediately, not in bursts
+- ✅ **No frozen appearance**: Continuous stream confirms active execution
+- ✅ **Better rookie experience**: See what's happening in real-time
+- ✅ **Synchronized logging**: Terminal and log file stay perfectly in sync
+
+**Before**: Output appeared in bursts every 4-8 seconds (buffer fills)
+**After**: Output appears line-by-line as it's generated (immediate)
+
+---
+
 ## [3.3.0] - 2025-11-15
 
 ### Added - Comprehensive Verbosity and Progress Feedback for Rookie Users
