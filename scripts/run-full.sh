@@ -406,6 +406,29 @@ for sprint_file in sprints/*.md; do
     fi
 done
 
+# Generate GitHub Pages landing page
+echo "" | tee -a "$LOG_FILE"
+echo -e "${BOLD}${BLUE}Step 7: Generate GitHub Pages Landing Page${NC}" | tee -a "$LOG_FILE"
+echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}" | tee -a "$LOG_FILE"
+echo "" | tee -a "$LOG_FILE"
+
+if [ -f "./scripts/publish/generate-pages.sh" ]; then
+    echo -e "${YELLOW}Generating professional landing page for your research...${NC}" | tee -a "$LOG_FILE"
+
+    # Run the GitHub Pages generator
+    if ./scripts/publish/generate-pages.sh >> "$LOG_FILE" 2>&1; then
+        echo -e "${GREEN}✓ GitHub Pages generated successfully${NC}" | tee -a "$LOG_FILE"
+        echo "" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}Landing page created at: docs/pages/index.html${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}To publish: Enable GitHub Pages in repo settings (Settings → Pages)${NC}" | tee -a "$LOG_FILE"
+    else
+        echo -e "${YELLOW}⚠ GitHub Pages generation encountered issues - check log${NC}" | tee -a "$LOG_FILE"
+        echo -e "${YELLOW}You can manually generate later: ./scripts/publish/generate-pages.sh${NC}" | tee -a "$LOG_FILE"
+    fi
+else
+    echo -e "${YELLOW}⚠ GitHub Pages generator not found - skipping${NC}" | tee -a "$LOG_FILE"
+fi
+
 # Final summary
 END_TIME=$(date +%s)
 DURATION=$((END_TIME - START_TIME))
@@ -429,12 +452,15 @@ echo -e "${BOLD}Output locations:${NC}" | tee -a "$LOG_FILE"
 echo "  • Sprint definitions: sprints/" | tee -a "$LOG_FILE"
 echo "  • Research files: temp/sprint-*/" | tee -a "$LOG_FILE"
 echo "  • Final reports: reports/" | tee -a "$LOG_FILE"
+echo "  • GitHub Pages: docs/pages/index.html" | tee -a "$LOG_FILE"
 echo "  • Execution log: $LOG_FILE" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 echo -e "${CYAN}Next steps:${NC}" | tee -a "$LOG_FILE"
 echo "  1. Review reports: ls -lh reports/" | tee -a "$LOG_FILE"
 echo "  2. Read summaries: cat reports/*-report.md" | tee -a "$LOG_FILE"
-echo "  3. Share with client: reports/*.$EXPORT_FORMAT" | tee -a "$LOG_FILE"
+echo "  3. View landing page: open docs/pages/index.html" | tee -a "$LOG_FILE"
+echo "  4. Share with client: reports/*.$EXPORT_FORMAT" | tee -a "$LOG_FILE"
+echo "  5. Publish online: Enable GitHub Pages in repository settings" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 echo -e "${GREEN}Happy researching! 🚀${NC}" | tee -a "$LOG_FILE"
 echo ""

@@ -18,6 +18,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.6.1] - 2025-11-16
+
+### Changed
+
+- **`run-full.sh`** - Now automatically generates GitHub Pages as final step (Step 7)
+  - Landing page created after all sprints complete
+  - Users get professional site automatically with zero extra commands
+  - Graceful handling if generator not found (skips with warning)
+  - Output locations updated to include `docs/pages/index.html`
+  - Next steps updated with "View landing page" and "Publish online" instructions
+
+### Enhanced
+
+- **Quick Start** - Updated README to mention automatic landing page generation
+  - Step 5 added to "What happens" section
+  - Output description now includes "professional landing page"
+
+---
+
 ## [3.6.0] - 2025-11-16
 
 ### Added
