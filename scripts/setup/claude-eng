@@ -61,8 +61,23 @@ if [ "$VERBOSE" = true ]; then
 fi
 
 # Execute claude with the system prompt and required permissions
-exec "$CLAUDE_EXEC" --append-system-prompt "$(cat "$SYSTEM_PROMPT_FILE")" \
-    --allowedTools "*" \
-    --dangerously-skip-permissions \
-    --permission-mode "bypassPermissions" \
-    "$@"
+# Redirect all output to stderr and disable buffering for real-time visibility
+# Using stdbuf to force unbuffered output (line buffering for stdout/stderr)
+# This ensures rookies see output immediately without waiting for buffer flush
+
+# Check if stdbuf is available (most Linux/macOS systems have it via GNU coreutils)
+if command -v stdbuf &> /dev/null; then
+    # Use stdbuf for unbuffered output, redirect stdout to stderr for visibility
+    exec stdbuf -oL -eL "$CLAUDE_EXEC" --append-system-prompt "$(cat "$SYSTEM_PROMPT_FILE")" \
+        --allowedTools "*" \
+        --dangerously-skip-permissions \
+        --permission-mode "bypassPermissions" \
+        "$@" 2>&1 >&2
+else
+    # Fallback: just redirect stdout to stderr without stdbuf
+    exec "$CLAUDE_EXEC" --append-system-prompt "$(cat "$SYSTEM_PROMPT_FILE")" \
+        --allowedTools "*" \
+        --dangerously-skip-permissions \
+        --permission-mode "bypassPermissions" \
+        "$@" 2>&1 >&2
+fi

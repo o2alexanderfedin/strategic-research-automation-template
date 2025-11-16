@@ -4,6 +4,17 @@
 
 The Strategic Research Automation Template includes comprehensive progress feedback to prevent confusion during long-running autonomous operations. This guide explains what feedback you'll see and what it means.
 
+### Unbuffered Output for Real-Time Visibility
+
+All automation scripts use **unbuffered output** to ensure rookies see progress immediately:
+
+- **`stdbuf -oL -eL`**: Forces line-buffered output (no waiting for buffer to fill)
+- **Claude output → stderr**: All Claude CLI output redirected to stderr for immediate display
+- **`tee` with stdbuf**: Log file writes don't block terminal output
+- **Flow control disabled**: Terminal settings optimized for streaming output
+
+This means you see every line of output **the instant it's generated**, not in bursts every few seconds.
+
 ---
 
 ## Why Verbosity Matters

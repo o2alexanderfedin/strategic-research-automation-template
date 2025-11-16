@@ -4,6 +4,14 @@
 
 set -e
 
+# Disable output buffering for immediate visibility
+# This ensures rookies see output as it happens, not in bursts
+export PYTHONUNBUFFERED=1
+export PERL_UNICODE=SDA
+
+# Force immediate output flushing (disable stdout buffering)
+stty -ixon 2>/dev/null || true  # Disable flow control if terminal available
+
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -246,7 +254,13 @@ echo -e "${YELLOW}  [Agent is researching companies and identifying opportunitie
 echo -e "${YELLOW}  This may take 5-15 minutes... Progress updates will appear below.${NC}" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 
-./scripts/setup/claude-eng -p "$DISCOVERY_PROMPT" 2>&1 | tee -a "$LOG_FILE"
+# Force output to flush immediately by using unbuffered tee
+# All Claude output goes to both terminal (immediately) and log file
+if command -v stdbuf &> /dev/null; then
+    stdbuf -oL -eL ./scripts/setup/claude-eng -p "$DISCOVERY_PROMPT" 2>&1 | stdbuf -oL -eL tee -a "$LOG_FILE"
+else
+    ./scripts/setup/claude-eng -p "$DISCOVERY_PROMPT" 2>&1 | tee -a "$LOG_FILE"
+fi
 
 # Wait for sprints to be created with progress feedback
 echo "" | tee -a "$LOG_FILE"
@@ -300,7 +314,12 @@ for sprint_file in sprints/*.md; do
         echo "" | tee -a "$LOG_FILE"
 
         # Run sprint with progress monitoring in background
-        ./scripts/setup/claude-eng -p "/execute-sprint $SPRINT_NUM" 2>&1 | tee -a "$LOG_FILE" &
+        # Use unbuffered output for immediate visibility
+        if command -v stdbuf &> /dev/null; then
+            stdbuf -oL -eL ./scripts/setup/claude-eng -p "/execute-sprint $SPRINT_NUM" 2>&1 | stdbuf -oL -eL tee -a "$LOG_FILE" &
+        else
+            ./scripts/setup/claude-eng -p "/execute-sprint $SPRINT_NUM" 2>&1 | tee -a "$LOG_FILE" &
+        fi
         SPRINT_PID=$!
 
         # Monitor progress while sprint runs
@@ -372,7 +391,12 @@ for sprint_file in sprints/*.md; do
         echo -e "${YELLOW}→ Exporting Sprint $SPRINT_NUM ($EXPORT_NUM_CURRENT/$EXPORT_NUM_TOTAL) to $EXPORT_FORMAT format...${NC}" | tee -a "$LOG_FILE"
         echo -e "${CYAN}  [Converting report to professional format]${NC}" | tee -a "$LOG_FILE"
 
-        ./scripts/setup/claude-eng -p "/export-findings $SPRINT_NUM --format $EXPORT_FORMAT" 2>&1 | tee -a "$LOG_FILE"
+        # Use unbuffered output for immediate visibility
+        if command -v stdbuf &> /dev/null; then
+            stdbuf -oL -eL ./scripts/setup/claude-eng -p "/export-findings $SPRINT_NUM --format $EXPORT_FORMAT" 2>&1 | stdbuf -oL -eL tee -a "$LOG_FILE"
+        else
+            ./scripts/setup/claude-eng -p "/export-findings $SPRINT_NUM --format $EXPORT_FORMAT" 2>&1 | tee -a "$LOG_FILE"
+        fi
 
         if [ -f "reports/${SPRINT_NUM}-*.$EXPORT_FORMAT" ] 2>/dev/null; then
             echo -e "${GREEN}✓ Sprint $SPRINT_NUM exported successfully${NC}" | tee -a "$LOG_FILE"
