@@ -29,3 +29,15 @@ Design comprehensive system architecture and technical solution for strategic op
 
 ## Design Principles
 Follow industry best practices, consider trade-offs, document decisions with rationale.
+
+## Visualization Standards
+- **ALWAYS use Mermaid diagrams** for all architecture visualizations
+- **NEVER use ASCII art** diagrams (unprofessional and hard to read)
+- Use appropriate Mermaid diagram types:
+  - System architecture → `graph TD` (flowchart) or C4 diagram
+  - Component relationships → `classDiagram` or `graph LR`
+  - Data flows → `flowchart` or `sequenceDiagram`
+  - State machines → `stateDiagram-v2`
+  - Database schemas → `erDiagram`
+- Include diagrams in all architecture files for visual clarity
+- Mermaid renders beautifully in GitHub, VS Code, and most markdown viewers

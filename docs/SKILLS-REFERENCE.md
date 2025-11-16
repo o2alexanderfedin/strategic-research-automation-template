@@ -479,7 +479,7 @@ Designs system architecture, component specifications, integration approach, and
 - Component designs are detailed and implementable
 - Integration strategy addresses all third-party systems
 - POC specification includes measurable success criteria
-- Diagrams or ASCII art for architecture visualization
+- **Mermaid diagrams required** for architecture visualization (NEVER use ASCII art)
 
 ### Example Output Structure
 

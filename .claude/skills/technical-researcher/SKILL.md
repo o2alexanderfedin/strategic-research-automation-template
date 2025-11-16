@@ -67,6 +67,16 @@ Create research files in `temp/sprint-XX/01-technical/`:
 - Use format: [Source Name, Date] or [Organization, Year]
 - Include URLs for online sources
 
+### Visualization Standards
+- **ALWAYS use Mermaid diagrams** when visualizing processes, relationships, or workflows
+- **NEVER use ASCII art** (unprofessional and hard to read)
+- Useful diagram types for research:
+  - Certification process → `flowchart TD`
+  - Regulatory hierarchy → `graph TD`
+  - Standards relationships → `graph LR`
+  - Compliance timeline → `gantt`
+  - Requirement dependencies → `graph TD`
+
 ## Cross-References
 - Feed findings to **compliance-analyst** for certification strategy
 - Inform **solution-architect** of technical constraints

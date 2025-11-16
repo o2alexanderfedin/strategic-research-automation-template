@@ -163,6 +163,19 @@ If a skill encounters an issue:
 - Include inline citations [Author, Year]
 - Add full reference list at end
 
+### Diagrams and Visualizations
+- **ALWAYS use Mermaid diagrams** for all visual representations
+- **NEVER use ASCII art** for diagrams (hard to read, unprofessional)
+- Mermaid supports: flowcharts, sequence diagrams, class diagrams, state diagrams, ER diagrams, Gantt charts, pie charts, and more
+- Benefits: Clean, professional, scalable, maintainable, renders beautifully in markdown viewers
+- Example use cases:
+  - System architecture → Mermaid flowchart or C4 diagram
+  - Data flows → Mermaid flowchart or sequence diagram
+  - Process workflows → Mermaid flowchart or state diagram
+  - Database schemas → Mermaid ER diagram
+  - Project timelines → Mermaid Gantt chart
+  - Component relationships → Mermaid class or component diagram
+
 ### Final Reports
 - Professional formatting suitable for stakeholder presentations
 - Executive summary (1-2 pages)

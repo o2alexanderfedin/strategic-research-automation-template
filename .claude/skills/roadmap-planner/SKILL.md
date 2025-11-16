@@ -29,3 +29,14 @@ Create comprehensive implementation roadmap with timeline, resources, and risk m
 
 ## Integration
 Synthesize findings from all previous tasks (01-04) into executable plan.
+
+## Visualization Standards
+- **ALWAYS use Mermaid diagrams** for roadmaps and timelines
+- **NEVER use ASCII art** (unprofessional and hard to read)
+- Use appropriate Mermaid diagram types:
+  - Implementation roadmap → `gantt` diagram
+  - Phase dependencies → `flowchart TD` or `graph LR`
+  - Risk relationships → `graph TD`
+  - Milestone timeline → `gantt` diagram
+  - Decision trees → `flowchart TD`
+- Mermaid Gantt charts are especially powerful for project timelines

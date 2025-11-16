@@ -3,6 +3,7 @@
 # Parses Claude CLI stream-json output and displays human-friendly progress
 
 # Colors
+# shellcheck disable=SC2034
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -39,6 +40,7 @@ show_heartbeat() {
 # Start heartbeat in background
 show_heartbeat &
 HEARTBEAT_PID=$!
+# shellcheck disable=SC2064
 trap "kill $HEARTBEAT_PID 2>/dev/null; echo -ne '\r                                  \r' >&2" EXIT
 
 # Parse stream-json line by line
