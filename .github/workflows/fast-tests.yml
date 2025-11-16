@@ -39,14 +39,42 @@ jobs:
 
       - name: Run BATS integration tests
         run: |
-          # Debug: show what files will be tested
-          echo "BATS test files:"
+          set -x  # Enable verbose mode
+          echo "=========================================="
+          echo "BATS Test Debugging Information"
+          echo "=========================================="
+
+          echo ">>> Current directory:"
+          pwd
+
+          echo ">>> BATS installation:"
+          which bats || echo "BATS not in PATH"
+          bats --version || echo "BATS version failed"
+
+          echo ">>> Test helper directories:"
+          ls -la test/test_helper/ || echo "test_helper not found"
+          ls -la test/test_helper/bats-support/ || echo "bats-support not found"
+          ls -la test/test_helper/bats-assert/ || echo "bats-assert not found"
+
+          echo ">>> BATS test files to run:"
           ls -la test/setup/*.bats test/quality/*.bats
-          echo "BATS version:"
-          bats --version || echo "BATS not found in PATH"
-          which bats || echo "BATS command not in which"
-          echo "Running BATS tests..."
-          /usr/bin/bats test/setup/*.bats test/quality/*.bats || exit 1
+
+          echo ">>> File count:"
+          echo "Setup tests: $(ls test/setup/*.bats | wc -l)"
+          echo "Quality tests: $(ls test/quality/*.bats | wc -l)"
+
+          echo ">>> Checking first test file:"
+          head -5 test/setup/install.bats
+
+          echo ">>> Running BATS tests..."
+          /usr/bin/bats test/setup/*.bats test/quality/*.bats 2>&1 | tee bats-output.log || {
+            echo ">>> BATS FAILED - Exit code: $?"
+            echo ">>> Last 50 lines of output:"
+            tail -50 bats-output.log
+            exit 1
+          }
+
+          echo ">>> BATS tests completed successfully!"
 
       - name: Run documentation tests
         run: |
