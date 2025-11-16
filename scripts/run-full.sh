@@ -453,20 +453,45 @@ if [ -f "./scripts/publish/generate-pages.sh" ]; then
                 # Push to remote
                 CURRENT_BRANCH=$(git branch --show-current)
                 if git push origin "$CURRENT_BRANCH" >> "$LOG_FILE" 2>&1; then
-                    echo -e "${GREEN}✓ Published to GitHub Pages!${NC}" | tee -a "$LOG_FILE"
-                    echo "" | tee -a "$LOG_FILE"
+                    echo -e "${GREEN}✓ Changes pushed to GitHub${NC}" | tee -a "$LOG_FILE"
 
                     # Try to get the GitHub Pages URL
                     REPO_URL=$(git config --get remote.origin.url | sed 's/\.git$//' | sed 's|git@github.com:|https://github.com/|')
                     if [[ "$REPO_URL" =~ github.com/([^/]+)/([^/]+) ]]; then
                         GITHUB_USER="${BASH_REMATCH[1]}"
                         REPO_NAME="${BASH_REMATCH[2]}"
+
+                        # Try to enable GitHub Pages automatically using gh CLI
+                        if command -v gh &> /dev/null; then
+                            echo -e "${YELLOW}Enabling GitHub Pages...${NC}" | tee -a "$LOG_FILE"
+
+                            # Check if Pages is already enabled
+                            PAGES_STATUS=$(gh api "repos/$GITHUB_USER/$REPO_NAME/pages" 2>&1 || echo "not_found")
+
+                            if [[ "$PAGES_STATUS" == *"not_found"* ]] || [[ "$PAGES_STATUS" == *"404"* ]]; then
+                                # Enable GitHub Pages using the API
+                                if gh api -X POST "repos/$GITHUB_USER/$REPO_NAME/pages" \
+                                    -f "source[branch]=$CURRENT_BRANCH" \
+                                    -f "source[path]=/docs" >> "$LOG_FILE" 2>&1; then
+                                    echo -e "${GREEN}✓ GitHub Pages enabled automatically!${NC}" | tee -a "$LOG_FILE"
+                                    sleep 2  # Give API a moment to process
+                                else
+                                    echo -e "${YELLOW}⚠ Could not enable automatically - enable manually in repo settings${NC}" | tee -a "$LOG_FILE"
+                                fi
+                            else
+                                echo -e "${GREEN}✓ GitHub Pages already enabled${NC}" | tee -a "$LOG_FILE"
+                            fi
+                        else
+                            echo -e "${YELLOW}Note: Install 'gh' CLI to enable Pages automatically${NC}" | tee -a "$LOG_FILE"
+                        fi
+
+                        echo "" | tee -a "$LOG_FILE"
                         PAGES_URL="https://${GITHUB_USER}.github.io/${REPO_NAME}/pages/"
                         echo -e "${BOLD}${CYAN}Your research is now live at:${NC}" | tee -a "$LOG_FILE"
                         echo -e "${BOLD}${CYAN}  → $PAGES_URL${NC}" | tee -a "$LOG_FILE"
                         echo "" | tee -a "$LOG_FILE"
                         echo -e "${YELLOW}Note: First-time publishing may take 2-3 minutes to deploy${NC}" | tee -a "$LOG_FILE"
-                        echo -e "${YELLOW}Enable in: GitHub repo Settings → Pages → Source: main, /docs${NC}" | tee -a "$LOG_FILE"
+                        echo -e "${YELLOW}If not enabled: GitHub repo Settings → Pages → Source: $CURRENT_BRANCH, /docs${NC}" | tee -a "$LOG_FILE"
                     else
                         echo -e "${CYAN}Check your GitHub Pages URL in repository settings${NC}" | tee -a "$LOG_FILE"
                     fi

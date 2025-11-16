@@ -26,9 +26,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Generates landing page after sprints complete
   - Commits to git with automated message
   - Pushes to GitHub automatically
+  - **Enables GitHub Pages automatically** via `gh` CLI API (if available)
+  - Checks if Pages already enabled (idempotent)
   - Copies reports to `docs/pages/reports/` for web access
   - Displays live URL after publishing
-  - Graceful handling of git errors
+  - Graceful handling of git errors and missing `gh` CLI
   - First-time setup instructions included
 
 ### Changed
@@ -44,13 +46,14 @@ After `run-full.sh` completes:
 ```
 Publishing to GitHub Pages...
 ✓ Changes committed
-✓ Published to GitHub Pages!
+✓ Changes pushed to GitHub
+Enabling GitHub Pages...
+✓ GitHub Pages enabled automatically!
 
 Your research is now live at:
   → https://<username>.github.io/<repo>/pages/
 
 Note: First-time publishing may take 2-3 minutes to deploy
-Enable in: GitHub repo Settings → Pages → Source: main, /docs
 ```
 
 ---
