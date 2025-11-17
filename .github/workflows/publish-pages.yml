@@ -6,8 +6,8 @@ on:
     branches: [main]
     paths:
       - 'reports/sprint-*-final-report.md'
-      - 'scripts/publish/generate-pages.sh'
-      - 'docs/pages/**'
+      - 'docs/index.html'
+      - 'docs/reports/**'
 
 permissions:
   contents: read
@@ -33,14 +33,14 @@ jobs:
           chmod +x scripts/publish/generate-pages.sh
           ./scripts/publish/generate-pages.sh
 
-      - name: Copy reports to pages directory
+      - name: Copy reports to docs directory
         run: |
-          mkdir -p docs/pages/reports
+          mkdir -p docs/reports
           # Copy all final reports in various formats
-          find reports -name "sprint-*-final-report.*" -type f -exec cp {} docs/pages/reports/ \; || true
+          find reports -name "sprint-*-final-report.*" -type f -exec cp {} docs/reports/ \; || true
 
-          echo "✓ Copied reports to pages directory"
-          ls -lh docs/pages/reports/ || echo "No reports found"
+          echo "✓ Copied reports to docs directory"
+          ls -lh docs/reports/ || echo "No reports found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -48,7 +48,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'docs/pages'
+          path: 'docs'
 
   deploy:
     name: Deploy to GitHub Pages
