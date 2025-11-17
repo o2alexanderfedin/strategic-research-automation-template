@@ -1,7 +1,7 @@
 # Strategic Research Automation Template
 
 [![GitHub Template](https://img.shields.io/badge/template-Use%20this%20template-brightgreen)](https://github.com/o2alexanderfedin/strategic-research-automation-template/generate)
-[![Version](https://img.shields.io/badge/version-3.8.8-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-3.8.9-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Setup Time](https://img.shields.io/badge/setup-5%20minutes-green)]()
 [![Quick Start](https://img.shields.io/badge/quick%20start-2%20commands-brightgreen)](#-start-here-for-first-time-users)
@@ -463,3 +463,17 @@ Questions? [Open an issue](https://github.com/o2alexanderfedin/strategic-researc
 - **Anthropic API Key**: Set `ANTHROPIC_API_KEY` in `.env` - pay-per-use pricing
 
 Most users already have Claude Code authenticated and don't need an API key.
+
+**Model Selection**: By default, all automation uses **Sonnet 4.5** for optimal research quality. You can override this:
+```bash
+# Use Haiku for faster, cheaper testing (lower quality)
+CLAUDE_MODEL=haiku ./scripts/run-full.sh
+
+# Use Opus for highest quality (slower, more expensive)
+CLAUDE_MODEL=opus ./scripts/run-full.sh
+```
+
+**Model Pricing** (per million tokens):
+- **Haiku 3.5**: $0.80 input / $4 output - Fastest, cheapest, suitable for testing
+- **Sonnet 4.5**: $3 input / $15 output - Default, optimal balance of quality and cost
+- **Opus 4.1**: $15 input / $75 output - Highest quality, best for critical research

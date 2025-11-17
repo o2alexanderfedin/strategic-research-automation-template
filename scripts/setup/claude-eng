@@ -18,6 +18,13 @@ if [[ "$*" == *"--verbose"* ]]; then
     set -- "${@/--verbose/}"
 fi
 
+# Default to Sonnet model for quality research (can override with CLAUDE_MODEL env var)
+# Sonnet 4.5: $3/$15 per million tokens - optimal balance of quality and cost
+# Alternative models:
+#   - Haiku 3.5: $0.80/$4 per million (fastest, cheapest, lower quality)
+#   - Opus 4.1: $15/$75 per million (highest quality, slowest, most expensive)
+CLAUDE_MODEL="${CLAUDE_MODEL:-sonnet}"
+
 # Find the system prompt file
 # SCRIPT_DIR can be overridden for testing
 if [ -z "$SCRIPT_DIR" ]; then
@@ -35,6 +42,7 @@ if [ "$VERBOSE" = true ]; then
     echo "🔧 Claude Engineering Mode - YOLO Configuration"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "✓ System prompt loaded: $SYSTEM_PROMPT_FILE"
+    echo "✓ Model: $CLAUDE_MODEL"
 fi
 
 # Find claude executable
@@ -73,6 +81,7 @@ fi
 if [ -x "$PARSER_SCRIPT" ] && command -v jq &> /dev/null; then
     # Use stream-json with parser for rich, real-time progress display
     exec "$CLAUDE_EXEC" --append-system-prompt "$(cat "$SYSTEM_PROMPT_FILE")" \
+        --model "$CLAUDE_MODEL" \
         --allowedTools "*" \
         --dangerously-skip-permissions \
         --permission-mode "bypassPermissions" \
@@ -83,12 +92,14 @@ else
     # Fallback to default output with unbuffering
     if command -v stdbuf &> /dev/null; then
         exec stdbuf -oL -eL "$CLAUDE_EXEC" --append-system-prompt "$(cat "$SYSTEM_PROMPT_FILE")" \
+            --model "$CLAUDE_MODEL" \
             --allowedTools "*" \
             --dangerously-skip-permissions \
             --permission-mode "bypassPermissions" \
             "$@" 2>&1 >&2
     else
         exec "$CLAUDE_EXEC" --append-system-prompt "$(cat "$SYSTEM_PROMPT_FILE")" \
+            --model "$CLAUDE_MODEL" \
             --allowedTools "*" \
             --dangerously-skip-permissions \
             --permission-mode "bypassPermissions" \

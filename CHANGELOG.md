@@ -18,6 +18,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.8.9] - 2025-11-17
+
+### Added
+
+- **Model selection enforcement**
+  - All automation scripts now default to **Sonnet 4.5** model for optimal research quality
+  - Centralized model configuration in `scripts/setup/claude-eng` wrapper
+  - Environment variable override support via `CLAUDE_MODEL` (haiku, sonnet, opus)
+  - Model pricing documentation in README with usage examples
+  - Verbose mode displays selected model for transparency
+
+### Changed
+
+- Updated `scripts/setup/claude-eng` to enforce Sonnet model by default
+- Added model pricing comparison table to README
+- Enhanced documentation with model selection guidelines
+
+---
+
 ## [3.8.8] - 2025-11-17
 
 ### Added
