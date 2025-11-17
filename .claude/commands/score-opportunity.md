@@ -67,7 +67,28 @@ Weighted Score = sum(dimension_score × dimension_weight)
 
 ### Step 7: Output Scoring Summary
 
-Display dimension scores, weighted total, and recommendation.
+**CRITICAL**: Use proper markdown table syntax with blank lines.
+
+**CORRECT Format**:
+```markdown
+**Scoring Summary:**
+
+| Category | Weight | Score | Weighted | Assessment |
+|----------|--------|-------|----------|------------|
+| Market Opportunity | 25% | 93.3 | 23.3 | Exceptional |
+| Technical Feasibility | 25% | 80.0 | 20.0 | Strong |
+| Competitive Advantage | 20% | 90.0 | 18.0 | Exceptional |
+| Execution Readiness | 15% | 75.0 | 11.25 | Moderate-Strong |
+| Regulatory Pathway | 15% | 85.0 | 12.75 | Strong |
+| **TOTAL** | **100%** | **—** | **85.3** | **Strong GO** |
+```
+
+**Table Formatting Rules**:
+1. Blank line before table
+2. Blank line after table
+3. Proper markdown syntax with pipes and dashes
+4. Align columns with spaces for readability
+5. Never use inline table syntax
 
 ## Success Criteria
 

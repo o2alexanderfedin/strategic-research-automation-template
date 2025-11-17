@@ -201,6 +201,38 @@ Mega-Trend 1: Self-Driving Labs (SDL) Commercialization - Market Growth: Virtual
 ```
 
 #### Table Formatting
+
+**CRITICAL**: Proper markdown table syntax required for HTML/PDF rendering.
+
+**Table Structure Rules**:
+1. **Blank line before table** - Always have empty line before first row
+2. **Blank line after table** - Always have empty line after last row
+3. **Proper markdown syntax** - Use `|` pipes and `|---|` dashes for header separator
+4. **Never inline tables** - Each row on its own line
+5. **Align columns** - Use spaces to align pipes for readability
+
+**CORRECT**:
+```markdown
+Some text before table.
+
+| Category | Weight | Score |
+|----------|--------|-------|
+| Market   | 25%    | 93.3  |
+| Tech     | 25%    | 80.0  |
+
+Some text after table.
+```
+
+**INCORRECT** (no blank lines):
+```markdown
+Some text before table.
+| Category | Weight | Score |
+|----------|--------|-------|
+| Market   | 25%    | 93.3  |
+Some text after table.
+```
+
+**Line Breaks Within Cells**:
 - **ALWAYS use `<br/>` tags for line breaks within table cells**
 - **NEVER rely on markdown line breaks in tables** (they don't render properly)
 - Keep table cell content readable with proper line breaks
