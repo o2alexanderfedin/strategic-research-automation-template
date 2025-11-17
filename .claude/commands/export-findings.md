@@ -53,8 +53,17 @@ pandoc reports/$1-*-report.md -o reports/$1-*-report.html \
   --standalone \
   --toc \
   --css=templates/report-styles.css \
-  --self-contained
+  --metadata title="Strategic Research Report: Sprint $1" \
+  --include-in-header=<(cat <<'HEADER'
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+</script>
+HEADER
+)
 ```
+
+Note: Mermaid.js is automatically included for rendering diagrams in HTML exports.
 
 ### Step 4: Validate Export
 

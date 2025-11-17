@@ -307,6 +307,16 @@ cat > "$OUTPUT_DIR/index.html" << 'EOF'
             }
         }
     </style>
+
+    <!-- Mermaid.js for rendering diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose'
+        });
+    </script>
 </head>
 <body>
     <div class="container">

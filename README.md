@@ -178,6 +178,7 @@ Creates a professional, mobile-responsive site with:
 - Overview statistics (sprints, TAM, scores, research files)
 - Cards for each opportunity with recommendations
 - Links to HTML/PDF/Markdown versions of reports
+- **Automatic diagram rendering** with Mermaid.js in HTML reports
 - Automatic deployment via GitHub Actions
 
 See [GitHub Pages Publishing Guide](docs/GITHUB-PAGES.md) for setup and customization.

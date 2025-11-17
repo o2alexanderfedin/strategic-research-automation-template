@@ -12,6 +12,7 @@ The GitHub Pages feature creates a beautiful, mobile-responsive landing page tha
 - **Sprint Cards**: Each opportunity displayed with score, recommendation, and links
 - **Professional Design**: Purple gradient theme, hover effects, responsive layout
 - **Multiple Formats**: Links to HTML, PDF, and Markdown versions of each report
+- **Diagram Rendering**: Automatic Mermaid.js integration for rendering diagrams in HTML reports
 
 **Example**: https://o2alexanderfedin.github.io/innova-technology-proposals/
 
@@ -230,6 +231,45 @@ Edit around line 400 in the script:
 3. Test on multiple browsers (Chrome, Firefox, Safari)
 4. Validate HTML: https://validator.w3.org/
 5. Check mobile view with responsive design mode
+
+---
+
+## Diagram Rendering
+
+### Mermaid.js Integration
+
+All HTML reports automatically include Mermaid.js for rendering diagrams. Any Mermaid code blocks in your markdown reports will be rendered as interactive diagrams.
+
+**Supported diagram types**:
+- Flowcharts
+- Sequence diagrams
+- Class diagrams
+- State diagrams
+- ER diagrams
+- Gantt charts
+- Pie charts
+- Git graphs
+
+**Example markdown**:
+````markdown
+```mermaid
+graph TD
+    A[Market Analysis] --> B[Technical Feasibility]
+    B --> C[Financial Modeling]
+    C --> D[Go/No-Go Decision]
+    D -->|Go| E[Implementation Roadmap]
+    D -->|No-Go| F[Archive & Learn]
+```
+````
+
+**Benefits**:
+- ✅ Diagrams render automatically in browser
+- ✅ No image files to manage
+- ✅ Version control friendly (text-based)
+- ✅ Professional, scalable graphics
+- ✅ Interactive and responsive
+
+**Note**: Diagrams render in HTML reports only. PDF and DOCX exports will show the diagram code (future enhancement planned).
 
 ---
 
