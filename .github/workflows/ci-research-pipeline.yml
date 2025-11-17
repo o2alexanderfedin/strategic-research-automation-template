@@ -43,37 +43,15 @@ jobs:
             exit 0
           fi
 
-          # Check if required secrets are configured
-          if [ -z "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            echo "⚠️  ANTHROPIC_API_KEY secret not configured"
-            echo "Please configure ANTHROPIC_API_KEY in repository secrets to run research pipeline."
-            echo "See: https://github.com/${{ github.repository }}/settings/secrets/actions"
-            exit 0
-          fi
-
           echo "skip=false" >> $GITHUB_OUTPUT
           echo "✓ Research context verified"
 
       - name: Setup Claude Code CLI
         if: steps.check-context.outputs.skip != 'true'
         run: |
-          # Install Claude Code CLI using correct URL
+          # Install Claude Code CLI
           curl -fsSL https://claude.ai/install.sh | bash
           echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Configure Claude API Key
-        if: steps.check-context.outputs.skip != 'true'
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          # Configure Claude authentication
-          mkdir -p ~/.config/claude
-          cat > ~/.config/claude/config.json <<EOF
-          {
-            "apiKey": "$ANTHROPIC_API_KEY"
-          }
-          EOF
 
       - name: Install dependencies
         if: steps.check-context.outputs.skip != 'true'

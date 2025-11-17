@@ -24,12 +24,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Strategic Research Pipeline CI/CD workflow** - Complete rewrite to handle all failure modes
   - Fixed Claude CLI installation URL: `https://claude.ai/install.sh` (was: `https://install.claude.ai/cli`)
-  - Added pre-flight validation: checks for research context and API key before execution
+  - Added pre-flight validation: checks for research context before execution
   - Graceful skipping for template repositories (no longer fails with "Usage" error)
   - Fixed workflow triggers: only runs on context/config changes to main/develop, not on tag pushes
   - Added conditional execution: all steps skip if validation fails
-  - Fixed secret name: `ANTHROPIC_API_KEY` (was: `CLAUDE_API_KEY`)
   - Added config-based argument extraction for `run-complete-analysis.sh`
+  - **Removed API key requirement** - Claude Code handles authentication itself on first use
 
 ### Added
 
@@ -44,17 +44,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 **Root Causes Identified**:
 1. **Claude CLI installation failed**: DNS resolution error - wrong URL used
-2. **Missing API key**: Secret not configured, workflow continued and failed later
-3. **Workflow triggered on tag pushes**: Caused failures on releases without research context
-4. **Script required arguments**: Template repo has no initialized context to pass
+2. **Workflow triggered on tag pushes**: Caused failures on releases without research context
+3. **Script required arguments**: Template repo has no initialized context to pass
 
 **Solution**:
 - Validates research context exists before attempting execution
-- Checks API key is configured before running expensive operations
 - Only triggers on actual context/config file changes, not all pushes
 - Gracefully skips with clear messages when prerequisites not met
 - Template repositories now show: "⚠️ Template repository detected - no research context configured"
-- Production repositories require `ANTHROPIC_API_KEY` secret and initialized config
+- Claude Code handles its own authentication (no API key secrets needed)
 
 **Impact**:
 - Template repositories: No more false-positive failures ✅
