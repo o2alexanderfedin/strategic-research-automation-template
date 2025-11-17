@@ -18,6 +18,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.8.5] - 2025-11-17
+
+### Added
+
+- **Markdown list syntax formatting rules** - Prevents numbered lists from rendering as dense paragraphs
+  - Added "Markdown List Syntax - CRITICAL" section to CLAUDE.md with examples
+  - Updated solution-architect skill with proper list formatting requirements
+  - Updated report-generator skill with list syntax examples
+
+### Problem Solved
+
+**Before** (incorrect - renders as paragraph):
+```markdown
+Key Decisions: 1. Item one 2. Item two 3. Item three
+```
+Renders as: "Key Decisions: 1. Item one 2. Item two 3. Item three"
+
+**After** (correct - renders as list):
+```markdown
+**Key Decisions**:
+
+1. **Item One**: Description
+2. **Item Two**: Description
+3. **Item Three**: Description
+```
+Renders as proper numbered list with proper spacing and formatting.
+
+**Impact**: All architectural decisions, key findings, performance targets, and numbered content now render as scannable lists instead of dense paragraphs.
+
+---
+
 ## [3.8.4] - 2025-11-17
 
 ### Fixed
