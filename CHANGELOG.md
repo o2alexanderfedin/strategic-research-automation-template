@@ -18,6 +18,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.7.2] - 2025-11-16
+
+### Fixed
+
+- **Sed variable expansion bug** - Fixed bash variable expansion in sed patterns
+  - Changed from double quotes to single quotes with variable concatenation
+  - Prevents `\\$0` in double quotes from expanding to `\$0` → `$0` (script name)
+  - Bug caused: `sed: bad flag in substitute command: 'u'` on macOS
+  - Error pattern was: `s/.../\./ scripts/publish/generate-pages.shB+/.../`
+  - Now correctly uses: `s/...>\$0B+/.../\$'\"$total_tam_rounded\"' B+/'`
+
+### Technical Details
+
+**Before** (broken):
+```bash
+sed -i.bak "s/id=\"total-tam\">\\$0B+/id=\"total-tam\">\$$total_tam_rounded B+/" "$OUTPUT_DIR/index.html"
+```
+Bash expands `\\$0` → `\$0` → `./scripts/publish/generate-pages.sh`
+
+**After** (fixed):
+```bash
+sed -i.bak 's/id="total-tam">\$0B+/id="total-tam">$'"$total_tam_rounded"' B+/' "$OUTPUT_DIR/index.html"
+```
+Single quotes protect literal `\$0`, variable concatenated outside quotes.
+
+---
+
 ## [3.7.1] - 2025-11-16
 
 ### Added
