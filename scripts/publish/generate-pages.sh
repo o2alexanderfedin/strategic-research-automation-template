@@ -37,7 +37,9 @@ mkdir -p "$OUTPUT_DIR"
 
 # Extract project info from config
 PROJECT_NAME=$(grep "^project_name:" "$CONFIG_FILE" 2>/dev/null | cut -d: -f2- | sed 's/^[[:space:]]*//' || echo "Strategic Research")
-INDUSTRY=$(grep "^industry:" "$CONFIG_FILE" 2>/dev/null | cut -d: -f2- | sed 's/^[[:space:]]*//' || echo "Technology")
+INDUSTRY=$(grep "^industry:" "$CONFIG_FILE" 2>/dev/null | cut -d: -f2- | sed 's/^[[:space:]]*//' | sed 's/"//g' || echo "Technology")
+# Clean up template placeholders if config wasn't initialized
+INDUSTRY=$(echo "$INDUSTRY" | sed 's/{{.*}}/Technology/g')
 
 # Count sprints and research files
 SPRINT_COUNT=$(find "$REPORTS_DIR" -maxdepth 1 -name "sprint-*-final-report.md" -type f 2>/dev/null | wc -l | tr -d ' ')
@@ -368,7 +370,8 @@ for report in "$REPORTS_DIR"/sprint-*-final-report.md; do
 
     # Read the report to extract metadata
     title=$(grep "^# " "$report" | head -1 | sed 's/^# //' || echo "Sprint $sprint_num")
-    description=$(grep -A 5 "## Executive Summary" "$report" | tail -4 | head -1 || echo "Strategic research analysis")
+    # Extract description - skip markdown headings and blank lines to get actual content
+    description=$(grep -A 20 "## Executive Summary" "$report" | grep -v "^#" | grep -v "^$" | grep -v "^\*\*" | head -1 || echo "Strategic research analysis")
 
     # Extract score if available
     score=$(grep -i "score:" "$report" | grep -o '[0-9]\+' | head -1 || echo "75")
