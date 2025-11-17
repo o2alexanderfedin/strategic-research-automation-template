@@ -30,6 +30,31 @@ Design comprehensive system architecture and technical solution for strategic op
 ## Design Principles
 Follow industry best practices, consider trade-offs, document decisions with rationale.
 
+## Formatting Requirements
+
+### Proper List Syntax - CRITICAL
+**NEVER use inline manual numbering** - it renders as dense paragraph text.
+
+**INCORRECT**:
+```markdown
+Key Architectural Decisions: 1. Item one 2. Item two 3. Item three
+```
+
+**CORRECT**:
+```markdown
+**Key Architectural Decisions**:
+
+1. **Item One**: Description here
+2. **Item Two**: Description here
+3. **Item Three**: Description here
+```
+
+**Rules**:
+- Blank line before list starts
+- One item per line with proper markdown syntax (`1. ` or `- `)
+- Bold the item label for emphasis
+- Never combine multiple numbered items in one line
+
 ## Visualization Standards
 
 ### Always Use Mermaid

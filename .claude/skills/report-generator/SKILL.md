@@ -25,6 +25,31 @@ You are the Report Generator, responsible for creating comprehensive final repor
 ### Text Readability - CRITICAL
 **Break up dense text** - Executives need scannable content.
 
+### Markdown List Syntax - CRITICAL
+**NEVER use inline manual numbering** - renders as dense paragraph, not actual list.
+
+**INCORRECT** (renders as one paragraph):
+```markdown
+Key Architectural Decisions: 1. Verification-First: Description here 2. Hybrid Deployment: More text 3. SMT-LIB Standard: Even more
+```
+
+**CORRECT** (renders as proper numbered list):
+```markdown
+**Key Architectural Decisions**:
+
+1. **Verification-First**: Description here
+2. **Hybrid Deployment**: More text
+3. **SMT-LIB Standard**: Even more
+```
+
+**Rules**:
+- Always have blank line before list starts
+- Use proper markdown syntax: `1. ` for numbered, `- ` for bullets
+- One item per line, never inline multiple items
+- Bold the item label with `**Label**:`
+
+### Dense Text Formatting
+
 **NEVER write long, dense paragraphs like this**:
 ```markdown
 Mega-Trend 1: Self-Driving Labs - Market Growth: $1.32B → $3.11B, 10% CAGR - Technology Maturation: Publications increased 10x - Key Drivers: DOE investment, private sector, materials science - SRS Opportunity: Verified AI critical enabler

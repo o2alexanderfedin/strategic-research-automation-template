@@ -255,6 +255,31 @@ Mega-Trend 1: Self-Driving Labs (SDL) Commercialization - Market Growth: Virtual
 - Short, related statements that don't warrant full bullets
 - Preserving specific line structure
 
+#### Markdown List Syntax - CRITICAL
+
+**NEVER use manual numbering** - it renders as dense text, not actual lists.
+
+**INCORRECT** (renders as paragraph):
+```markdown
+Key Architectural Decisions: 1. Verification-First: Formal verification at center of architecture (not post-processing add-on), with verification gates at pre-calibration, real-time monitoring, and post-calibration 2. Hybrid Deployment: Support both on-premise (air-gapped metrology labs) and cloud SaaS (calibration service providers) with unified codebase 3. SMT-LIB Standard: All calibration models in SMT-LIB 2.6 format for portability and customer flexibility
+```
+
+**CORRECT** (renders as proper list):
+```markdown
+**Key Architectural Decisions**:
+
+1. **Verification-First**: Formal verification at center of architecture (not post-processing add-on), with verification gates at pre-calibration, real-time monitoring, and post-calibration
+2. **Hybrid Deployment**: Support both on-premise (air-gapped metrology labs) and cloud SaaS (calibration service providers) with unified codebase
+3. **SMT-LIB Standard**: All calibration models in SMT-LIB 2.6 format for portability and customer flexibility
+```
+
+**Rules for markdown lists**:
+1. **Blank line before list** - Always have empty line before first item
+2. **Proper syntax** - Use `1. ` for numbered, `- ` for bullets
+3. **Never inline numbers** - Don't write "1. Item 2. Item" in one line
+4. **Bold the label** - Use `**Label**:` for emphasis
+5. **One item per line** - Each list item on its own line
+
 ### Diagrams and Visualizations
 
 #### Always Use Mermaid
