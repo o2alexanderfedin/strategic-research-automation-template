@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Setup Time](https://img.shields.io/badge/setup-5%20minutes-green)]()
 [![Quick Start](https://img.shields.io/badge/quick%20start-2%20commands-brightgreen)](#-start-here-for-first-time-users)
+[![Example Reports](https://img.shields.io/badge/📊_Example_Reports-View_Live-purple)](https://o2alexanderfedin.github.io/innova-technology-proposals/)
 
 > **Turn weeks of research into hours**
 
@@ -179,7 +180,12 @@ Creates a professional, mobile-responsive site with:
 - Cards for each opportunity with recommendations
 - Links to HTML/PDF/Markdown versions of reports
 - **Automatic diagram rendering** with Mermaid.js in HTML reports
+- **Cross-links to repository** - Landing page includes link back to GitHub repository
 - Automatic deployment via GitHub Actions
+
+**Navigation**:
+- From repository → Click "Example Reports" badge at top of README
+- From landing page → Click "View Repository & Documentation" button in header
 
 See [GitHub Pages Publishing Guide](docs/GITHUB-PAGES.md) for setup and customization.
 

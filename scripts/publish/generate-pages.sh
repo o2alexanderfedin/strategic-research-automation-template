@@ -323,11 +323,25 @@ cat > "$OUTPUT_DIR/index.html" << 'EOF'
         <header>
 EOF
 
+# Get repository URL for cross-linking
+REPO_URL=$(git config --get remote.origin.url 2>/dev/null | sed 's/\.git$//' | sed 's|git@github.com:|https://github.com/|' || echo "")
+
 # Add dynamic header content
 cat >> "$OUTPUT_DIR/index.html" << EOF
             <h1>$PROJECT_NAME</h1>
             <p>AI-Powered Strategic Research &amp; Analysis</p>
 EOF
+
+# Add repository link if available
+if [ -n "$REPO_URL" ]; then
+cat >> "$OUTPUT_DIR/index.html" << EOF
+            <p style="margin-top: 15px; font-size: 0.9em;">
+                <a href="$REPO_URL" style="color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.5); padding: 8px 16px; border-radius: 4px; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    📂 View Repository &amp; Documentation
+                </a>
+            </p>
+EOF
+fi
 
 cat >> "$OUTPUT_DIR/index.html" << 'EOF'
         </header>
