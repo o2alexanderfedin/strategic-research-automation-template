@@ -422,7 +422,8 @@ if [ -f "./scripts/publish/generate-pages.sh" ]; then
     if ./scripts/publish/generate-pages.sh >> "$LOG_FILE" 2>&1; then
         echo -e "${GREEN}✓ GitHub Pages generated successfully${NC}" | tee -a "$LOG_FILE"
         echo "" | tee -a "$LOG_FILE"
-        echo -e "${CYAN}Landing page created at: docs/pages/index.html${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}Landing page created at: docs/index.html${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}.nojekyll file created at: docs/.nojekyll${NC}" | tee -a "$LOG_FILE"
 
         # Commit and push to publish
         echo "" | tee -a "$LOG_FILE"
@@ -430,14 +431,14 @@ if [ -f "./scripts/publish/generate-pages.sh" ]; then
 
         # Check if we're in a git repository
         if git rev-parse --git-dir > /dev/null 2>&1; then
-            # Add the generated pages
-            git add docs/pages/ >> "$LOG_FILE" 2>&1
+            # Add the generated pages (index.html and .nojekyll)
+            git add docs/index.html docs/.nojekyll >> "$LOG_FILE" 2>&1
 
-            # Also add reports to pages/reports directory
+            # Also copy and add reports to docs/reports directory for web access
             if [ -d "reports" ]; then
-                mkdir -p docs/pages/reports
-                find reports -name "sprint-*-final-report.*" -type f -exec cp {} docs/pages/reports/ \; 2>> "$LOG_FILE"
-                git add docs/pages/reports/ >> "$LOG_FILE" 2>&1
+                mkdir -p docs/reports
+                find reports -name "sprint-*-final-report.*" -type f -exec cp {} docs/reports/ \; 2>> "$LOG_FILE"
+                git add docs/reports/ >> "$LOG_FILE" 2>&1
             fi
 
             # Commit with timestamp

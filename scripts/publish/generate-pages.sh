@@ -10,7 +10,7 @@ set -e
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-OUTPUT_DIR="${1:-$PROJECT_ROOT/docs/pages}"
+OUTPUT_DIR="${1:-$PROJECT_ROOT/docs}"
 REPORTS_DIR="$PROJECT_ROOT/reports"
 CONFIG_FILE="$PROJECT_ROOT/config/project-config.yml"
 
@@ -408,9 +408,9 @@ for report in "$REPORTS_DIR"/sprint-*-final-report.md; do
                         <strong>Industry:</strong> $INDUSTRY
                     </div>
                     <div class="report-links">
-                        <a href="../reports/sprint-$(printf "%02d" "$sprint_num")-final-report.html" class="btn btn-primary">View Report</a>
-                        <a href="../reports/sprint-$(printf "%02d" "$sprint_num")-final-report.pdf" class="btn btn-secondary">PDF</a>
-                        <a href="../reports/sprint-$(printf "%02d" "$sprint_num")-final-report.md" class="btn btn-secondary">Markdown</a>
+                        <a href="reports/sprint-$(printf "%02d" "$sprint_num")-final-report.html" class="btn btn-primary">View Report</a>
+                        <a href="reports/sprint-$(printf "%02d" "$sprint_num")-final-report.pdf" class="btn btn-secondary">PDF</a>
+                        <a href="reports/sprint-$(printf "%02d" "$sprint_num")-final-report.md" class="btn btn-secondary">Markdown</a>
                     </div>
                 </div>
 EOF
@@ -466,12 +466,16 @@ sed -i.bak "s/id=\"total-tam\">\\$0B+/id=\"total-tam\">\$$total_tam_rounded B+/"
 sed -i.bak "s/id=\"avg-score\">0\/100/id=\"avg-score\">$avg_score\/100/" "$OUTPUT_DIR/index.html"
 rm -f "$OUTPUT_DIR/index.html.bak"
 
+# Create .nojekyll file to disable Jekyll processing on GitHub Pages
+touch "$OUTPUT_DIR/.nojekyll"
+
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════════════╗${NC}"
 echo -e "${GREEN}║  ✓ GitHub Pages Generated Successfully!          ║${NC}"
 echo -e "${GREEN}╚════════════════════════════════════════════════════╝${NC}"
 echo ""
 echo -e "${BOLD}Output:${NC} $OUTPUT_DIR/index.html"
+echo -e "${BOLD}Jekyll disabled:${NC} $OUTPUT_DIR/.nojekyll created"
 echo -e "${BOLD}Sprints:${NC} $SPRINT_COUNT"
 echo -e "${BOLD}Research Files:${NC} $RESEARCH_FILE_COUNT+"
 echo -e "${BOLD}Total TAM:${NC} \$${total_tam_rounded}B+"
@@ -479,6 +483,6 @@ echo -e "${BOLD}Average Score:${NC} $avg_score/100"
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
 echo "1. Review the generated index.html"
-echo "2. Copy to your GitHub Pages repository"
-echo "3. Or use the /publish-pages command to auto-deploy"
+echo "2. Enable GitHub Pages: Settings → Pages → Source: main, /docs"
+echo "3. Site will be live at: https://<username>.github.io/<repo>/"
 echo ""
