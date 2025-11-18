@@ -5,6 +5,9 @@
 
 set -e
 
+# Use CLAUDE_CMD environment variable or default to YOLO mode (claude-eng)
+CLAUDE_CMD="${CLAUDE_CMD:-./scripts/setup/claude-eng}"
+
 # Colors
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -44,7 +47,7 @@ echo "TEST 1: Opportunity Discovery" | tee -a "$RESULTS_FILE"
 echo "─────────────────────────────────────────────────────────────" | tee -a "$RESULTS_FILE"
 
 DISCOVER_START=$(date +%s)
-./scripts/setup/claude-eng -p "/discover-opportunities" | tee -a "$RESULTS_FILE"
+$CLAUDE_CMD -p "/discover-opportunities" | tee -a "$RESULTS_FILE"
 DISCOVER_END=$(date +%s)
 DISCOVER_DURATION=$((DISCOVER_END - DISCOVER_START))
 
@@ -69,7 +72,7 @@ echo "TEST 2: Execute Sprint 01" | tee -a "$RESULTS_FILE"
 echo "─────────────────────────────────────────────────────────────" | tee -a "$RESULTS_FILE"
 
 EXEC_START=$(date +%s)
-./scripts/setup/claude-eng -p "/execute-sprint 01" | tee -a "$RESULTS_FILE"
+$CLAUDE_CMD -p "/execute-sprint 01" | tee -a "$RESULTS_FILE"
 EXEC_END=$(date +%s)
 EXEC_DURATION=$((EXEC_END - EXEC_START))
 
@@ -106,7 +109,7 @@ echo "TEST 3: Opportunity Scoring" | tee -a "$RESULTS_FILE"
 echo "─────────────────────────────────────────────────────────────" | tee -a "$RESULTS_FILE"
 
 SCORE_START=$(date +%s)
-./scripts/setup/claude-eng -p "/score-opportunity 01" | tee -a "$RESULTS_FILE"
+$CLAUDE_CMD -p "/score-opportunity 01" | tee -a "$RESULTS_FILE"
 SCORE_END=$(date +%s)
 SCORE_DURATION=$((SCORE_END - SCORE_START))
 
@@ -119,7 +122,7 @@ echo "TEST 4: Export to PDF" | tee -a "$RESULTS_FILE"
 echo "─────────────────────────────────────────────────────────────" | tee -a "$RESULTS_FILE"
 
 EXPORT_START=$(date +%s)
-./scripts/setup/claude-eng -p "/export-findings 01 pdf" | tee -a "$RESULTS_FILE"
+$CLAUDE_CMD -p "/export-findings 01 pdf" | tee -a "$RESULTS_FILE"
 EXPORT_END=$(date +%s)
 EXPORT_DURATION=$((EXPORT_END - EXPORT_START))
 

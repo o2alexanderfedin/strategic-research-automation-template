@@ -12,21 +12,36 @@ Generate and publish a professional landing page showcasing all sprint reports.
    - Responsive design with professional styling
 3. **Publishes** to GitHub Pages (if repository is configured)
 
-## Steps to Execute
+## Architecture Versions
 
-1. Generate the index.html page
-2. Copy reports to docs/pages/ directory
-3. Optionally commit and push to GitHub Pages
+### V2 (Recommended) - JSON + Static HTML
 
-## Usage
+The v2 architecture separates data from presentation:
+- **JSON data file** (`sprints-data.json`) contains all sprint metadata
+- **Static HTML template** (`index.html`) loads JSON via JavaScript
+- **Benefits**: Idempotent, maintainable, testable, extensible
 
 ```bash
-# Generate the landing page
+# Generate both JSON and HTML (recommended)
+./scripts/publish/generate-pages-v2.sh
+
+# Or specify custom output directory
+./scripts/publish/generate-pages-v2.sh ./docs
+```
+
+### V1 (Legacy) - Bash Template Generation
+
+The original monolithic script that generates HTML via bash heredocs:
+
+```bash
+# Generate the landing page (v1)
 ./scripts/publish/generate-pages.sh
 
 # Or specify custom output directory
 ./scripts/publish/generate-pages.sh ./public
 ```
+
+**Note**: V1 still works and is fully supported, but v2 is recommended for new projects.
 
 ## GitHub Pages Setup
 
@@ -60,8 +75,26 @@ The page will automatically calculate:
 
 ## Customization
 
-Edit the HTML template in `scripts/publish/generate-pages.sh` to:
+### V2 Architecture
+Edit `docs/index-template.html` (proper HTML/CSS/JS file) to:
 - Change color scheme (currently purple gradient)
+- Modify card layout and styling
+- Add client-side filtering, sorting, search
+- Extend JavaScript data binding logic
+
+### V1 Architecture
+Edit the bash heredoc template in `scripts/publish/generate-pages.sh` to:
+- Change color scheme
 - Modify card layout
 - Add additional statistics
 - Update footer branding
+
+## Testing
+
+```bash
+# Run comprehensive v2 integration tests
+./test/integration/test-generate-pages-v2.sh
+
+# Run v1 integration tests (if available)
+./test/integration/test-generate-pages.sh
+```

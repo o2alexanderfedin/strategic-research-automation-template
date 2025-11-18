@@ -90,11 +90,18 @@ git push origin develop
 
 ### Step 9: Generate GitHub Pages
 
-Generate professional landing page for research results:
+Generate professional landing page for research results (v2 architecture recommended):
 ```bash
+# V2 (recommended) - JSON + static HTML
+./scripts/publish/generate-pages-v2.sh
+git add docs/index.html docs/sprints-data.json docs/.nojekyll
+git commit -m "Add GitHub Pages landing page (v2) for $1"
+git push origin main
+
+# V1 (fallback) - if v2 not available
 ./scripts/publish/generate-pages.sh
 git add docs/pages/
-git commit -m "Add GitHub Pages landing page for $1"
+git commit -m "Add GitHub Pages landing page (v1) for $1"
 git push origin main
 ```
 
@@ -102,6 +109,7 @@ This creates a beautiful landing page at `https://<username>.github.io/<repo>/` 
 - Overview statistics (sprint count, research files, total TAM, average score)
 - Cards for each sprint with scores and recommendations
 - Links to HTML/PDF/Markdown versions of reports
+- V2: Client-side data binding with JSON for better maintainability
 
 ### Step 10: Create GitHub Release (Optional)
 

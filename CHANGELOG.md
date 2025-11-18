@@ -15,6 +15,246 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Web UI for non-technical users
 - Integration with external data sources (APIs, databases)
 - Custom themes for GitHub Pages
+- Client-side filtering, sorting, search for v2 architecture
+- Dark mode toggle for GitHub Pages
+
+---
+
+## [3.10.0] - 2025-11-18
+
+### Added - V2 ARCHITECTURE 🚀
+
+Introduced **v2 GitHub Pages architecture** with separation of data and presentation layers:
+
+- **`scripts/publish/generate-pages-data.sh`** - JSON data generator
+  - Extracts sprint metadata from markdown reports
+  - Generates `docs/sprints-data.json` with structured data
+  - Configurable via parameters: `[output-dir] [reports-dir] [config-file]`
+  - True idempotence: JSON regenerated, no regex replacement tricks
+  - TAM calculation with unit conversion (B/M/K → billions)
+  - Recommendation scoring: STRONG GO (≥80), GO (≥70), CONSIDER (≥60), NO GO (<60)
+  - jq fallback for systems without jq installed
+
+- **`docs/index-template.html`** - Static HTML template
+  - Pure HTML/CSS/JavaScript (no bash heredocs!)
+  - Client-side data binding via fetch API
+  - XSS protection with `escapeHtml()` function
+  - Responsive design (CSS Grid on desktop, single column on mobile)
+  - Graceful error handling with user feedback
+  - Maintains v3.9.0 CSS Grid button layout fix
+
+- **`scripts/publish/generate-pages-html.sh`** - Template copier
+  - Copies static HTML template to output directory
+  - Creates `.nojekyll` marker to disable Jekyll processing
+  - Only needs to run once (or with --force to overwrite)
+
+- **`scripts/publish/generate-pages-v2.sh`** - Unified workflow wrapper
+  - Orchestrates data generation + HTML copy
+  - Configurable via parameters: `[output-dir] [reports-dir] [config-file]`
+  - Skips HTML copy if exists (use `--force` to overwrite)
+  - Clear status reporting with step-by-step output
+
+- **Comprehensive integration test suite** (`test/integration/test-generate-pages-v2.sh`)
+  - 31 automated tests validating entire v2 workflow
+  - Test categories:
+    - JSON data generation
+    - JSON schema validation (meta + sprints array)
+    - Title cleanup regression tests (v3.9.0)
+    - HTML template generation
+    - HTML content validation (JavaScript, CSS Grid, XSS protection)
+    - Complete v2 workflow (end-to-end)
+    - Idempotence tests (JSON structure unchanged)
+    - Special character escaping tests
+  - Test artifacts automatically cleaned up on success
+  - Preserved on failure for debugging
+
+- **Migration documentation** (`docs/MIGRATION-V2.md`)
+  - Step-by-step migration guide from v1 → v2
+  - Architecture comparison (v1 vs v2)
+  - Customization examples for both versions
+  - Troubleshooting common issues (CORS, JSON syntax, caching)
+  - Rollback instructions
+  - Migration checklist
+
+### Changed
+
+- **Updated `/.claude/commands/publish-pages.md`** slash command
+  - Documents both v1 (legacy) and v2 (recommended) architectures
+  - Usage examples for both versions
+  - Customization guidance for each architecture
+  - Testing instructions
+
+### Fixed
+
+- **YAML config quote stripping** in `generate-pages-data.sh`
+  - **Issue**: YAML values like `project_name: "Test Project"` were double-escaped in JSON
+  - **Result**: `"project_name": ""Test Project""` (invalid JSON)
+  - **Fix**: Strip both single and double quotes from extracted YAML values
+  - **Lines**: 33-37 in `generate-pages-data.sh`
+
+### Architectural Benefits
+
+**V2 vs V1 Comparison**:
+
+| Aspect | V1 (Legacy) | V2 (Recommended) |
+|--------|-------------|------------------|
+| **Idempotence** | Regex replacement (fragile) | JSON regeneration (reliable) |
+| **Maintainability** | Bash heredocs (hard to edit) | Proper HTML/CSS/JS files |
+| **Testability** | Integration tests only | Unit + integration tests |
+| **Extensibility** | Edit bash script | Edit HTML template |
+| **Type Safety** | None (bash strings) | JSON schema validation |
+| **Client Features** | Limited | Filtering, sorting, search (future) |
+| **HTML Editing** | No syntax highlighting | Full IDE support |
+| **Debugging** | Difficult (bash heredocs) | Easy (browser DevTools) |
+
+**Migration**: V1 remains fully supported. V2 is opt-in, not breaking.
+
+### Backward Compatibility
+
+✅ **100% Backward Compatible**
+- V1 (`generate-pages.sh`) continues to work unchanged
+- All existing workflows, CI/CD, and scripts work as before
+- V2 is additive, not a replacement
+
+### Testing
+
+```bash
+# Test v1 (legacy)
+./test/integration/test-generate-pages.sh
+# ✓ ALL TESTS PASSED
+
+# Test v2 (new)
+./test/integration/test-generate-pages-v2.sh
+# ✓ ALL 31 TESTS PASSED - V2 Architecture Status: READY FOR PRODUCTION
+```
+
+### Documentation
+
+- Added `docs/MIGRATION-V2.md` - Complete migration guide
+- Updated `.claude/commands/publish-pages.md` - Dual architecture documentation
+- Enhanced CHANGELOG with v2 architecture details
+
+### Usage
+
+```bash
+# V1 (legacy) - Still works, fully supported
+./scripts/publish/generate-pages.sh
+
+# V2 (recommended) - New architecture
+./scripts/publish/generate-pages-v2.sh
+
+# V2 with custom paths
+./scripts/publish/generate-pages-v2.sh ./docs ./reports ./config/project-config.yml
+
+# Force HTML overwrite
+./scripts/publish/generate-pages-v2.sh ./docs ./reports ./config/project-config.yml --force
+```
+
+### Local Development
+
+V2 requires a local server due to CORS restrictions on `fetch()`:
+
+```bash
+# Python 3
+cd docs && python3 -m http.server 8000
+
+# Open http://localhost:8000
+```
+
+V1 works with `file://` protocol (no server needed).
+
+---
+
+## [3.9.0] - 2025-11-17
+
+### Fixed - CRITICAL
+
+Based on real-world usage, fixed 4 critical bugs that prevented proper GitHub Pages updates:
+
+- **Issue #1: GitHub Pages generator regex patterns only matched placeholder values** (⚠️ HIGH PRIORITY)
+  - **Root Cause**: Regex patterns `\$0B+` and `0/100` only matched initial values, not existing data
+  - **Impact**: Running script twice failed silently - script reported success but HTML unchanged
+  - **Fix**: Updated sed patterns to match ANY numeric value: `\$[0-9]+B+` and `[0-9]+/100`
+  - **Validation**: Added post-update checks to detect silent failures
+  - **Regression Test**: Test validates 0→3→4 sprint incremental updates
+
+- **Issue #2: Hardcoded claude-eng paths prevented command override** (⚠️ MEDIUM PRIORITY)
+  - **Root Cause**: `run-full.sh` had 8 hardcoded `./scripts/setup/claude-eng` references
+  - **Impact**: Users couldn't override with custom Claude commands for testing
+  - **Fix**: Added `CLAUDE_CMD` variable with consistent pattern across all scripts
+  - **Files Fixed**: `run-full.sh` (8 refs), `test/integration/single-sprint-test.sh` (4 refs)
+
+- **Issue #3: Redundant title prefixes in report cards** (⚠️ LOW PRIORITY - UX)
+  - **Root Cause**: No title cleanup - extracted "Sprint 02:" then prepended it again
+  - **Impact**: Cards showed "Sprint 02: Sprint 02: Title" (unprofessional)
+  - **Fix**: Iterative sed loop removes all redundant prefixes before output
+  - **Patterns Removed**: "Sprint XX:", "Strategic Report:", "Strategic Research Report:"
+
+- **Issue #4: Button layout used flexbox causing text wrapping** (⚠️ LOW PRIORITY - UX)
+  - **Root Cause**: Flexbox with `flex: 1` made 4 buttons too narrow (25% width each)
+  - **Impact**: Button text wrapped, poor mobile experience, hard to click
+  - **Fix**: Switched to CSS Grid with 2x2 layout (50% width each)
+  - **Enhancements**: Added `white-space: nowrap`, mobile-responsive single column
+
+### Added
+
+- **Integration test suite for GitHub Pages generator**
+  - Validates initial generation (0 → 3 sprints)
+  - Validates idempotent updates (3 → 3 sprints with same data)
+  - **Regression test for Issue #1** (3 → 4 sprints incremental addition)
+  - Validates title cleanup (no redundant prefixes)
+  - Validates button layout (CSS Grid, not Flexbox)
+  - Test file: `test/integration/test-generate-pages.sh`
+
+- **Model selection enforcement** (from v3.8.9)
+  - All automation scripts now default to **Sonnet 4.5** model for optimal research quality
+  - Centralized model configuration in `scripts/setup/claude-eng` wrapper
+  - Environment variable override support via `CLAUDE_MODEL` (haiku, sonnet, opus)
+  - Model pricing documentation in README with usage examples
+  - Verbose mode displays selected model for transparency
+
+### Changed
+
+- **Updated `scripts/publish/generate-pages.sh`**:
+  - Idempotent regex patterns for stats updates (Lines 498-516)
+  - Iterative title cleanup loop (Lines 404-418)
+  - Improved score extraction to handle multiple formats (Lines 413-414)
+  - CSS Grid button layout with mobile responsiveness (Lines 238-254, 307-309)
+  - Added validation warnings for failed stat updates
+
+- **Updated `scripts/run-full.sh`**:
+  - Added `CLAUDE_CMD` variable (Line 8)
+  - Replaced 8 hardcoded paths with `$CLAUDE_CMD`
+
+- **Updated `test/integration/single-sprint-test.sh`**:
+  - Added `CLAUDE_CMD` variable (Line 9)
+  - Replaced 4 hardcoded paths with `$CLAUDE_CMD`
+
+### Testing
+
+All fixes validated by comprehensive integration test:
+```bash
+bash test/integration/test-generate-pages.sh
+# ✓ ALL TESTS PASSED - GitHub Pages generator is production-ready!
+```
+
+### Documentation
+
+- Added detailed bug analysis based on real-world usage
+- Updated README with model selection guidelines
+- Enhanced troubleshooting documentation
+
+### Credits
+
+Bug reports and analysis from real-world deployment testing. Thank you to early adopters who provided detailed feedback!
+
+---
+
+## [3.8.9] - 2025-11-17
+
+### Note
+
+This version was superseded by v3.9.0 which includes critical bug fixes from production usage.
 
 ---
 

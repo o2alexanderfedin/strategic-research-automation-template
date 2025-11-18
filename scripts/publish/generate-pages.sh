@@ -236,19 +236,21 @@ cat > "$OUTPUT_DIR/index.html" << 'EOF'
         }
 
         .report-links {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  /* 2x2 grid: 2 columns on desktop */
             gap: 10px;
             margin-top: 20px;
         }
 
         .btn {
-            flex: 1;
-            padding: 10px 20px;
+            padding: 12px 20px;  /* Increased padding for better click targets */
             border-radius: 6px;
             text-decoration: none;
             text-align: center;
             font-weight: 600;
             transition: all 0.3s ease;
+            white-space: nowrap;  /* Prevent text wrapping inside buttons */
+            font-size: 0.9em;     /* Slightly smaller text for better fit */
         }
 
         .btn-primary {
@@ -303,7 +305,7 @@ cat > "$OUTPUT_DIR/index.html" << 'EOF'
             }
 
             .report-links {
-                flex-direction: column;
+                grid-template-columns: 1fr;  /* Single column on mobile - stacked buttons */
             }
         }
     </style>
@@ -394,11 +396,33 @@ for report in "$REPORTS_DIR"/sprint-*-final-report.md; do
 
     # Read the report to extract metadata
     title=$(grep "^# " "$report" | head -1 | sed 's/^# //' || echo "Sprint $sprint_num")
+
+    # Clean up title: remove redundant prefixes that will cause duplication
+    # (The card displays "Sprint XX:" already, so remove it from the extracted title)
+    # Remove patterns: "Sprint XX:", "Sprint XX ", "Strategic Report:", "Strategic Research Report:"
+    # Apply patterns in a loop to handle multiple occurrences (e.g., "Sprint 02: Sprint 02: Title")
+    while true; do
+        new_title=$(echo "$title" | sed -E '
+            s/^Sprint [0-9]+: ?//;
+            s/^Sprint [0-9]+ //;
+            s/^Strategic Research Report: ?//;
+            s/^Strategic Report: ?//;
+            s/^ +//;
+            s/ +$//
+        ')
+        # Break if title unchanged (no more matches)
+        if [ "$new_title" = "$title" ]; then
+            break
+        fi
+        title="$new_title"
+    done
+
     # Extract description - skip markdown headings and blank lines to get actual content
     description=$(grep -A 20 "## Executive Summary" "$report" | grep -v "^#" | grep -v "^$" | grep -v "^\*\*" | head -1 || echo "Strategic research analysis")
 
-    # Extract score if available
-    score=$(grep -i "score:" "$report" | grep -o '[0-9]\+' | head -1 || echo "75")
+    # Extract score if available (handles both "Score: XX" and "**Overall Score**: XX.X/100")
+    score=$(grep -iE "(score:|overall score)" "$report" | grep -oE '[0-9]+(\.[0-9]+)?' | head -1 || echo "75")
+    score=$(echo "$score" | awk '{print int($1)}')  # Convert to integer
 
     # Extract TAM if available (looking for patterns like $XXB, $XXXB, etc.)
     tam=$(grep -i "TAM" "$report" | grep -oE '\$[0-9.]+[BMK]' | head -1 | sed 's/\$//' || echo "10B")
@@ -489,16 +513,30 @@ fi
 total_tam_rounded=$(echo "$TOTAL_TAM" | awk '{print int($1+0.5)}')
 
 # Update the HTML with actual values
-# Use portable sed syntax for both macOS and Linux
+# Use regex patterns that match ANY existing value (not just 0) for idempotent updates
+# This allows the script to be run multiple times as sprints are added/updated
+# Pattern: Match any number/value, not just the initial placeholder "0"
 if sed --version >/dev/null 2>&1; then
     # GNU sed (Linux)
-    sed -i 's/id="total-tam">\$0B+/id="total-tam">$'"$total_tam_rounded"' B+/' "$OUTPUT_DIR/index.html"
-    sed -i 's/id="avg-score">0\/100/id="avg-score">'"$avg_score"'\/100/' "$OUTPUT_DIR/index.html"
+    # Match: id="total-tam">$XXB+ where XX is any number (handles both $0B+, $5B+, $12B+, etc.)
+    sed -i 's/id="total-tam">\$[0-9]\+B+/id="total-tam">$'"$total_tam_rounded"'B+/' "$OUTPUT_DIR/index.html"
+    # Match: id="avg-score">XX/100 where XX is any number (handles both 0/100, 84/100, etc.)
+    sed -i 's/id="avg-score">[0-9]\+\/100/id="avg-score">'"$avg_score"'\/100/' "$OUTPUT_DIR/index.html"
 else
     # BSD sed (macOS)
-    sed -i.bak 's/id="total-tam">\$0B+/id="total-tam">$'"$total_tam_rounded"' B+/' "$OUTPUT_DIR/index.html"
-    sed -i.bak 's/id="avg-score">0\/100/id="avg-score">'"$avg_score"'\/100/' "$OUTPUT_DIR/index.html"
+    # Match: id="total-tam">$XXB+ where XX is any number (handles both $0B+, $5B+, $12B+, etc.)
+    sed -i.bak 's/id="total-tam">\$[0-9][0-9]*B+/id="total-tam">$'"$total_tam_rounded"'B+/' "$OUTPUT_DIR/index.html"
+    # Match: id="avg-score">XX/100 where XX is any number (handles both 0/100, 84/100, etc.)
+    sed -i.bak 's/id="avg-score">[0-9][0-9]*\/100/id="avg-score">'"$avg_score"'\/100/' "$OUTPUT_DIR/index.html"
     rm -f "$OUTPUT_DIR/index.html.bak"
+fi
+
+# Validate that updates actually happened (detect silent failures)
+if ! grep -q "id=\"total-tam\">\$$total_tam_rounded" "$OUTPUT_DIR/index.html"; then
+    echo "WARNING: Failed to update total-tam stat - regex may not have matched"
+fi
+if ! grep -q "id=\"avg-score\">$avg_score/100" "$OUTPUT_DIR/index.html"; then
+    echo "WARNING: Failed to update avg-score stat - regex may not have matched"
 fi
 
 # Create .nojekyll file to disable Jekyll processing on GitHub Pages
