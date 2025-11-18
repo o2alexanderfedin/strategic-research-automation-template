@@ -87,6 +87,7 @@ EOF
 # Arguments:
 #   $1 - Output file path (default: context/industry-background.md)
 #
+# shellcheck disable=SC2120
 generate_industry_context() {
     local output_file="${1:-context/industry-background.md}"
 
@@ -128,5 +129,6 @@ generate_all_contexts() {
 
     generate_company_context "$company_info"
     generate_client_context "$client_info" "$additional_context"
+    # shellcheck disable=SC2119
     generate_industry_context
 }

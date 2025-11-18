@@ -128,6 +128,7 @@ setup_context_files() {
     print_success "Client information created"
 
     print_progress "Creating industry background..."
+    # shellcheck disable=SC2119
     generate_industry_context
     print_success "Industry background created"
 }
