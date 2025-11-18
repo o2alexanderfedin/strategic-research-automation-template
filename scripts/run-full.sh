@@ -418,14 +418,15 @@ echo -e "${BOLD}${BLUE}Step 7: Generate GitHub Pages Landing Page${NC}" | tee -a
 echo -e "${BLUE}═══════════════════════════════════════════════════════════${NC}" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 
-if [ -f "./scripts/publish/generate-pages.sh" ]; then
-    echo -e "${YELLOW}Generating professional landing page for your research...${NC}" | tee -a "$LOG_FILE"
+if [ -f "./scripts/publish/generate-pages-v2.sh" ]; then
+    echo -e "${YELLOW}Generating professional landing page for your research (v2 architecture)...${NC}" | tee -a "$LOG_FILE"
 
-    # Run the GitHub Pages generator
-    if ./scripts/publish/generate-pages.sh >> "$LOG_FILE" 2>&1; then
-        echo -e "${GREEN}✓ GitHub Pages generated successfully${NC}" | tee -a "$LOG_FILE"
+    # Run the GitHub Pages generator v2 (JSON + static HTML)
+    if ./scripts/publish/generate-pages-v2.sh >> "$LOG_FILE" 2>&1; then
+        echo -e "${GREEN}✓ GitHub Pages generated successfully (v2)${NC}" | tee -a "$LOG_FILE"
         echo "" | tee -a "$LOG_FILE"
-        echo -e "${CYAN}Landing page created at: docs/index.html${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}Landing page created at: docs/index.html (static HTML)${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}Sprint data created at: docs/sprints-data.json${NC}" | tee -a "$LOG_FILE"
         echo -e "${CYAN}.nojekyll file created at: docs/.nojekyll${NC}" | tee -a "$LOG_FILE"
 
         # Commit and push to publish
@@ -434,8 +435,8 @@ if [ -f "./scripts/publish/generate-pages.sh" ]; then
 
         # Check if we're in a git repository
         if git rev-parse --git-dir > /dev/null 2>&1; then
-            # Add the generated pages (index.html and .nojekyll)
-            git add docs/index.html docs/.nojekyll >> "$LOG_FILE" 2>&1
+            # Add the generated pages (index.html, sprints-data.json, and .nojekyll)
+            git add docs/index.html docs/sprints-data.json docs/.nojekyll >> "$LOG_FILE" 2>&1
 
             # Also copy and add reports to docs/reports directory for web access
             if [ -d "reports" ]; then
@@ -515,10 +516,57 @@ if [ -f "./scripts/publish/generate-pages.sh" ]; then
         fi
     else
         echo -e "${YELLOW}⚠ GitHub Pages generation encountered issues - check log${NC}" | tee -a "$LOG_FILE"
-        echo -e "${YELLOW}You can manually generate later: ./scripts/publish/generate-pages.sh${NC}" | tee -a "$LOG_FILE"
+        echo -e "${YELLOW}You can manually generate later: ./scripts/publish/generate-pages-v2.sh${NC}" | tee -a "$LOG_FILE"
+    fi
+elif [ -f "./scripts/publish/generate-pages.sh" ]; then
+    echo -e "${YELLOW}Using legacy v1 generator (v2 not found)...${NC}" | tee -a "$LOG_FILE"
+
+    # Run the GitHub Pages generator v1 (fallback)
+    if ./scripts/publish/generate-pages.sh >> "$LOG_FILE" 2>&1; then
+        echo -e "${GREEN}✓ GitHub Pages generated successfully (v1)${NC}" | tee -a "$LOG_FILE"
+        echo "" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}Landing page created at: docs/index.html${NC}" | tee -a "$LOG_FILE"
+        echo -e "${CYAN}.nojekyll file created at: docs/.nojekyll${NC}" | tee -a "$LOG_FILE"
+
+        # Git operations for v1
+        if git rev-parse --git-dir > /dev/null 2>&1; then
+            git add docs/index.html docs/.nojekyll >> "$LOG_FILE" 2>&1
+
+            if [ -d "reports" ]; then
+                mkdir -p docs/reports
+                find reports -name "sprint-*-final-report.*" -type f -exec cp {} docs/reports/ \; 2>> "$LOG_FILE"
+                git add docs/reports/ >> "$LOG_FILE" 2>&1
+            fi
+
+            TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+            if git commit -m "docs: Update GitHub Pages (v1) - $TIMESTAMP
+
+- Automated research results publication
+- Generated from run-full.sh
+- Sprints completed: $SPRINT_COUNT
+- Reports: $(find reports -name "*.md" -type f 2>/dev/null | wc -l | tr -d ' ')
+
+🤖 Generated with Strategic Research Automation" >> "$LOG_FILE" 2>&1; then
+                echo -e "${GREEN}✓ Changes committed${NC}" | tee -a "$LOG_FILE"
+
+                CURRENT_BRANCH=$(git branch --show-current)
+                if git push origin "$CURRENT_BRANCH" >> "$LOG_FILE" 2>&1; then
+                    echo -e "${GREEN}✓ Changes pushed to GitHub${NC}" | tee -a "$LOG_FILE"
+                else
+                    echo -e "${YELLOW}⚠ Push failed - publish manually: git push origin $CURRENT_BRANCH${NC}" | tee -a "$LOG_FILE"
+                fi
+            else
+                echo -e "${GREEN}✓ GitHub Pages already up to date${NC}" | tee -a "$LOG_FILE"
+            fi
+        else
+            echo -e "${YELLOW}⚠ Not a git repository - pages generated but not published${NC}" | tee -a "$LOG_FILE"
+        fi
+    else
+        echo -e "${YELLOW}⚠ GitHub Pages generation encountered issues - check log${NC}" | tee -a "$LOG_FILE"
     fi
 else
     echo -e "${YELLOW}⚠ GitHub Pages generator not found - skipping${NC}" | tee -a "$LOG_FILE"
+    echo -e "${YELLOW}Install v2: scripts/publish/generate-pages-v2.sh${NC}" | tee -a "$LOG_FILE"
 fi
 
 # Final summary
@@ -544,13 +592,15 @@ echo -e "${BOLD}Output locations:${NC}" | tee -a "$LOG_FILE"
 echo "  • Sprint definitions: sprints/" | tee -a "$LOG_FILE"
 echo "  • Research files: temp/sprint-*/" | tee -a "$LOG_FILE"
 echo "  • Final reports: reports/" | tee -a "$LOG_FILE"
-echo "  • GitHub Pages: docs/pages/index.html" | tee -a "$LOG_FILE"
+echo "  • GitHub Pages: docs/index.html (v2: static HTML + JSON)" | tee -a "$LOG_FILE"
+echo "  • Sprint data: docs/sprints-data.json" | tee -a "$LOG_FILE"
 echo "  • Execution log: $LOG_FILE" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
 echo -e "${CYAN}Next steps:${NC}" | tee -a "$LOG_FILE"
 echo "  1. Review reports: ls -lh reports/" | tee -a "$LOG_FILE"
 echo "  2. Read summaries: cat reports/*-report.md" | tee -a "$LOG_FILE"
-echo "  3. View landing page: open docs/pages/index.html" | tee -a "$LOG_FILE"
+echo "  3. View landing page: cd docs && python3 -m http.server 8000" | tee -a "$LOG_FILE"
+echo "     (V2 requires local server: http://localhost:8000)" | tee -a "$LOG_FILE"
 echo "  4. Share with client: reports/*.$EXPORT_FORMAT" | tee -a "$LOG_FILE"
 echo "  5. Share live site: Your GitHub Pages URL (if enabled)" | tee -a "$LOG_FILE"
 echo "" | tee -a "$LOG_FILE"
