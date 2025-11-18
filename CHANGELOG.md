@@ -15,6 +15,153 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Web UI for non-technical users
 - Integration with external data sources (APIs, databases)
 - Custom themes for GitHub Pages
+- Client-side filtering, sorting, search for v2 architecture
+- Dark mode toggle for GitHub Pages
+
+---
+
+## [3.10.0] - 2025-11-18
+
+### Added - V2 ARCHITECTURE 🚀
+
+Introduced **v2 GitHub Pages architecture** with separation of data and presentation layers:
+
+- **`scripts/publish/generate-pages-data.sh`** - JSON data generator
+  - Extracts sprint metadata from markdown reports
+  - Generates `docs/sprints-data.json` with structured data
+  - Configurable via parameters: `[output-dir] [reports-dir] [config-file]`
+  - True idempotence: JSON regenerated, no regex replacement tricks
+  - TAM calculation with unit conversion (B/M/K → billions)
+  - Recommendation scoring: STRONG GO (≥80), GO (≥70), CONSIDER (≥60), NO GO (<60)
+  - jq fallback for systems without jq installed
+
+- **`docs/index-template.html`** - Static HTML template
+  - Pure HTML/CSS/JavaScript (no bash heredocs!)
+  - Client-side data binding via fetch API
+  - XSS protection with `escapeHtml()` function
+  - Responsive design (CSS Grid on desktop, single column on mobile)
+  - Graceful error handling with user feedback
+  - Maintains v3.9.0 CSS Grid button layout fix
+
+- **`scripts/publish/generate-pages-html.sh`** - Template copier
+  - Copies static HTML template to output directory
+  - Creates `.nojekyll` marker to disable Jekyll processing
+  - Only needs to run once (or with --force to overwrite)
+
+- **`scripts/publish/generate-pages-v2.sh`** - Unified workflow wrapper
+  - Orchestrates data generation + HTML copy
+  - Configurable via parameters: `[output-dir] [reports-dir] [config-file]`
+  - Skips HTML copy if exists (use `--force` to overwrite)
+  - Clear status reporting with step-by-step output
+
+- **Comprehensive integration test suite** (`test/integration/test-generate-pages-v2.sh`)
+  - 31 automated tests validating entire v2 workflow
+  - Test categories:
+    - JSON data generation
+    - JSON schema validation (meta + sprints array)
+    - Title cleanup regression tests (v3.9.0)
+    - HTML template generation
+    - HTML content validation (JavaScript, CSS Grid, XSS protection)
+    - Complete v2 workflow (end-to-end)
+    - Idempotence tests (JSON structure unchanged)
+    - Special character escaping tests
+  - Test artifacts automatically cleaned up on success
+  - Preserved on failure for debugging
+
+- **Migration documentation** (`docs/MIGRATION-V2.md`)
+  - Step-by-step migration guide from v1 → v2
+  - Architecture comparison (v1 vs v2)
+  - Customization examples for both versions
+  - Troubleshooting common issues (CORS, JSON syntax, caching)
+  - Rollback instructions
+  - Migration checklist
+
+### Changed
+
+- **Updated `/.claude/commands/publish-pages.md`** slash command
+  - Documents both v1 (legacy) and v2 (recommended) architectures
+  - Usage examples for both versions
+  - Customization guidance for each architecture
+  - Testing instructions
+
+### Fixed
+
+- **YAML config quote stripping** in `generate-pages-data.sh`
+  - **Issue**: YAML values like `project_name: "Test Project"` were double-escaped in JSON
+  - **Result**: `"project_name": ""Test Project""` (invalid JSON)
+  - **Fix**: Strip both single and double quotes from extracted YAML values
+  - **Lines**: 33-37 in `generate-pages-data.sh`
+
+### Architectural Benefits
+
+**V2 vs V1 Comparison**:
+
+| Aspect | V1 (Legacy) | V2 (Recommended) |
+|--------|-------------|------------------|
+| **Idempotence** | Regex replacement (fragile) | JSON regeneration (reliable) |
+| **Maintainability** | Bash heredocs (hard to edit) | Proper HTML/CSS/JS files |
+| **Testability** | Integration tests only | Unit + integration tests |
+| **Extensibility** | Edit bash script | Edit HTML template |
+| **Type Safety** | None (bash strings) | JSON schema validation |
+| **Client Features** | Limited | Filtering, sorting, search (future) |
+| **HTML Editing** | No syntax highlighting | Full IDE support |
+| **Debugging** | Difficult (bash heredocs) | Easy (browser DevTools) |
+
+**Migration**: V1 remains fully supported. V2 is opt-in, not breaking.
+
+### Backward Compatibility
+
+✅ **100% Backward Compatible**
+- V1 (`generate-pages.sh`) continues to work unchanged
+- All existing workflows, CI/CD, and scripts work as before
+- V2 is additive, not a replacement
+
+### Testing
+
+```bash
+# Test v1 (legacy)
+./test/integration/test-generate-pages.sh
+# ✓ ALL TESTS PASSED
+
+# Test v2 (new)
+./test/integration/test-generate-pages-v2.sh
+# ✓ ALL 31 TESTS PASSED - V2 Architecture Status: READY FOR PRODUCTION
+```
+
+### Documentation
+
+- Added `docs/MIGRATION-V2.md` - Complete migration guide
+- Updated `.claude/commands/publish-pages.md` - Dual architecture documentation
+- Enhanced CHANGELOG with v2 architecture details
+
+### Usage
+
+```bash
+# V1 (legacy) - Still works, fully supported
+./scripts/publish/generate-pages.sh
+
+# V2 (recommended) - New architecture
+./scripts/publish/generate-pages-v2.sh
+
+# V2 with custom paths
+./scripts/publish/generate-pages-v2.sh ./docs ./reports ./config/project-config.yml
+
+# Force HTML overwrite
+./scripts/publish/generate-pages-v2.sh ./docs ./reports ./config/project-config.yml --force
+```
+
+### Local Development
+
+V2 requires a local server due to CORS restrictions on `fetch()`:
+
+```bash
+# Python 3
+cd docs && python3 -m http.server 8000
+
+# Open http://localhost:8000
+```
+
+V1 works with `file://` protocol (no server needed).
 
 ---
 
