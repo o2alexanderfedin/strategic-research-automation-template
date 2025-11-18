@@ -254,6 +254,10 @@ run_sprint_execution_phase() {
     local sprint_num_total
     sprint_num_total=$(find sprints -name "*.md" -type f 2>/dev/null | wc -l)
 
+    # Track successes and failures
+    SUCCESSFUL_SPRINTS=0
+    FAILED_SPRINTS=0
+
     for sprint_file in sprints/*.md; do
         if [ -f "$sprint_file" ]; then
             local sprint_num
@@ -271,13 +275,31 @@ run_sprint_execution_phase() {
             local sprint_num_padded
             sprint_num_padded=$(printf "%02d" "$sprint_num")
 
+            # Execute sprint and capture exit code
+            local sprint_exit_code=0
             if command -v stdbuf &> /dev/null; then
                 stdbuf -oL -eL $CLAUDE_CMD -p "/execute-sprint $sprint_num_padded" 2>&1 | stdbuf -oL -eL tee -a "$LOG_FILE"
+                sprint_exit_code=${PIPESTATUS[0]}
             else
                 $CLAUDE_CMD -p "/execute-sprint $sprint_num_padded" 2>&1 | tee -a "$LOG_FILE"
+                sprint_exit_code=${PIPESTATUS[0]}
+            fi
+
+            # Check if sprint succeeded
+            if [ $sprint_exit_code -eq 0 ]; then
+                SUCCESSFUL_SPRINTS=$((SUCCESSFUL_SPRINTS + 1))
+                print_success "Sprint $sprint_num completed successfully"
+            else
+                FAILED_SPRINTS=$((FAILED_SPRINTS + 1))
+                print_error "Sprint $sprint_num failed (exit code: $sprint_exit_code)"
+                print_info "Check log file for details: $LOG_FILE"
             fi
         fi
     done
+
+    # Report summary
+    echo "" | tee -a "$LOG_FILE"
+    print_info "Sprint Execution Summary: $SUCCESSFUL_SPRINTS succeeded, $FAILED_SPRINTS failed"
 }
 
 run_export_phase() {
@@ -345,8 +367,20 @@ commit_and_push_to_github() {
 
     print_progress "Publishing to GitHub Pages..."
 
+    # Verify required files exist before staging
+    local files_to_commit=()
+    [ -f "docs/index.html" ] && files_to_commit+=("docs/index.html")
+    [ -f "docs/sprints-data.json" ] && files_to_commit+=("docs/sprints-data.json")
+    [ -f "docs/.nojekyll" ] && files_to_commit+=("docs/.nojekyll")
+
+    if [ ${#files_to_commit[@]} -eq 0 ]; then
+        print_error "No GitHub Pages files found to commit"
+        print_info "Expected files: docs/index.html, docs/sprints-data.json, docs/.nojekyll"
+        return 1
+    fi
+
     # Stage files
-    git add docs/index.html docs/sprints-data.json docs/.nojekyll >> "$LOG_FILE" 2>&1
+    git add "${files_to_commit[@]}" >> "$LOG_FILE" 2>&1
 
     # Copy reports
     if [ -d "reports" ]; then
@@ -430,13 +464,29 @@ main() {
     collect_user_input
     setup_context_files
     execute_research
-    deploy_to_github_pages
+
+    # Deploy to GitHub Pages (track success)
+    PAGES_DEPLOYED=false
+    if deploy_to_github_pages; then
+        PAGES_DEPLOYED=true
+    fi
 
     # Final summary
     print_section "AUTOMATION COMPLETE!" "$GREEN"
     echo "Finished at: $(date)"
     echo ""
-    print_success "All tasks completed successfully!"
+
+    # Report detailed status
+    print_table_row "Sprints Completed" "${SUCCESSFUL_SPRINTS:-0} / ${sprint_num_total:-0}"
+    print_table_row "Sprints Failed" "${FAILED_SPRINTS:-0}"
+    print_table_row "GitHub Pages" "$( [ "$PAGES_DEPLOYED" = true ] && echo "✓ Deployed" || echo "✗ Failed (check $LOG_FILE)" )"
+    echo ""
+
+    if [ "${FAILED_SPRINTS:-0}" -gt 0 ] || [ "$PAGES_DEPLOYED" = false ]; then
+        print_warning "Some tasks completed with warnings - check log: $LOG_FILE"
+    else
+        print_success "All tasks completed successfully!"
+    fi
     echo ""
 }
 

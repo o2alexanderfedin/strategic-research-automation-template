@@ -1,6 +1,12 @@
-# User-generated directories (should not be in template)
+# User-generated directories
+# Note: Users should commit their research outputs (reports/*.md, reports/*.pdf)
+# but temp files remain local-only
 temp/
-reports/
+
+# Allow users to commit generated reports
+# (Template excludes reports/ by default, but users should track their work)
+# Uncomment the line below if you want to ignore reports in YOUR repository:
+# reports/
 
 # Environment files
 .env
